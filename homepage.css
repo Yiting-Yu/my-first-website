@@ -357,7 +357,7 @@ img {
   display: flex;
   gap: 24px;
   height: 320px;
-  margin-bottom: 200px; /*下面的空间*/
+  margin-bottom: 90px; /*下面的空间*/
 }
 
 /* 左下角家具Banner */
@@ -527,4 +527,68 @@ img {
   color: #777777;
   font-size: 10px;
   margin-left: 4px;
+}
+
+/* === Popular Categories Section === */
+.categories {
+  background-color: #FFFDF9;
+  padding-bottom: 42px;
+  text-align: center;
+  padding-top: 32px;
+}
+
+.categories h2 {
+  font-size: 30px;
+  font-weight: 2000;
+  margin-bottom: 4px;
+}
+
+.categories p {
+  color: #555;
+  font-size: 12px;
+  margin-bottom: 32px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 每行7个 */
+  gap: 12px;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: fit-content;
+  
+}
+
+.category-item {
+  width: 130px;
+  height: 110px; 
+  background-color: #FFEDD2;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.1s ease;
+  padding: 12px;
+  box-sizing: border-box;
+
+}
+
+.category-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.category-item img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-bottom: 5px;
+}
+
+.category-item p {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  margin: 0;
 }

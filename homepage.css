@@ -270,14 +270,14 @@ img {
 
 .hotsale-header .hotsale-title {
   font-size: 24px;
-  font-weight: 2000;
+  font-weight: 5000;
   margin-bottom: -2px;
   margin-top: -5px;
 }
 
 .hotsale-header .hotsale-subtitle {
   font-size: 12px;
-  color: #555;
+  color: #000000;
   font-weight: 450;
 }
 
@@ -356,7 +356,7 @@ img {
 .banner-bottom-row {
   display: flex;
   gap: 24px;
-  height: 360px;
+  height: 320px;
 }
 
 /* 左下角家具Banner */
@@ -365,11 +365,11 @@ img {
   background: white;
   border-radius: 12px;
   overflow: hidden;
-
   display: flex;
   justify-content: center;
   align-items: center;
   height: 320px; /*第二行的高度*/
+  width: 320px;
 }
 
 .furniture-banner img {
@@ -381,83 +381,96 @@ img {
 }
 
 /* 右下角 Hot Sale区域 */
-.hot-sale-promo {
+/*右下角最外圈透明*/
+.hot-sale-wrapper {
   flex: 3;
-  background-color: #ffedd2;
-  border-radius: 12px;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   position: relative;
-  overflow: hidden;
+}
+
+/*橘色背景*/
+.hot-sale-promo {
+  background-color: #ffedd2;
+  padding: 24px;
+  border-radius: 12px;
+  height: 240px;
+
 }
 
 /* 标题部分 */
 .section-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: flex-start;
   flex-wrap: wrap;
-  margin-bottom: 16px;
 }
 
-.section-header .label {
+.left-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.left-text .label {
   color: #d62828;
-  font-weight: bold;
-  margin-right: 8px;
-}
-
-.section-header h2 {
-  font-size: 24px;
-  font-weight: 700;
-  margin-right: auto;
-}
-
-.section-header p {
-  color: #333;
+  font-weight: 600;
   font-size: 14px;
-  flex-grow: 1;
-  margin: 0 16px;
+  margin-bottom: 4px;
+}
+
+.left-text h2 {
+  font-size: 24px;
+  color: #000000;
+  font-weight: 5000;
+  margin-top: -5px;
+  margin-bottom: -2px;
+}
+
+.left-text p {
+  font-size: 12px;
+  color: #555;
+  font-weight: 450;
 }
 
 .view-more-btn {
   background-color: #f97316;
   color: white;
   font-weight: 600;
-  padding: 8px 16px;
-  border-radius: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius:8px;
   display: flex;
   align-items: center;
   font-size: 14px;
-  gap: 6px;
-  text-decoration: none;
+  gap: -8px;
+  margin-top: 8px;
+  margin-right: 14px;
 }
 
 .view-more-btn img.arrow-icon {
   width: 16px;
   height: 16px;
+  margin-top: 4px;
+  margin-right: 8px;
 }
 
 /* 商品卡片区域 */
 .product-row {
   display: flex;
-  gap: 12px;
-  margin-top: 8px;
-  overflow: visible;
-  position: relative;
+  gap: 16px;
+  position: absolute;
+  top: 180px; /* 控制浮出位置 */
+  left: 0;
+  right: 0;
+  padding: 0 24px;
 }
+
 
 .product-card {
   background: white;
   border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 22%;
   padding: 16px;
-  width: 25%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transform: translateY(-24px);
-  text-align: center;
-  position: relative;
-  top: 24px;              /* 向下“浮出”父容器 */
   z-index: 2;
 }
 

@@ -593,6 +593,7 @@ img {
   margin: 0;
 }
 
+/* ==== rec bar === */
 .recommend-bar {
   display: flex;
   align-items: center;
@@ -600,7 +601,8 @@ img {
   background-color: white;
   border-radius: 12px;
   height: 68px;
-  margin: 24px 38px;
+  margin: 24px 100px;
+  margin-bottom: 20px;
 }
 
 .recommend-label {
@@ -649,3 +651,149 @@ img {
   vertical-align: middle;
 }
 
+/* === rec product card === */
+.rec-product-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 100px;
+  margin-top: 2px;
+  margin-bottom: 200px;
+  
+}
+
+.rec-product-card {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  width: calc(25% - 12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 400px;
+  position: relative;
+
+}
+
+.rec-image-wrapper {
+  width: 200px;         
+  height: 200px;        
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+.product-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.rec-product-name {
+  font-size: 16px;
+  font-weight: 530;
+  line-height: 1.4;
+  flex: 1; /* 让标题占满空间 */
+}
+
+.icon-heart {
+  width: 20px;
+  height: 18px;
+  margin-left: 12px;
+  cursor: pointer;
+  margin-top: -18px;
+}
+
+.price-and-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.rec-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.rec-new-price {
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+}
+
+.rec-old-price {
+  color: #B3B3B3;
+  text-decoration: line-through;
+}
+
+.add-to-cart {
+  background-color: #f97316;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.add-to-cart img {
+  width: 24px;
+  height: 24px;
+  padding-right: 1px;
+  padding-top: 1px;
+}
+
+
+.rec-star-icons {
+  font-size: 16px;
+  color: #FFBD00;
+  
+}
+
+.rec-review-count {
+  font-size: 12px;
+  color: #777;
+  margin-left: 4px; /* 和星星之间间距 */
+}
+
+.tag {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  border-radius: 4px;
+  width: auto;
+  width: fit-content;
+  margin-left: -10px;
+}
+
+.tag.red {
+  background-color: #e11d48;
+}
+
+.tag.yellow {
+  background-color: #facc15;
+}

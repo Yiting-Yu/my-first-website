@@ -357,19 +357,20 @@ img {
   display: flex;
   gap: 24px;
   height: 320px;
+  margin-bottom: 200px; /*下面的空间*/
 }
 
 /* 左下角家具Banner */
 .furniture-banner {
-  flex: 1;
+
   background: white;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 320px; /*第二行的高度*/
-  width: 320px;
+  height: 380px; /*第二行的高度*/
+  width: 380px;
 }
 
 .furniture-banner img {
@@ -458,7 +459,7 @@ img {
   display: flex;
   gap: 16px;
   position: absolute;
-  top: 180px; /* 控制浮出位置 */
+  top: 120px; /* 控制浮出位置 */
   left: 0;
   right: 0;
   padding: 0 24px;
@@ -468,32 +469,46 @@ img {
 .product-card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 22%;
   padding: 16px;
   z-index: 2;
+  height: 260px;
+  width: 300px;
 }
 
-.product-card img {
+.big-image-wrapper {
   width: 100%;
-  height: auto;
-  margin-bottom: 8px;
+  height: 140px;            
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  background-color: transparent;
+  overflow: hidden;
+  border: NO;
+}
+
+.big-image-wrapper img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .product-name {
-  font-size: 14px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight:520;
+  margin-top: 10px;
 }
 
 .product-price {
-  font-size: 14px;
-  margin-bottom: 6px;
+  font-size: 13px;
+  margin-top: 10px;
 }
 
 .new-price {
   color: #e53935;
   font-weight: bold;
+  font-size: 18px;
+  
 }
 
 .old-price {
@@ -509,7 +524,7 @@ img {
 }
 
 .review-count {
-  color: #333;
-  font-size: 13px;
+  color: #777777;
+  font-size: 10px;
   margin-left: 4px;
 }

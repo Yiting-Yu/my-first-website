@@ -162,7 +162,7 @@ img {
 
 .banner-main,
 .hotsale-box {
-  height: 430px;
+  height: 430px;/*让两个sections一样高度*/
   display: flex;
   flex-direction: column;
 }
@@ -170,7 +170,8 @@ img {
 /* 底部横向排列 */
 .banner-bottom-row {
   display: flex;
-  gap: 24px;
+  gap: 36px;
+  margin-top: 12px;
 }
 
 /* === 左边大图区域 === */
@@ -361,20 +362,22 @@ img {
 /* 左下角家具Banner */
 .furniture-banner {
   flex: 1;
-  background-color: white;
+  background: white;
   border-radius: 12px;
+  overflow: hidden;
+
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  height: 320px; /*第二行的高度*/
 }
 
 .furniture-banner img {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-width: 300px;
+  height: 105%;
+  border-radius: 12px;
+  object-fit:cover;
+  flex-grow: 1;
 }
 
 /* 右下角 Hot Sale区域 */
@@ -451,8 +454,11 @@ img {
   padding: 16px;
   width: 25%;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  transform: translateY(-24px); /* 让卡片“超出”橙色背景一点 */
+  transform: translateY(-24px);
   text-align: center;
+  position: relative;
+  top: 24px;              /* 向下“浮出”父容器 */
+  z-index: 2;
 }
 
 .product-card img {

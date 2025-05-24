@@ -151,8 +151,8 @@ img {
 }
 
 .menu-button {
-  background-color: #f97316;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 14px 18px;
   border-radius: 8px 8px 0 0;
@@ -183,4 +183,119 @@ img {
   margin-left: 16px;
   color: #333;
   font-weight: 40;
+}
+
+/* === 左侧filter === */
+.left-search-container {
+  display: flex;
+  margin: 0 auto;
+  padding: 24px;
+  gap: 24px;
+  
+}
+
+.filter-sidebar {
+  background-color: #ffffff;
+  padding: 16px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  margin-left: 32px;
+  width: 300px;  
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: calc(100vh - 120px); /* 视口高度减去 header 高度 */
+  overflow-y: auto;
+}
+.filter-section {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 12px;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.filter-header h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.chevron-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.filter-section label {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 12px; /*每项之间的间距*/
+  gap: 4px; /*圆和文字之间的距离*/
+  line-height: 1.2;
+  font-size: 14px;
+}
+
+.filter-section input[type="radio"] {
+  margin-right: 8px;
+}
+
+.filter-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+.price-input {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.price-input input {
+  width: 60px;
+  padding: 4px 6px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.apply-btn {
+  background-color: #fefefe;
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none; /* 兼容性 */
+  width: 16px;
+  height: 16px;
+  border: 2px solid #555; /* 圆圈边框颜色和粗细 */
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* ✅ 关键：居中 */
+  width: 10px;
+  height: 10px;
+  background-color: #f97316;
+  border-radius: 50%;
 }

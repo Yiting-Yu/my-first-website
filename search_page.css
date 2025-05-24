@@ -299,3 +299,40 @@ input[type="radio"]:checked::before {
   background-color: #f97316;
   border-radius: 50%;
 }
+
+/* === 右侧内容 === */
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+    margin-left: -8px;
+}
+
+.breadcrumb-icon {
+    width: 18px;
+    margin-right: 2px;
+}
+
+/* Page Title */
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #111;
+    margin-right: 30px;
+}
+
+/* Banner */
+.top-banner {
+    margin-right: 32px;
+    margin-bottom: 40px;
+}
+
+.top-banner img {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 8px;
+    display: block;
+}

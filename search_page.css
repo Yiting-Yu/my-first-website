@@ -279,10 +279,10 @@ img {
 
 input[type="radio"] {
   appearance: none;
-  -webkit-appearance: none; /* 兼容性 */
+  -webkit-appearance: none;
   width: 16px;
   height: 16px;
-  border: 2px solid #555; /* 圆圈边框颜色和粗细 */
+  border: 2px solid #555;
   border-radius: 50%;
   position: relative;
   cursor: pointer;
@@ -293,7 +293,7 @@ input[type="radio"]:checked::before {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* ✅ 关键：居中 */
+  transform: translate(-50%, -50%);
   width: 10px;
   height: 10px;
   background-color: #f97316;
@@ -327,7 +327,7 @@ input[type="radio"]:checked::before {
 /* Banner */
 .top-banner {
     margin-right: 32px;
-    margin-bottom: 40px;
+    margin-bottom: 2px;
 }
 
 .top-banner img {
@@ -335,4 +335,82 @@ input[type="radio"]:checked::before {
     max-width: 1000px;
     border-radius: 8px;
     display: block;
+}
+
+/*categories部分*/
+.category-section {
+  margin-top: 12px;
+  padding: 0 2px;
+}
+
+.category-section h2 {
+  font-size: 24px;           
+  font-weight: 500;         
+  margin-bottom: -4px;       
+}
+
+
+.category-scroll-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: visible; 
+  padding: 0 0; 
+}
+
+.category-scroll {
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 20px 4px;
+  margin-right: 32px;
+}
+
+.category-item {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.category-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: contain;
+  padding: 0px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+}
+
+.category-item p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.scroll-btn {
+  position: absolute;
+  background-color: #f97316;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.scroll-btn.left {
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.scroll-btn.right {
+  right: 32px;            
+  transform: translateX(50%);
+}
+
+.scroll-btn img {
+  width: 16px;
+  height: 16px;
 }

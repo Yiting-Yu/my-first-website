@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kogan Product Page</title>
+    <link rel="stylesheet" href="product_page.css" />
 </head>
 <body>
         <!--top header-->
@@ -86,6 +87,10 @@
                     <img src="image/tv5-thumb.webp" alt="Thumb 5" />
                     <img src="image/tv6-thumb.webp" alt="Thumb 6" />
                     <img src="image/tv7-thumb.webp" alt="Thumb 7" />
+                    <img src="image/tv8-thumb.webp" alt="Thumb 8" />
+                    <img src="image/tv9-thumb.webp" alt="Thumb 9" />
+                    <img src="image/tv1-thumb.webp" alt="Thumb 1" />
+                    <img src="image/tv2-thumb.webp" alt="Thumb 2" />
                 </div>
 
                 <!--详情卡片-->
@@ -100,7 +105,7 @@
                     <!--Description-->
                     <div id="description" class="tab-content description-content">
                         <p>
-                            Dive into the world of ultra-high-definition with this newly designed 55” LED 4K Smart Roku 
+                            Dive into the world of ultra-high-definition with this newly designed 55" LED 4K Smart Roku 
                             TV, crafted to bring your favourite streaming apps to life. Experience less time searching 
                             and more time enjoying every crisp, vivid detail of your cherished shows and movies.
                         </p>
@@ -110,7 +115,7 @@
                             <li><strong>Channel store.</strong> Download your favourite apps, including Disney+, Spotify, Paramount+ and more from the Channel Store.</li>
                             <li><strong>Free Roku app.</strong> Download the free Roku app to control audio, voice search and more with your phone.</li>
                         </ul>
-                        <img src="image/roku_tv_demo.webp" alt="Roku TV Features" class="description-image" />
+                        <img src="image/Description tv.jpg" alt="Roku TV Features" class="description-image" />
                     </div>
                     <!--Specification-->
                     <div class="accordion-section">
@@ -133,7 +138,7 @@
                     <!--Include-->
                     <div class="accordion-section">
                         <div class="accordion-header">
-                            <h3>What’s included</h3>
+                            <h3>What's included</h3>
                             <img src="image/Chevron left.svg" alt="Toggle" class="accordion-icon" />
                         </div>
                     </div>
@@ -280,8 +285,11 @@
                         <div class="rating-left">
                             <div class="main-score">
                                 <span class="score">4.7</span>
-                                <span class="stars">★★★★★</span>
-                                <p class="rating-count">200+ ratings</p>
+                                <div class="star-group">
+                                    <span class="stars">★★★★★</span>
+                                    <p class="rating-count">200+ ratings</p>
+                                </div>
+                                
                             </div>
 
                             <div class="star-breakdown">
@@ -312,9 +320,7 @@
                         <div class="rating-right">
                             <label for="sort-review">Sorted by:</label>
                             <select id="sort-review">
-                                <option>Recent Top Review</option>
-                                <option>Newest</option>
-                                <option>Oldest</option>
+                                <option>Recent Top Review ▼</option>
                             </select>
                         </div>
                     </div>
@@ -322,9 +328,10 @@
                     <div class="review-list">
                         <!-- 评论1 -->
                         <div class="review-item">
-                            <p class="review-date">10 Apr 2025</p>
+                            
                             <div class="review-meta">
                                 <p class="reviewer-name">Leonie B</p>
+                                <p class="review-date">10 Apr 2025</p>
                                 <p class="review-stars">★★★★★</p>
                                 <p class="verified">Verified Purchase</p>
                             </div>
@@ -354,7 +361,14 @@
 
             <!--右侧-->
             <section class="product-info-panel">
-                <span class="tag red">Sale</span>
+                <div class="top-row">
+                    <span class="right tag red">Sale</span>
+                    <div class="wishlist">
+                        <img src="image/Heart.png" alt="Heart icon" class="heart-icon">
+                        <span>Add to wishlist</span>
+                    </div>
+                </div>
+                
 
                 <!-- 产品标题 -->
                 <h1 class="product-title">Kogan 55″ LED 4K Smart Roku TV - R95T</h1>
@@ -389,10 +403,12 @@
                 </div>
 
                 <!--可选尺寸-->
+                <p class="size-label">Display Size: 55″</p>
+
                 <div class="size-selector">
                     <!--1-->
                     <div class="size-card">
-                        <span class="size-tag">Sale</span>
+                        
                         <div class="size-top"><em>43″</em></div>
                         <div class="size-bottom">$289</div>
                     </div>
@@ -405,7 +421,7 @@
 
                     <!--3-->
                     <div class="size-card selected">
-                        <span class="size-tag">Sale</span>
+                        
                         <div class="size-top"><em>55″</em></div>
                         <div class="size-bottom">$419</div>
                     </div>
@@ -436,32 +452,21 @@
                     <button class="add-to-cart-btn">Add to cart</button>
                 </div>
 
-
-                <!--配送信息-->
-                <p class="delivery-info">Deliver to 3000<br />Leaves warehouse in 1-2 business days</p>
-                <p class="sold-by">Sold by Kogan.com</p>
-
-                <!--支付方式-->
-                <div class="payment-icons">
-                    <img src="image/klarna.png" alt="Klarna" />
-                    <img src="image/paypal.png" alt="PayPal" />
-                    <img src="image/zip.png" alt="Zip" />
-                    <img src="image/afterpay.png" alt="Afterpay" />
-                </div>
-
                 <div class="shipping-payment-info">
+                    <!--配送信息-->
                     <p>Deliver to <a href="#">3000</a></p>
                     <p>Leaves warehouse in 1 - 2 business days<br>Sold by Kogan.com</p>
-
-                    <hr />
+                    <!--分割线-->
+                    <hr class="divider" />
 
                     <p class="finance-title">Finance available</p>
+                    <!--支付方式-->
                     <div class="finance-icons">
-                        <img src="image/kogan.svg" alt="Kogan Money">
-                        <img src="image/paypal.svg" alt="PayPal">
-                        <img src="image/zip.svg" alt="Zip">
-                        <img src="image/afterpay.svg" alt="Afterpay">
-                        <img src="image/klarna.svg" alt="Klarna">
+                        <img src="image/finance avaliable1.png" alt="Kogan Money">
+                        <img src="image/finance avaliable2.png" alt="PayPal">
+                        <img src="image/finance avaliable3.png" alt="Zip">
+                        <img src="image/finance avaliable4.png" alt="Afterpay">
+                        <img src="image/finance avaliable5.png" alt="Klarna">
                     </div>
                 </div>
             </section>

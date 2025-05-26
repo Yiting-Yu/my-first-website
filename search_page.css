@@ -554,11 +554,11 @@ input[type="radio"]:checked::before {
   font-weight: 550;
   color: white;
   border-radius: 4px;
-  background-color: #e11d48;
+  background-color: #D32F2F;
 }
 
 .tag.red { background-color: #D32F2F; }
-.tag.yellow { background-color: #facc15; }
+.tag.yellow { background-color: #FFBD00; }
 
 /* 图片区域 */
 .rec-image-wrapper {

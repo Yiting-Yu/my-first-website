@@ -463,9 +463,9 @@ img {
 
 .left-text .label {
   color: #d62828;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 14px;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .left-text h2 {
@@ -486,14 +486,10 @@ img {
   background-color: #f97316;
   color: white;
   font-weight: 600;
-  padding-left: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border-radius:8px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  font-size: 14px;
-  gap: -8px;
+  font-size: 12px;
   margin-top: 8px;
   margin-right: 14px;
 }
@@ -502,7 +498,6 @@ img {
   width: 16px;
   height: 16px;
   margin-top: 4px;
-  margin-right: 8px;
 }
 
 /* 商品卡片区域 */
@@ -654,6 +649,7 @@ img {
   height: 68px;
   margin: 24px 100px;
   margin-bottom: 20px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
 }
 
 .recommend-label {
@@ -717,8 +713,8 @@ img {
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 16px;
+  padding-right: 16px;
   padding-top: 12px;
   width: calc(25% - 12px);
   display: flex;
@@ -747,7 +743,6 @@ img {
 }
 
 
-
 .product-title {
   display: flex;
   justify-content: space-between;
@@ -756,10 +751,9 @@ img {
 }
 
 .rec-product-name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 530;
   line-height: 1.4;
-  flex: 1; /* 让标题占满空间 */
 }
 
 .icon-heart {
@@ -780,8 +774,8 @@ img {
 .rec-price {
   display: flex;
   align-items: baseline;
-  gap: 8px;
-  margin-bottom: 8px;
+  gap: 14px;
+  margin-top: 8px;
 }
 
 .rec-new-price {
@@ -792,6 +786,7 @@ img {
 
 .rec-old-price {
   color: #B3B3B3;
+  font-size: 18px;
   text-decoration: line-through;
 }
 
@@ -799,55 +794,53 @@ img {
   background-color: #f97316;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .add-to-cart img {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   padding-right: 1px;
   padding-top: 1px;
 }
 
 
 .rec-star-icons {
-  font-size: 16px;
+  font-size: 22px;
   color: #FFBD00;
   
 }
 
 .rec-review-count {
-  font-size: 12px;
+  font-size: 14px;
   color: #777;
   margin-left: 4px; /* 和星星之间间距 */
 }
 
 .tag {
   display: inline-block;
-  margin-bottom: 8px;
-  padding: 4px 10px;
-  font-size: 13px;
-  font-weight: bold;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: thin;
   color: white;
   border-radius: 4px;
   width: auto;
   width: fit-content;
-  margin-left: -10px;
+  margin-left: -6px;
 }
 
 .tag.red {
-  background-color: #e11d48;
+  background-color: #D32F2F;
 }
 
 .tag.yellow {
-  background-color: #facc15;
+  background-color: #FFBD00;
 }
 
 
@@ -865,15 +858,14 @@ img {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 32px;
   margin-bottom: 32px;
+  gap: 100px;
 }
 
 /*Logo*/
 .footer-logo img {
   max-width: 240px;
-  margin-top: -10px;
+  margin-top: -14px;
 }
 
 .footer-col h4 {

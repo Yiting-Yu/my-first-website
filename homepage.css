@@ -843,25 +843,6 @@ img {
   background-color: #FFBD00;
 }
 
-
-/* === Footer === */
-.site-footer {
-  background-color: #ffedd2;
-  padding: 48px 32px 24px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #111;
-}
-
-.footer-columns {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 32px;
-  gap: 100px;
-}
-
 /*Logo*/
 .footer-logo img {
   max-width: 240px;

@@ -205,13 +205,12 @@ img {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: calc(100vh - 120px); /* 视口高度减去 header 高度 */
+  height: calc(100vh - 120px); 
   overflow-y: auto;
-  /*固定*/
   position: sticky;
-  top: 50px; /* 离页面顶端的距离，可根据你的 header 高度调整 */
+  top: 50px; 
   height: fit-content;
-  align-self: flex-start; /* 避免被拉伸 */
+  align-self: flex-start; 
 }
 .filter-section {
   border-bottom: 2px solid #eee;

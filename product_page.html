@@ -482,76 +482,290 @@
     </main>
 
     <!--footer-->
-        <footer class="site-footer">
-            <div class="footer-columns">
-                <!--Logo-->
-                <div class="footer-logo">
-                    <img src="image/Kogan.com_logo橙黑.png" alt="Kogan Logo" />
-                </div>
-
-                <!--1-->
-                <div class="footer-col">
-                    <h4>Customer Service</h4>
-                    <ul>
-                        <li><a href="#">Help Center / FAQ</a></li>
-                        <li><a href="#">Shipping & Delivery</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
-                        <li><a href="#">Order Tracking</a></li>
-                        <li><a href="#">Payment Methods</a></li>
-                        <li><a href="#">Warranty & Support</a></li>
-                    </ul>
-                </div>
-
-                <!--2-->
-                <div class="footer-col">
-                    <h4>Company Info</h4>
-                    <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press / Media</a></li>
-                        <li><a href="#">Affiliate Program</a></li>
-                        <li><a href="#">Blog / Newsroom</a></li>
-                    </ul>
-                </div>
-
-                <!--3-->
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Settings</a></li>
-                        <li><a href="#">Accessibility</a></li>
-                    </ul>
-                </div>
-
-                <!--4-->
-                <div class="footer-col">
-                    <h4>Top Brand</h4>
-                    <ul>
-                        <li><a href="#">Kogan</a></li>
-                        <li><a href="#">Apple</a></li>
-                        <li><a href="#">Samsung</a></li>
-                        <li><a href="#">Google</a></li>
-                        <li><a href="#">Ovela</a></li>
-                        <li><a href="#">Dyson</a></li>
-                        <li><a href="#">Fortis</a></li>
-                    </ul>
-                </div>
+    <footer class="site-footer">
+        <div class="footer-columns">
+            <!--Logo-->
+            <div class="footer-logo">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Kogan Logo" />
             </div>
 
-            <!--social media logo-->
-            <div class="footer-bottom">
-                <div class="social-icons">
-                    <a href="#"><img src="image/Facebook.png" alt="Facebook" /></a>
-                    <a href="#"><img src="image/Instagram.png" alt="Instagram" /></a>
-                    <a href="#"><img src="image/Youtube.png" alt="YouTube" /></a>
-                    <a href="#"><img src="image/Twitter.png" alt="Twitter" /></a>
-                </div>
-                <p class="copyright">&copy; 2025 Kogan.com.au. All rights reserved.</p>
+            <!--1-->
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Help Center / FAQ</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Warranty & Support</a></li>
+                </ul>
             </div>
 
-        </footer>
+            <!--2-->
+            <div class="footer-col">
+                <h4>Company Info</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press / Media</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Blog / Newsroom</a></li>
+                </ul>
+            </div>
+
+            <!--3-->
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Settings</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+
+            <!--4-->
+            <div class="footer-col">
+                <h4>Top Brand</h4>
+                <ul>
+                    <li><a href="#">Kogan</a></li>
+                    <li><a href="#">Apple</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Google</a></li>
+                    <li><a href="#">Ovela</a></li>
+                    <li><a href="#">Dyson</a></li>
+                    <li><a href="#">Fortis</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--social media logo-->
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><img src="image/Facebook.png" alt="Facebook" /></a>
+                <a href="#"><img src="image/Instagram.png" alt="Instagram" /></a>
+                <a href="#"><img src="image/Youtube.png" alt="YouTube" /></a>
+                <a href="#"><img src="image/Twitter.png" alt="Twitter" /></a>
+            </div>
+            <p class="copyright">&copy; 2025 Kogan.com.au. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <!--黑色模糊遮罩背景-->
+    <div id="overlay" class="overlay hidden"></div>
+
+    <!--加入购物车弹窗-->
+    <div class="cart-popup">
+        <!--关闭按钮-->
+        <div class="close-container hidden">
+            <button class="close-btn">
+                <img src="image/close-icon.svg" alt="Close" />
+            </button>
+        </div>
+       
         
+        <!--商品信息-->
+        <div class="cart-header">
+            <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="TV Product Image" class="product-thumbnail" />
+
+            <div class="cart-message">
+                <div class="added-info">
+                    <img src="image/done.svg" alt="Checkmark" class="icon-check" />
+                    <p class="added-text">Added to Cart</p>
+                </div>
+                <p class="cart-total">Cart Total (1 item): $419</p>
+            </div>
+
+            <div class="cart-actions">
+                <button class="btn btn-orange">View cart & Checkout</button>
+                <p class="continue-text">Continue Shopping</p>
+            </div>
+        </div>
+
+
+        <!--保修服务-->
+        <div class="extended-care">
+            <h3>Add Extended Care</h3>
+            <div class="care-options">
+                <label>
+                    <input type="radio" name="warranty" checked />
+                    $48 for 3 Years <span class="tag">OUR PICK</span>
+                </label>
+                <label>
+                    <input type="radio" name="warranty" />
+                    $68 for 5 Years
+                </label>
+            </div>
+
+            <div class="care-icons">
+                <div class="care-item">
+                    <img src="image/extcarebenefit1.png" alt="Protection"/>
+                    <span>Mishap Protection</span>
+                </div>
+                <div class="care-item">
+                    <img src="image/extcarebenefit2.png" alt="Freight and Repair Fees" />
+                    <span>Freight and Repair Fees Covered</span>
+                </div>
+                <div class="care-item">
+                    <img src="image/extcarebenefit3.png" alt="Transferable" />
+                    <span>Transferable</span>
+                </div>
+                <div class="care-item">
+                    <img src="image/extcarebenefit4.png" alt="Support" />
+                    <span>Direct Phone and Email Support</span>
+                </div>
+                <div class="care-item">
+                    <img src="image/extcarebenefit5.png" alt="On-site Collection" />
+                    <span>On-site Collection for Big Appliances</span>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 推荐商品 -->
+        <div class="you-may-also-like">
+            <h3>More deals you may like</h3>
+            <div class="more-product-row">
+                <!--soundbar-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_1.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">2.1 Channel 100W Dolby Atmos Soundbar</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(100+)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$119</span>
+                                <del class="more-old-price">$299.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--soundbar-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_2.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">2.1 Channel 80W Dolby Soundbar</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(100+)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$89.99</span>
+                                <del class="more-old-price">$199.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--TV stand-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_3.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">Larvik Studio TV Stand for 45"-65" TVs</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(100+)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$89.99</span>
+                                <del class="more-old-price">$159</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--wall mount-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_4.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">Tilt Extendable Full Motion Wall Mount</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(41)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$59.99</span>
+                                <del class="more-old-price">$119</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+<script>
+  // 获取元素
+  const addToCartBtn = document.querySelector('.add-to-cart-btn');
+  const cartPopup = document.querySelector('.cart-popup');
+  const overlay = document.getElementById('overlay');
+  const closeBtn = document.querySelector('.close-btn');
+
+  // 点击“加入购物车”按钮显示弹窗
+  addToCartBtn.addEventListener('click', () => {
+    cartPopup.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+  });
+
+  // 点击关闭按钮隐藏弹窗
+  closeBtn.addEventListener('click', () => {
+    cartPopup.classList.add('hidden');
+    overlay.classList.add('hidden');
+  });
+
+  // 点击背景遮罩也关闭弹窗（可选）
+  overlay.addEventListener('click', () => {
+    cartPopup.classList.add('hidden');
+    overlay.classList.add('hidden');
+  });
+</script>
 </body>
+
+</body>
+
 </html>

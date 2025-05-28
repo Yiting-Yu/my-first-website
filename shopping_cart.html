@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kogan Shopping Cart</title>
+    <link rel="stylesheet" href="shopping_cart.css" />
+</head>
+<body>
+        <!--top header-->
+        <header class="topbar">
+            <div class="topbar-left">
+                <p>Phone Number +61 123 456 789</p>
+            </div>
+            <div class="topbar-right">
+                <a href="#">Live Chat</a>
+                <a href="#">AUS ▾</a>
+                <a href="#">English ▾</a>
+            </div>
+        </header>
+        
+        <!--main header 最顶上的白色部分-->
+        <header class="main-header">
+            <div class="top-row">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                
+                <!--搜索条-->
+                <div class="search-container">
+                    <div class="search-box">
+                        <img src="image/search_icon.svg" alt="Search Icon" class="search-icon" />
+                        <input type="text" placeholder="Search in products" />
+                    </div>
+                    <button>Search</button>
+                </div>
+
+
+                <div class="icons-right">
+                    <div class="icon-wrapper light">
+                        <img src="image/Heart.png" alt="Wishlist" />
+                    </div>
+                    <div class="icon-wrapper orange">
+                        <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                    </div>
+                    <div class="cart-count">2</div>
+                    <div class="icon-wrapper yellow">
+                        <img src="image/user.png" alt="User" />
+                    </div>
+
+                    <div class="welcome-text">
+                        <span>Welcome!</span>
+                        <strong>Sophia</strong>
+                    </div>
+                </div>
+
+
+            <!--categories deals win clearance news-->
+            <div class="bottom-row">
+                <button class="menu-button">☰ Shop by Department ▾</button>
+                <nav class="main-menu">
+                    <a href="#">Deals ▾</a>
+                    <a href="#">Win $200k ▾</a>
+                    <a href="#">Clearance ▾</a>
+                    <a href="#">News ▾</a>
+                </nav>
+            </div>
+        </header>    
+    
+    <!--购物车表格-->
+    <section class="cart-section">
+        <div class="section-header">
+            <p class="section-title">Shopping Cart</p>
+        </div>
+
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>ITEM</th>
+                    <th>ITEM PRICE</th>
+                    <th>QTY</th>
+                    <th>SUBTOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="Kogan TV" class="product-thumb">
+                            <span class="product-name">Kogan 55” LED 4K Smart Roku TV - R95T</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="original-price">$749.99</span><br>
+                        <span class="discounted-price">$419</span>
+                    </td>
+                    <td>
+                        <div class="quantity-selector">
+                            <button><img src="image/Minus.svg" alt="Minus"></button>
+                            <input type="text" value="1" readonly>
+                            <button><img src="image/Plus.svg" alt="Plus"></button>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>$419</strong>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="product-info">
+                            <img src="image/add_to_cart_1.webp" alt="Washing Machine" class="product-thumb">
+                            <span class="product-name">2.1 Channel 100W Dolby Atmos Soundbar</span>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="original-price">$299.99</span><br>
+                        <span class="discounted-price">$119</span>
+                    </td>
+                    <td>
+                        <div class="quantity-selector">
+                            <button><img src="image/Minus.svg" alt="Minus"></button>
+                            <input type="text" value="1" readonly>
+                            <button><img src="image/Plus.svg" alt="Plus"></button>
+                        </div>
+                    </td>
+                    <td>
+                        <strong>$119</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- 配送信息 -->
+        <div class="delivery-info">
+            <div class="delivery-text">
+                <p><strong>Delivery to <span class="postcode">3000</span></strong></p>
+                <p class="delivery-estimate">Estimated delivery: 3-7 business days</p>
+            </div>
+            <div class="delivery-price">
+                <p><strong>$60</strong></p>
+            </div>
+        </div>
+
+        
+        <!--延长保修-->
+        <div class="extended-care">
+            <p class="extended-title"><strong>Extended Care</strong></p>
+            <div class="extended-line"></div>
+            <label class="care-option bold-option">
+                <input type="radio" name="care" value="95"> $95 for 3 Years
+            </label>
+            <label class="care-option bold-option">
+                <input type="radio" name="care" value="186"> $186 for 5 Years
+            </label>
+            <label class="care-option light-option">
+                <input type="radio" name="care" value="0"> No Thanks
+            </label>
+        </div>
+
+        <!--折扣码-->
+        <div class="discount-code">
+            <p class="discount-title"><strong>Discount Code</strong></p>
+            <div class="discount-line"></div>
+
+            <div class="discount-input-group">
+                <input type="text" id="discount" placeholder="eg. DISCOUNT1">
+                <button type="button">Add discount</button>
+            </div>
+        </div>
+
+
+        <!--总价 按钮-->
+        <div class="cart-summary">
+            <div class="total-left">
+                <p><strong>Total (incl. GST)</strong></p>
+            </div>
+            <div class="total-right">
+                <p><strong>$598</strong></p>
+            </div>
+        </div>
+
+        <!--结账按钮-->
+        <div class="checkout-button">
+            <button type="button">Checkout</button>
+        </div>
+
+        <!--底部说明-->
+        <p class="terms-note">*By proceeding with Kogan FIRST membership, I agree to the Kogan FIRST T&Cs.</p>
+    </section>
+    
+    <!--footer-->
+    <footer class="site-footer">
+        <div class="footer-columns">
+            <!--Logo-->
+            <div class="footer-logo">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Kogan Logo" />
+            </div>
+
+            <!--1-->
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Help Center / FAQ</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Warranty & Support</a></li>
+                </ul>
+            </div>
+
+            <!--2-->
+            <div class="footer-col">
+                <h4>Company Info</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press / Media</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Blog / Newsroom</a></li>
+                </ul>
+            </div>
+
+            <!--3-->
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Settings</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+
+            <!--4-->
+            <div class="footer-col">
+                <h4>Top Brand</h4>
+                <ul>
+                    <li><a href="#">Kogan</a></li>
+                    <li><a href="#">Apple</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Google</a></li>
+                    <li><a href="#">Ovela</a></li>
+                    <li><a href="#">Dyson</a></li>
+                    <li><a href="#">Fortis</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--social media logo-->
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><img src="image/Facebook.png" alt="Facebook" /></a>
+                <a href="#"><img src="image/Instagram.png" alt="Instagram" /></a>
+                <a href="#"><img src="image/Youtube.png" alt="YouTube" /></a>
+                <a href="#"><img src="image/Twitter.png" alt="Twitter" /></a>
+            </div>
+            <p class="copyright">&copy; 2025 Kogan.com.au. All rights reserved.</p>
+        </div>
+
+    </footer>
+</body>
+</html>

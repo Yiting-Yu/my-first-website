@@ -457,7 +457,7 @@
                     </div>
 
                     <!-- 加入购物车按钮 -->
-                    <button class="add-to-cart-btn">Add to cart</button>
+                    <button class="add-to-cart-btn" id="show-cart">Add to cart</button>
                 </div>
 
                 <div class="shipping-payment-info">
@@ -557,7 +557,7 @@
     <div id="overlay" class="overlay hidden"></div>
 
     <!--加入购物车弹窗-->
-    <div class="cart-popup">
+    <div class="cart-popup hidden">
         <!--关闭按钮-->
         <div class="close-container hidden">
             <button class="close-btn">
@@ -758,11 +758,7 @@
     overlay.classList.add('hidden');
   });
 
-  // 点击背景遮罩也关闭弹窗（可选）
-  overlay.addEventListener('click', () => {
-    cartPopup.classList.add('hidden');
-    overlay.classList.add('hidden');
-  });
+  
 </script>
 </body>
 

@@ -620,11 +620,6 @@ img {
 
 }
 
-.category-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
 .category-item img {
   width: 32px;
   height: 32px;
@@ -843,6 +838,23 @@ img {
   background-color: #FFBD00;
 }
 
+/* === Footer === */
+.site-footer {
+  background-color: #ffedd2;
+  padding: 48px 32px 24px;
+  font-size: 14px;
+  color: #111;
+}
+
+.footer-columns {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+  gap: 100px;
+}
+
 /*Logo*/
 .footer-logo img {
   max-width: 240px;
@@ -891,7 +903,7 @@ img {
 
 
 .social-icons a {
-  background-color: #f97316; /* orange */
+  background-color: #f97316;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -905,7 +917,7 @@ img {
 .social-icons img {
   width: 20px;
   height: 20px;
-  filter: brightness(0) invert(1); /* make icon white */
+  filter: brightness(0) invert(1); 
 }
 
 .social-icons img:hover {

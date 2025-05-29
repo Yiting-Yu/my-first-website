@@ -322,7 +322,7 @@ img {
 
 .checkout-header h1 {
   font-size: 16px;
-  margin-top: -16px; /* 可尝试 -12px / -20px 看效果 */
+  margin-top: -16px;
   margin-bottom: 16px;
 }
 
@@ -344,9 +344,9 @@ h2, h3 {
 }
 
 .shipping-form label {
-  font-size: 16px;                        /* 或用 15px */
-  font-weight: thin;                          /* 字重稍微加粗 */
-  color: #333333;                            /* 字色可调 */
+  font-size: 16px;                     
+  font-weight: thin;                         
+  color: #333333;                           
   margin-bottom: 4px;
   display: inline-block;
 }

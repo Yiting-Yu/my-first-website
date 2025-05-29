@@ -4,8 +4,295 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kogan Payment</title>
+    <link rel="stylesheet" href="payment.css" />
 </head>
 <body>
+    <!--top header-->
+        <header class="topbar">
+            <div class="topbar-left">
+                <p>Phone Number +61 123 456 789</p>
+            </div>
+            <div class="topbar-right">
+                <a href="#">Live Chat</a>
+                <a href="#">AUS ▾</a>
+                <a href="#">English ▾</a>
+            </div>
+        </header>
+        
+        <!--main header 最顶上的白色部分-->
+        <header class="main-header">
+            <div class="top-row">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                
+                <!--搜索条-->
+                <div class="search-container">
+                    <div class="search-box">
+                        <img src="image/search_icon.svg" alt="Search Icon" class="search-icon" />
+                        <input type="text" placeholder="Search in products" />
+                    </div>
+                    <button>Search</button>
+                </div>
+
+
+                <div class="icons-right">
+                    <div class="icon-wrapper light">
+                        <img src="image/Heart.png" alt="Wishlist" />
+                    </div>
+                    <div class="icon-wrapper orange">
+                        <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                    </div>
+                    <div class="cart-count">2</div>
+                    <div class="icon-wrapper yellow">
+                        <img src="image/user.png" alt="User" />
+                    </div>
+
+                    <div class="welcome-text">
+                        <span>Welcome!</span>
+                        <strong>Sophia</strong>
+                    </div>
+                </div>
+
+
+            <!--categories deals win clearance news-->
+            <div class="bottom-row">
+                <button class="menu-button">☰ Shop by Department ▾</button>
+                <nav class="main-menu">
+                    <a href="#">Deals ▾</a>
+                    <a href="#">Win $200k ▾</a>
+                    <a href="#">Clearance ▾</a>
+                    <a href="#">News ▾</a>
+                </nav>
+            </div>
+        </header>   
     
+    <div class="Page">
+        <div class="checkout-header">
+            <h1>Checkout</h1>
+        </div>
+        <div class="container">
+            <!--左侧-->
+            <section class="checkout-left">
+                <!--Express Checkout-->
+                <div class="express-checkout card">
+                    <h2>Express Checkout</h2>
+                    <div class="express-row">
+                        <!--Apple Pay-->
+                        <a href="#" class="express-btn">
+                            <img src="image/apple pay.svg" alt="Checkout with Apple Pay" class="payment-icon">
+                        </a>
+
+                        <!--PayPal-->
+                        <a href="#" class="express-btn">
+                            <img src="image/paypal.svg" alt="Pay with PayPal" class="payment-icon">
+                        </a>
+                    </div>
+                    
+                </div>
+                <!--分隔线 OR-->
+                <div class="divider-with-or">
+                    <span>or</span>
+                </div>
+
+                <!--Shipping Information-->
+                <div class="shipping-info card">
+                    <h2>Shipping Information</h2>
+                    <form class="shipping-form">
+                        <label for="first-name">First name</label>
+                        <input type="text" id="first-name" placeholder="" />
+
+                        <label for="last-name">Last name</label>
+                        <input type="text" id="last-name" placeholder="" />
+
+                        <label for="phone">Phone number</label>
+                        <input type="text" id="phone" placeholder="" />
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="" />
+
+                        <label for="address1">Address line 1</label>
+                        <input type="text" id="address1" placeholder="" />
+
+                        <label for="address2">Address line 2</label>
+                        <input type="text" id="address2" placeholder="" />
+
+                        <div class="row-two-fields">
+                            <div class="half-width">
+                            <label for="suburb">Suburb</label>
+                            <input type="text" id="suburb" placeholder="" />
+                            </div>
+
+                            <div class="half-width">
+                            <label for="country">Country</label>
+                            <input type="text" id="country" placeholder="" />
+                            </div>
+                        </div>
+
+                        <div class="row-two-fields">
+                            <div class="half-width">
+                            <label for="state">State</label>
+                            <input type="text" id="state" placeholder="" />
+                            </div>
+
+                            <div class="half-width">
+                            <label for="postcode">Postcode</label>
+                            <input type="text" id="postcode" placeholder="" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!--Payment Method-->
+                <div class="payment-methods-row">
+                    <!--Credit Debit Card-->
+                    <div class="payment-method card">
+                        <h2>Pay with Credit / Debit Card</h2>
+                        <form class="card-form shipping-form">
+                            <label for="card-name">Cardholder Name</label>
+                            <input type="text" id="card-name" placeholder="" />
+
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="" />
+
+                            <div class="card-details-row">
+                                <div>
+                                    <label for="expiry">Expiry Date</label>
+                                    <input type="text" id="expiry" placeholder="" />
+                                </div>
+                                <div>
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" placeholder="" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+            </section>
+
+        
+        
+        
+            <!--右侧-->
+            <section class="order-summary">
+                <h2>Order Summary</h2>
+
+                <div class="order-item">
+                    <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="TV" class="item-thumbnail">
+                    <div class="item-details">
+                        <p class="item-name">Kogan 55” LED 4K Smart Roku TV - R95T</p>
+                        <p class="item-qty">Qty: 1</p>
+                    </div>
+                    <div class="item-price">$419</div>
+                </div>
+
+                <div class="order-item">
+                    <img src="image/add_to_cart_1.webp" alt="Soundbar" class="item-thumbnail">
+                    <div class="item-details">
+                        <p class="item-name">2.1 Channel 100W Dolby Atmos Soundbar</p>
+                        <p class="item-qty">Qty: 1</p>
+                    </div>
+                    <div class="item-price">$119</div>
+                </div>
+
+
+                <hr class="divider" />
+
+                <div class="price-line">
+                    <span>Subtotal</span>
+                    <span>$538</span>
+                </div>
+                <div class="price-line">
+                    <span>Discount</span>
+                    <span>-$0</span>
+                </div>
+                <div class="price-line">
+                    <span>Shipping</span>
+                    <span>$60</span>
+                </div>
+
+                <hr class="divider" />
+
+                <div class="total-line">
+                    <strong>Total</strong>
+                    <strong>$598</strong>
+                </div>
+
+                <button class="checkout-btn">Checkout Now</button>
+            </section>
+        </div>
+    
+    </div>
+    <!--footer-->
+    <footer class="site-footer">
+        <div class="footer-columns">
+            <!--Logo-->
+            <div class="footer-logo">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Kogan Logo" />
+            </div>
+
+            <!--1-->
+            <div class="footer-col">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Help Center / FAQ</a></li>
+                    <li><a href="#">Shipping & Delivery</a></li>
+                    <li><a href="#">Returns & Refunds</a></li>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Payment Methods</a></li>
+                    <li><a href="#">Warranty & Support</a></li>
+                </ul>
+            </div>
+
+            <!--2-->
+            <div class="footer-col">
+                <h4>Company Info</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press / Media</a></li>
+                    <li><a href="#">Affiliate Program</a></li>
+                    <li><a href="#">Blog / Newsroom</a></li>
+                </ul>
+            </div>
+
+            <!--3-->
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Settings</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+
+            <!--4-->
+            <div class="footer-col">
+                <h4>Top Brand</h4>
+                <ul>
+                    <li><a href="#">Kogan</a></li>
+                    <li><a href="#">Apple</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Google</a></li>
+                    <li><a href="#">Ovela</a></li>
+                    <li><a href="#">Dyson</a></li>
+                    <li><a href="#">Fortis</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!--social media logo-->
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="#"><img src="image/Facebook.png" alt="Facebook" /></a>
+                <a href="#"><img src="image/Instagram.png" alt="Instagram" /></a>
+                <a href="#"><img src="image/Youtube.png" alt="YouTube" /></a>
+                <a href="#"><img src="image/Twitter.png" alt="Twitter" /></a>
+            </div>
+            <p class="copyright">&copy; 2025 Kogan.com.au. All rights reserved.</p>
+        </div>
+
+    </footer>
 </body>
 </html>

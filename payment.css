@@ -299,265 +299,206 @@ img {
   color: #555;
 }
 
-/* === 购物车部分 === */
-.cart-section {
+/* === 中间内容 === */
+.Page {
   max-width: 1000px;
-  margin: 4px auto 40px auto;
-  color: #333;
+  margin: 0 auto;  
+  padding: 40px 24px; 
+  margin-top: 4px;
+}
+
+.container {
+  display: flex;  
+  gap: 24px;
+}
+
+/* ==== Left Section ==== */
+.checkout-left {
+  background-color: #ffffff;
+  flex: 2;
+  border-radius: 12px;
   padding: 24px;
 }
 
-.section-header {
-  margin-top: 0;          
-  margin-bottom: 16px;     
-}
-
-.section-title {
+.checkout-header h1 {
   font-size: 16px;
-  font-weight: bold;  
-  margin: 0;            
+  margin-top: -16px; /* 可尝试 -12px / -20px 看效果 */
+  margin-bottom: 16px;
 }
 
-.cart-table {
+
+h2, h3 {
+  margin-top: 0;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+/* ==== Form Inputs ==== */
+.shipping-form input,
+.card-form input {
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 32px;
-  background-color: #ffffff; 
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.cart-table thead th {
-  text-align: left;
-  font-weight: bold;
-  padding: 12px;
-  background-color: #ffffff;
-  border-bottom: 2px solid #ddd;
-  font-size: 16px;
-  font-weight: 500; 
-  color: #b3b3b3;
-}
-
-.cart-table td:last-child {
-  text-align: right;
-  padding-right: 24px;
-}
-
-.cart-table td {
-  padding: 16px 12px;
-  border-bottom: 1px solid #eee;
-  vertical-align: middle;
-}
-
-.product-info {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.product-thumb {
-  width: 150px; 
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.product-name {
-  font-size: 16px;
-}
-
-.original-price {
-  text-decoration: line-through;
-  color: #999;
-  font-size: 14px;
-}
-
-.discounted-price {
-  color: #000000;
-}
-
-.quantity-selector {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* 数量按钮 */
-.quantity-selector button {
-  background-color: #e6e6e6; 
-  border: none;
-  border-radius: 999px;
-  height: 28px;
-  width: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  padding: 0;
-}
-
-.quantity-selector input {
-  width: 30px;
-  text-align: center;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  font-size: 14px;
-}
-
-/* 配送信息 */
-.delivery-info {
-  margin-bottom: 24px;
-  padding: 12px 24px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.postcode {
-  text-decoration: underline;
-}
-
-.delivery-estimate {
-  color: #777;          
-  font-weight: 400;      
-  font-size: 14px;       
-}
-
-.delivery-text p {
-  margin: 4px 0;
-  text-align: left;
-}
-
-.delivery-price p {
-  margin: 4px 0;
-  font-weight: bold;
-  font-size: 16px;
-  text-align: right;
-  white-space: nowrap;
-}
-
-/* 延长保修 */
-.extended-care {
-  background-color: #ffffff;
-  padding: 16px 24px;
-  border-radius: 8px;
-  margin-bottom: 24px;
-}
-.extended-title {
-  font-weight: bold;
-  font-size: 16px;
+  padding: 10px;
   margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-.extended-line {
-  height: 2px;
-  background-color: #e0e0e0;
-  margin: 0 -24px 16px -24px;
+.shipping-form label {
+  font-size: 16px;                        /* 或用 15px */
+  font-weight: thin;                          /* 字重稍微加粗 */
+  color: #333333;                            /* 字色可调 */
+  margin-bottom: 4px;
+  display: inline-block;
 }
 
-.extended-care label {
-  display: block;
-  margin-bottom: 12px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.care-option {
-  display: block;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.care-option input[type="radio"] {
-  margin-right: 10px;
-}
-
-.bold-option {
-  font-weight: bold;
-}
-
-.light-option {
-  font-weight: 400;
-}
-
-/* 折扣码 */
-.discount-code {
-  background-color: #ffffff;
-  padding: 16px 24px;
-  border-radius: 8px;
-  margin-bottom: 24px;
-}
-
-.discount-title {
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 12px;
-}
-
-.discount-line {
-  height: 2px;
-  background-color: #ddd;
-  margin: 0 -24px 16px -24px;
-}
-
-.discount-input-group {
+.row-two-fields {
   display: flex;
   gap: 12px;
-  align-items: center;
 }
 
-.discount-input-group input[type="text"] {
+.half-width {
   flex: 1;
+}
+
+
+/*checkout标题*/
+
+/* ==== 快速付钱 ==== */
+/*分割线*/
+.divider-with-or {
+  text-align: center;
+  margin: 12px 0;
+  position: relative;
+}
+
+.divider-with-or::before,
+.divider-with-or::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 1px;
+  background: #ccc;
+}
+
+.divider-with-or::before {
+  left: 0;
+}
+
+.divider-with-or::after {
+  right: 0;
+}
+
+.divider-with-or span {
+  background: #fff;
+  padding: 0 12px;
+  color: #888;
+  font-size: 18px;
+}
+
+.payment-box {
+  background-color: #ffffff;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  flex: 1;
 }
 
-.discount-input-group button {
-  padding: 20px 32px;
-  background-color: white;
-  color: #333;
-  border: 1px solid #333;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.cart-summary {
+/* ==== Express Checkout Buttons ==== */
+.express-row {
   display: flex;
+  gap: 8px;
   justify-content: space-between;
   align-items: center;
-  padding-top: 8px;
-  margin-bottom: 24px;
 }
 
-.cart-summary p {
-  font-size: 18px;
-  font-weight: bold;
+.express-btn {
+  flex: 1;
+  text-align: center;
 }
 
-/* 结账按钮 */
-.checkout-button {
-  text-align: right;
-  margin-bottom: 24px;
+.payment-icon {
+  width: 290px;
+  height: auto;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
 }
 
-.checkout-button button {
-  padding: 14px 36px;
+/* ==== Credit Card Layout ==== */
+.card-details-row {
+  display: flex;
+  gap: 12px;
+}
+
+/* ==== 右边 order summary ==== */
+.order-summary {
+  background-color: #ffffff;
+  flex: 1;
+  border-radius: 12px;
+  padding: 24px;
+  height: 520px;
+}
+
+.order-summary .order-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.item-thumbnail {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+.order-summary .item-details {
+  flex: 1;
+}
+
+.order-summary .item-name {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.order-summary .item-qty {
+  font-size: 12px;
+  color: #666;
+}
+
+.order-summary .item-price {
   font-size: 16px;
-  background-color: #F97316;
+  color: #666;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 16px 0;
+}
+
+.price-line,
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #ff6f00;
   color: white;
   border: none;
   border-radius: 999px;
+  font-size: 16px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
-/* 说明文字 */
-.terms-note {
-  font-size: 12px;
-  color: #666;
-  text-align: right;
+.checkout-btn:hover {
+  background-color: #e65c00;
 }

@@ -4,6 +4,41 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   font-family: 'Jost', sans-serif;
   background-color: #f5f5f5;
@@ -20,6 +55,26 @@ img {
   max-width: 100%;
   display: block;
 }
+
+/*mainheader部分*/
+.topbar {
+  background-color: #f5f5f5;
+  padding: 3px 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #646464;
+  font-weight: 300;
+
+}
+
+.topbar-right a {
+  margin-left: 16px;
+  color: #333;
+  font-weight: 40;
+}
+
 
 /*mainheader部分*/
 .main-header {
@@ -80,19 +135,21 @@ img {
   color: #5C5C5C;
 }
 
+
 /* 搜索按钮 */
 .search-container button {
-  padding: 10px 22px;
+  padding: 8px 22px;
   background-color: #f97316;
   color: white;
-  font-weight: 600; /* 更粗 */
   border: none;
   border-radius: 0 30px 30px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px; /* 可选：调大字体 */
+  font-size: 18px; /* 可选：调大字体 */
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
 }
 
 /*右上角三个图标*/
@@ -142,7 +199,6 @@ img {
   line-height: 1.2;
 }
 
-
 .bottom-row {
   display: flex;
   align-items: center;
@@ -156,33 +212,16 @@ img {
   border: none;
   padding: 14px 18px;
   border-radius: 8px 8px 0 0;
-  font-weight: 520;
+  font-weight: 500;
   font-size: 18px;
   cursor: pointer;
 }
 
 .main-menu a {
-  font-weight: 520;
+  font-weight: 500;
   font-size: 18px;
   color: #333;
   margin-right: 40px;
-}
-
-.topbar {
-  background-color: #f5f5f5;
-  padding: 3px 38px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: #646464;
-  font-weight: 50;
-}
-
-.topbar-right a {
-  margin-left: 16px;
-  color: #333;
-  font-weight: 40;
 }
 
 /* === 左侧filter === */
@@ -198,7 +237,6 @@ img {
   background-color: #ffffff;
   padding: 16px 20px;
   border-radius: 12px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
   margin-left: 32px;
   width: 300px;  
@@ -211,6 +249,7 @@ img {
   top: 50px; 
   height: fit-content;
   align-self: flex-start; 
+  border: 1px solid #eeeeee;
 }
 .filter-section {
   border-bottom: 2px solid #eee;
@@ -225,7 +264,7 @@ img {
 }
 
 .filter-header h4 {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   margin: 0;
 }
@@ -238,9 +277,10 @@ img {
 .filter-section label {
   display: inline-flex;
   align-items: center;
-  font-size: 14px;
-  margin-top: 12px; /*每项之间的间距*/
-  gap: 4px; /*圆和文字之间的距离*/
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 12px; 
+  gap: 4px; 
   line-height: 1.2;
   font-size: 14px;
 }
@@ -332,6 +372,7 @@ input[type="radio"]:checked::before {
 .top-banner {
     margin-right: 32px;
     margin-bottom: 2px;
+    border: 1px solid #eeeeee;
 }
 
 .top-banner img {
@@ -345,6 +386,7 @@ input[type="radio"]:checked::before {
 .category-section {
   margin-top: 12px;
   padding: 0 2px;
+  
 }
 
 .category-section h2 {
@@ -373,6 +415,7 @@ input[type="radio"]:checked::before {
 .category-item {
   flex: 0 0 auto;
   text-align: center;
+  
 }
 
 .category-item img {
@@ -381,7 +424,7 @@ input[type="radio"]:checked::before {
   border-radius: 50%;
   object-fit: contain;
   padding: 0px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.1);
+  border: 1px solid #eeeeee;
 }
 
 .category-item p {
@@ -485,7 +528,6 @@ input[type="radio"]:checked::before {
   font-weight: 200;
 }
 
-/* View as Block */
 .view-toggle {
   display: flex;
   flex-direction: column;
@@ -533,12 +575,12 @@ input[type="radio"]:checked::before {
 .rec-product-card {
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
   padding: 16px;
   display: flex;
   flex-direction: column;
   height: 100%;
   position: relative;
+  border: 1px solid #eeeeee;
 }
 
 /* 标签样式（Sale, New等） */
@@ -550,7 +592,7 @@ input[type="radio"]:checked::before {
   height: 20px;      
   padding: 0 6px;          
   font-size: 11px;         
-  font-weight: 550;
+  font-weight: 500;
   color: white;
   border-radius: 4px;
   background-color: #D32F2F;
@@ -584,7 +626,7 @@ input[type="radio"]:checked::before {
 }
 .rec-product-name {
   font-size: 15px;
-  font-weight: 540;
+  font-weight: 400;
   line-height: 1.3;
   flex: 1;
 }
@@ -639,8 +681,8 @@ input[type="radio"]:checked::before {
   background-color: #f97316;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -648,8 +690,8 @@ input[type="radio"]:checked::before {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 .add-to-cart img {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   transform: translateX(-3px);
   transform: translateY(1px);
 }

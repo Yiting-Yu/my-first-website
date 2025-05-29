@@ -4,6 +4,41 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   font-family: 'Jost', sans-serif;
   background-color: #f5f5f5;
@@ -22,6 +57,26 @@ img {
 }
 
 /*mainheader部分*/
+.topbar {
+  background-color: #f5f5f5;
+  padding: 3px 38px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #646464;
+  font-weight: 300;
+
+}
+
+.topbar-right a {
+  margin-left: 16px;
+  color: #333;
+  font-weight: 40;
+}
+
+
+/*mainheader部分*/
 .main-header {
   background: white;
   padding: 12px 24px 0 24px;
@@ -33,7 +88,7 @@ img {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 12x;
+  gap: 12x;/*调整main header两行的间距*/
 }
 
 .logo-img {
@@ -80,19 +135,21 @@ img {
   color: #5C5C5C;
 }
 
+
 /* 搜索按钮 */
 .search-container button {
-  padding: 10px 22px;
+  padding: 8px 22px;
   background-color: #f97316;
   color: white;
-  font-weight: 600; 
   border: none;
   border-radius: 0 30px 30px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px; 
+  font-size: 18px; /* 可选：调大字体 */
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
 }
 
 /*右上角三个图标*/
@@ -101,7 +158,6 @@ img {
   align-items: center;
   gap: 16px;
 }
-
 
 .icon-wrapper {
   width: 48px;
@@ -120,27 +176,6 @@ img {
 
 .cart-icon {
   transform: translateX(-1px);
-}
-
-.cart-count {
-  position: absolute;
-  top: 42px;         
-  right: 168px;        
-  background-color: red;
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 2px 6px;
-  min-width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  box-shadow: 0 0 0 2px white;
-  pointer-events: none;
-  z-index: 10;
 }
 
 
@@ -165,6 +200,7 @@ img {
 }
 
 
+
 .bottom-row {
   display: flex;
   align-items: center;
@@ -178,35 +214,17 @@ img {
   border: none;
   padding: 14px 18px;
   border-radius: 8px 8px 0 0;
-  font-weight: 520;
+  font-weight: 500;
   font-size: 18px;
   cursor: pointer;
 }
 
 .main-menu a {
-  font-weight: 520;
+  font-weight: 500;
   font-size: 18px;
   color: #333;
   margin-right: 40px;
 }
-
-.topbar {
-  background-color: #f5f5f5;
-  padding: 3px 38px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  color: #646464;
-  font-weight: 50;
-}
-
-.topbar-right a {
-  margin-left: 16px;
-  color: #333;
-  font-weight: 40;
-}
-
 /* === Footer === */
 .site-footer {
   background-color: #ffedd2;
@@ -304,6 +322,7 @@ img {
   margin: 4px auto 40px auto;
   color: #333;
   padding: 24px;
+  
 }
 
 .section-header {
@@ -313,7 +332,7 @@ img {
 
 .section-title {
   font-size: 16px;
-  font-weight: bold;  
+  font-weight: 700;  
   margin: 0;            
 }
 
@@ -323,7 +342,8 @@ img {
   margin-bottom: 32px;
   background-color: #ffffff; 
   border-radius: 12px;
-  overflow: hidden;
+
+  border: 1px solid #eeeeee;
 }
 
 .cart-table thead th {
@@ -331,10 +351,11 @@ img {
   font-weight: bold;
   padding: 12px;
   background-color: #ffffff;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #eeeeee;
   font-size: 16px;
   font-weight: 500; 
   color: #b3b3b3;
+  
 }
 
 .cart-table td:last-child {
@@ -412,6 +433,8 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  border: 1px solid #eeeeee;
+
 }
 
 .postcode {
@@ -424,6 +447,10 @@ img {
   font-size: 14px;       
 }
 
+.delivery-text p:first-child {
+  font-weight: 700;
+}
+
 .delivery-text p {
   margin: 4px 0;
   text-align: left;
@@ -431,7 +458,7 @@ img {
 
 .delivery-price p {
   margin: 4px 0;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 16px;
   text-align: right;
   white-space: nowrap;
@@ -443,16 +470,17 @@ img {
   padding: 16px 24px;
   border-radius: 8px;
   margin-bottom: 24px;
+  border: 1px solid #eeeeee;
 }
 .extended-title {
-  font-weight: bold;
+  font-weight: 700;
   font-size: 16px;
   margin-bottom: 12px;
 }
 
 .extended-line {
   height: 2px;
-  background-color: #e0e0e0;
+  background-color: #eeeeee;
   margin: 0 -24px 16px -24px;
 }
 
@@ -487,17 +515,18 @@ img {
   padding: 16px 24px;
   border-radius: 8px;
   margin-bottom: 24px;
+  border: 1px solid #eeeeee;
 }
 
 .discount-title {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 16px;
   margin-bottom: 12px;
 }
 
 .discount-line {
   height: 2px;
-  background-color: #ddd;
+  background-color: #eeeeee;
   margin: 0 -24px 16px -24px;
 }
 
@@ -547,6 +576,7 @@ img {
 .checkout-button button {
   padding: 14px 36px;
   font-size: 16px;
+  font-weight: 600;
   background-color: #F97316;
   color: white;
   border: none;

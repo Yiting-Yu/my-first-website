@@ -10,16 +10,51 @@
   
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jost';
+  src: url('../font/Jost-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   font-family: 'Jost', sans-serif;
   background-color: #f5f5f5;
   color: #333;
   line-height: 1.6;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 img {
@@ -35,7 +70,8 @@ img {
   align-items: center;
   font-size: 12px;
   color: #646464;
-  font-weight: 50;
+  font-weight: 300;
+
 }
 
 .topbar-right a {
@@ -107,17 +143,18 @@ img {
 
 /* 搜索按钮 */
 .search-container button {
-  padding: 10px 22px;
+  padding: 8px 22px;
   background-color: #f97316;
   color: white;
-  font-weight: 600; /* 更粗 */
   border: none;
   border-radius: 0 30px 30px 0;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px; /* 可选：调大字体 */
+  font-size: 18px; /* 可选：调大字体 */
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
 }
 
 /*右上角三个图标*/
@@ -167,7 +204,6 @@ img {
   line-height: 1.2;
 }
 
-
 .bottom-row {
   display: flex;
   align-items: center;
@@ -181,13 +217,13 @@ img {
   border: none;
   padding: 14px 18px;
   border-radius: 8px 8px 0 0;
-  font-weight: 520;
+  font-weight: 500;
   font-size: 18px;
   cursor: pointer;
 }
 
 .main-menu a {
-  font-weight: 520;
+  font-weight: 500;
   font-size: 18px;
   color: #333;
   margin-right: 40px;
@@ -233,6 +269,7 @@ img {
   border-radius: 12px;
   display: flex;
   flex-direction: column;
+  border: 1px solid #eeeeee;
 }
 
 .main-banner-img {
@@ -309,6 +346,7 @@ img {
   flex-direction: column;
   justify-content: space-between;
   margin-left: 12px;
+  border: 1px solid #eeeeee;
 }
 
 /* 标题区域 */
@@ -316,12 +354,11 @@ img {
   color: #d62828;
   font-weight: 600;
   font-size: 14px;
-  margin-bottom: 4px;
 }
 
 .hotsale-header .hotsale-title {
-  font-size: 24px;
-  font-weight: 5000;
+  font-size: 25px;
+  font-weight: 700;
   margin-bottom: -2px;
   margin-top: -5px;
 }
@@ -329,11 +366,12 @@ img {
 .hotsale-header .hotsale-subtitle {
   font-size: 12px;
   color: #000000;
-  font-weight: 450;
+  font-weight: 400;
 }
 
 .hotsale-header a {
   color: #d62828;
+  font-weight: 600;
 }
 
 /* 商品列表 */
@@ -373,10 +411,11 @@ img {
 }
 
 .info .title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: #333333;
   margin-bottom: 10px;
+  line-height: 1.2;
   
 }
 
@@ -385,7 +424,7 @@ img {
 }
 
 .info .price {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   color: #111;
 }
@@ -398,8 +437,8 @@ img {
 }
 
 .info .stars {
-  font-size: 14px;
-  color: #facc15; /* 黄色星星 */
+  font-size: 12px;
+  color: #FFBD00;
   margin-top: -3px;
 }
 
@@ -413,7 +452,7 @@ img {
 
 /* 左下角家具Banner */
 .furniture-banner {
-
+  border: 1px solid #eeeeee;
   background: white;
   border-radius: 12px;
   overflow: hidden;
@@ -445,7 +484,7 @@ img {
   padding: 24px;
   border-radius: 12px;
   height: 240px;
-
+  border: 1px solid #eeeeee;
 }
 
 /* 标题部分 */
@@ -463,15 +502,14 @@ img {
 
 .left-text .label {
   color: #d62828;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 14px;
-  margin-bottom: 2px;
 }
 
 .left-text h2 {
   font-size: 24px;
   color: #000000;
-  font-weight: 5000;
+  font-weight: 700;
   margin-top: -5px;
   margin-bottom: -2px;
 }
@@ -479,25 +517,28 @@ img {
 .left-text p {
   font-size: 12px;
   color: #555;
-  font-weight: 450;
+  font-weight: 400;
 }
 
-.view-more-btn {
+.btn-text-horizontal {
   background-color: #f97316;
   color: white;
-  font-weight: 600;
   border-radius: 8px;
   display: flex;
   align-items: center;
-  font-size: 12px;
-  margin-top: 8px;
-  margin-right: 14px;
+  padding: 8px 12px;
 }
 
-.view-more-btn img.arrow-icon {
-  width: 16px;
-  height: 16px;
-  margin-top: 4px;
+.btn-text-horizontal p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.btn-text-horizontal img.arrow-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  margin-left: 2px;
 }
 
 /* 商品卡片区域 */
@@ -520,6 +561,7 @@ img {
   z-index: 2;
   height: 260px;
   width: 300px;
+  border: 1px solid #eeeeee;
 }
 
 .big-image-wrapper {
@@ -540,8 +582,8 @@ img {
 }
 
 .product-name {
-  font-size: 13px;
-  font-weight:520;
+  font-size: 14px;
+  font-weight: 400;
   margin-top: 10px;
 }
 
@@ -565,7 +607,7 @@ img {
 }
 
 .stars {
-  color: #facc15;
+  color: #FFBD00;
   font-size: 14px;
 }
 
@@ -581,18 +623,20 @@ img {
   padding-bottom: 42px;
   text-align: center;
   padding-top: 32px;
+  border: 1px solid #eeeeee;
 }
 
 .categories h2 {
   font-size: 30px;
-  font-weight: 2000;
+  font-weight: 700;
   margin-bottom: 4px;
 }
 
 .categories p {
   color: #555;
-  font-size: 12px;
+  font-size: 15px;
   margin-bottom: 32px;
+  font-weight: 300;
 }
 
 .category-grid {
@@ -614,7 +658,6 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 0.1s ease;
   padding: 12px;
   box-sizing: border-box;
 
@@ -624,14 +667,16 @@ img {
   width: 32px;
   height: 32px;
   object-fit: contain;
-  margin-bottom: 5px;
+  padding-bottom: 6px;
 }
 
 .category-item p {
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 400;
   color: #333;
   text-align: center;
   margin: 0;
+  line-height: 1.2;
 }
 
 /* ==== rec bar === */
@@ -644,15 +689,15 @@ img {
   height: 68px;
   margin: 24px 100px;
   margin-bottom: 20px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eeeeee;
 }
 
 .recommend-label {
   background-color: #f97316;
   color: white;
   border-radius: 12px 0 0 12px;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 22px;
+  font-weight: 600;
   height: 68px;
   width: 240px;
   display: flex;
@@ -665,11 +710,12 @@ img {
   flex: 1;
   text-align: center;
   font-size: 14px;
+  font-weight: 400;
   color: #333;
   margin: 0 16px;
 }
 
-.view-more-btn {
+.view-more-vertical-btn {
   background-color: #f97316;
   height: 40px;
   color: white;
@@ -683,9 +729,10 @@ img {
   line-height: 1;
   margin-top: 2px;
   margin-bottom: 2px;
+  margin-right: 12px;
 }
 
-.view-more-btn img {
+.view-more-vertical-btn img {
   width: 32px;
   height: 32px;
   margin-left: -2px;
@@ -707,7 +754,6 @@ img {
 .rec-product-card {
   background-color: white;
   border-radius: 12px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.08);
   padding-left: 16px;
   padding-right: 16px;
   padding-top: 12px;
@@ -717,7 +763,7 @@ img {
   justify-content: flex-start;
   height: 400px;
   position: relative;
-
+  border: 1px solid #eeeeee;
 }
 
 .rec-image-wrapper {
@@ -747,16 +793,16 @@ img {
 
 .rec-product-name {
   font-size: 18px;
-  font-weight: 530;
+  font-weight: 400;
   line-height: 1.4;
 }
 
 .icon-heart {
-  width: 20px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   margin-left: 12px;
   cursor: pointer;
-  margin-top: -18px;
+  margin-top: -16px;
 }
 
 .price-and-cart {
@@ -782,6 +828,7 @@ img {
 .rec-old-price {
   color: #B3B3B3;
   font-size: 18px;
+  font-weight: 400;
   text-decoration: line-through;
 }
 
@@ -807,7 +854,7 @@ img {
 
 
 .rec-star-icons {
-  font-size: 22px;
+  font-size: 18px;
   color: #FFBD00;
   
 }

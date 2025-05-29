@@ -75,15 +75,20 @@
                 <!--左上角banner-->
                 <div class="banner-main">
                     <div class="banner-arrow-wrapper left">
-                        <button class="banner-arrow-btn">
+                        <button class="banner-arrow-btn" id="prevBtn">
                             <img src="image/Arrow left.png" alt="Previous" />
                         </button>
                     </div>
+                    <!--banner图片-->
+                    <div class="banner-img-wrapper">
+                        <img src="image/Big Banner homepage.png" class="main-banner-img active" alt="Banner 1" />
+                        <img src="image/Mainbanner3.webp" class="main-banner-img" alt="Banner 2" />
+                        <img src="image/Mainbanner2.webp" class="main-banner-img" alt="Banner 3" />
+                    </div>
 
-                    <img src="image/Big Banner homepage.png" alt="Main Promo" class="main-banner-img" />
 
-                    <div class="banner-arrow-wrapper right">
-                        <button class="banner-arrow-btn">
+                    <div class="banner-arrow-wrapper right" >
+                        <button class="banner-arrow-btn" id="nextBtn">
                             <img src="image/Arrow right.png" alt="Next" />
                         </button>
                     </div>
@@ -525,5 +530,41 @@
     </div>
 
 </body>
+
+<script>
+  const banners = document.querySelectorAll('.main-banner-img');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+
+  let currentIndex = 0;
+
+  function showBanner(index) {
+    banners.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+  }
+
+  showBanner(currentIndex);
+
+  // 自动轮播逻辑（6 秒切换一次）
+  let autoSlide = setInterval(() => {
+    currentIndex = (currentIndex + 1) % banners.length;
+    showBanner(currentIndex);
+  }, 6000);
+
+  // 点击下一张：切图 停止自动播放
+  nextBtn.addEventListener('click', () => {
+    clearInterval(autoSlide); 
+    currentIndex = (currentIndex + 1) % banners.length;
+    showBanner(currentIndex);
+  });
+
+  // 点击上一张：切图 停止自动播放
+  prevBtn.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    currentIndex = (currentIndex - 1 + banners.length) % banners.length;
+    showBanner(currentIndex);
+  });
+</script>
 
 </html>

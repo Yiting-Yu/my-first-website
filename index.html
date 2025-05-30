@@ -120,7 +120,7 @@
                                 <img src="image/monitor.webp" alt="Monitor" />
                             </div>
                             <div class="info">
-                                <p class="title red">MX10 Pro Cordless Stick Vacuum Cleaner</p>
+                                <p class="title red">27" FreeSync Monitor (1920 x 1080)</p>
                                 
                                 <p class="stars">★★★★★</p>
                                 <p class="price">$119 <del>$249</del></p>
@@ -133,7 +133,7 @@
                             </div>
                             
                             <div class="info">
-                                <p class="title">27" FreeSync Monitor (1920 x 1080)</p>
+                                <p class="title">MX10 Pro Cordless Stick Vacuum Cleaner</p>
                                 <p class="stars">★★★★★</p>
                                 <p class="price">$139 <del>$459.99</del></p>
                                 
@@ -254,7 +254,7 @@
 
             <div class="category-grid">
                 <!-- 第一行-->
-                <div class="category-item">
+                <div class="category-item" id="category-tv">
                     <img src="image/Tv.png" alt="TV" />
                     <p>TV</p>
                 </div>
@@ -607,6 +607,19 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+});
+
+//tv跳转到tv page
+document.addEventListener('DOMContentLoaded', () => {
+  const tvCard = document.getElementById('category-tv');
+
+  if (tvCard) {
+    tvCard.addEventListener('click', () => {
+      setTimeout(() => {
+        window.location.href = 'search_page.html?category=tv';
+      }, 300);
+    });
+  }
 });
 
 </script>

@@ -689,7 +689,13 @@ img {
   align-items: center;
   padding: 12px;
   box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
+.category-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background-color: #ffdda1;
 }
 
 .category-item img {
@@ -697,10 +703,15 @@ img {
   height: 32px;
   object-fit: contain;
   padding-bottom: 6px;
+  transition: transform 0.3s ease;
+}
+
+.category-item:hover img {
+  transform: translateY(-4px);
 }
 
 .category-item p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   color: #333;
   text-align: center;

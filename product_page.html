@@ -72,7 +72,7 @@
 
         <div class="product-page-container">
             <!--左侧-->
-            <section class="product-gallery">
+            <section id="gallery" class="product-gallery">
                 <!--主图-->
                 <div class="main-image">
                 <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="Main product image" />
@@ -94,8 +94,8 @@
                 </div>
                 
                 <div class="product-tabs">
-                        <button class="tab active" data-target="description">Description</button>
-                        
+                        <button class="tab active" data-target="gallery">Gallery</button>
+                        <button class="tab" data-target="description">Description</button>
                         <button class="tab" data-target="specification">Specification</button>
                         <button class="tab" data-target="reviews">Reviews</button>
                     </div>
@@ -774,7 +774,7 @@
 
   //tab切换
 const tabButtons = document.querySelectorAll('.product-tabs .tab');
-const sections = ['description', 'specification', 'reviews'];
+const sections = ['gallery', 'description', 'specification', 'reviews'];
 
 tabButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -795,14 +795,19 @@ tabButtons.forEach(button => {
 window.addEventListener('scroll', () => {
   let currentSection = '';
 
-  sections.forEach(id => {
-    const section = document.getElementById(id);
-    const sectionTop = section.getBoundingClientRect().top;
+  if (window.scrollY < 80) {
+    currentSection = 'gallery';
+  } else {
 
-    if (sectionTop <= 150) {
-      currentSection = id;
-    }
-  });
+    sections.forEach(id => {
+      const section = document.getElementById(id);
+      const sectionTop = section.getBoundingClientRect().top;
+
+      if (sectionTop <= 150) {
+        currentSection = id;
+      }
+    });
+  }
 
   tabButtons.forEach(btn => {
     const target = btn.dataset.target;
@@ -812,6 +817,7 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
 
 //右上角收藏爱心效果
 const wishlist = document.querySelector('.wishlist');

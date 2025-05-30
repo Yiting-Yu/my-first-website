@@ -92,16 +92,17 @@
                     <img src="image/tv1-thumb.webp" alt="Thumb 10" />
                     <img src="image/tv2-thumb.webp" alt="Thumb 11" />
                 </div>
-
+                
+                <div class="product-tabs">
+                        <button class="tab active" data-target="description">Description</button>
+                        
+                        <button class="tab" data-target="specification">Specification</button>
+                        <button class="tab" data-target="reviews">Reviews</button>
+                    </div>
                 <!--详情卡片-->
                 <div class="product-description-container">
-                    <!-- Tab 导航栏 -->
-                    <div class="product-tabs">
-                        <button class="tab active">Description</button>
-                        <button class="tab">Specification</button>
-                        <button class="tab">Reviews</button>
-                    </div>
-
+                    
+                    <div id="description" class="section-anchor"></div>
                     <!--Description-->
                     <div id="description" class="tab-content description-content">
                         <p>
@@ -118,7 +119,9 @@
                         <img src="image/Description tv.jpg" alt="Roku TV Features" class="description-image" />
                     </div>
                     <!--Specification-->
-                    <div class="accordion-section">
+                    <div id="specification" class="tab-content specification-anchor"></div>
+                    <div id="specification" class="accordion-section" >
+                        
                         <div class="accordion-header">
                             <h3>Specification</h3>
                             <img src="image/Chevron left (2).svg" alt="Toggle" class="accordion-icon" />
@@ -277,7 +280,8 @@
                 </section>
 
                 <!--评论区-->
-                <section class="reviews-section">
+                <div id="reviews" class="tab-content reviews-anchor"></div>
+                <section id="reviews" class="reviews-section">
                     <h2 class="reviews-title">Reviews</h2>
 
                     <div class="reviews-summary">
@@ -758,13 +762,54 @@
     overlay.classList.add('hidden');
   });
 
+  // 商品图切换
+  const mainImage = document.querySelector('.main-image img');
+  const thumbnails = document.querySelectorAll('.thumbnail-row img');
 
-const mainImage = document.querySelector('.main-image img');
-const thumbnails = document.querySelectorAll('.thumbnail-row img');
+  thumbnails.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      mainImage.src = thumb.src;
+    });
+  });
 
-thumbnails.forEach((thumb) => {
-  thumb.addEventListener('click', () => {
-    mainImage.src = thumb.src; // ✅ 点击哪张小图，主图就显示它
+  //tab切换
+const tabButtons = document.querySelectorAll('.product-tabs .tab');
+const sections = ['description', 'specification', 'reviews'];
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.dataset.target;
+    const targetSection = document.getElementById(targetId);
+
+    targetSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+  });
+});
+
+//tab scrolling切换
+window.addEventListener('scroll', () => {
+  let currentSection = '';
+
+  sections.forEach(id => {
+    const section = document.getElementById(id);
+    const sectionTop = section.getBoundingClientRect().top;
+
+    if (sectionTop <= 150) {
+      currentSection = id;
+    }
+  });
+
+  tabButtons.forEach(btn => {
+    const target = btn.dataset.target;
+    btn.classList.remove('active');
+    if (target === currentSection) {
+      btn.classList.add('active');
+    }
   });
 });
 

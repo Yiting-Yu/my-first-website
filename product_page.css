@@ -538,6 +538,11 @@ img {
   width: 18px;
   height: 18px;
   margin-left: 6px;
+  transition: transform 0.12s ease-in-out;
+}
+
+.icon-heart:active {
+  transform: scale(0.85);
 }
 
 .rec-star-icons {
@@ -839,6 +844,23 @@ img {
   vertical-align: middle;
 }
 
+.heart-icon {
+  transition: transform 0.2s ease;
+}
+
+.heart-icon.clicked {
+  transform: scale(1.2);
+}
+
+.wishlist-label {
+  display: inline-block;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.wishlist-label.fade-out {
+  opacity: 0;
+  transform: translateX(10px)
+}
 
 /* 产品标题 */
 .product-title {

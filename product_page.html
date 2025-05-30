@@ -377,7 +377,7 @@
                     <span class="right tag red">Sale</span>
                     <div class="wishlist">
                         <img src="image/Heart.png" alt="Heart icon" class="heart-icon">
-                        <span>Add to wishlist</span>
+                        <span class="wishlist-label">Add to wishlist</span>
                     </div>
                 </div>
                 
@@ -813,6 +813,51 @@ window.addEventListener('scroll', () => {
   });
 });
 
+//右上角收藏爱心效果
+const wishlist = document.querySelector('.wishlist');
+const heartIcon = wishlist.querySelector('.heart-icon');
+const label = wishlist.querySelector('.wishlist-label');
+
+let isWished = false;
+
+wishlist.addEventListener('click', () => {
+
+  label.classList.add('fade-out');
+
+  setTimeout(() => {
+    isWished = !isWished;
+
+    heartIcon.src = isWished
+      ? 'image/Heart-filled.svg'
+      : 'image/Heart.png';
+
+    label.textContent = isWished
+      ? 'Wishlisted'
+      : 'Add to wishlist';
+
+    label.classList.remove('fade-out'); 
+    heartIcon.classList.toggle('clicked');
+  }, 150); 
+});
+
+//其他收藏爱心特效
+document.addEventListener('DOMContentLoaded', () => {
+  const hearts = document.querySelectorAll('.icon-heart');
+
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => {
+      const isFavorited = heart.classList.contains('favorited');
+
+      if (!isFavorited) {
+        heart.src = 'image/Heart-filled.svg';
+        heart.classList.add('favorited');
+      } else {
+        heart.src = 'image/Heart.png';
+        heart.classList.remove('favorited');
+      }
+    });
+  });
+});
 </script>
 </body>
 

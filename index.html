@@ -32,11 +32,13 @@
                 <div class="search-container">
                     <div class="search-box">
                         <img src="image/search_icon.svg" alt="Search Icon" class="search-icon" />
-                        <input type="text" placeholder="Search in products" />
+                        <input type="text" id="search-input" placeholder="Search in products" autocomplete="off" />
                     </div>
-                    <button>Search</button>
+                  
+                    <!--推荐词弹出区域-->
+                    <ul id="search-suggestions" class="suggestion-box"></ul>
+                    <button id="search-btn">Search</button>
                 </div>
-
 
                 <div class="icons-right">
                     <div class="icon-wrapper light">
@@ -620,6 +622,73 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 300);
     });
   }
+});
+
+// 搜索tv弹出关键词 点击跳转页面
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('search-input');
+  const button = document.getElementById('search-btn');
+  const suggestionBox = document.getElementById('search-suggestions');
+
+  const tvSuggestions = [
+    "tv",
+    "tv bracket wall mount",
+    "tv stand",
+    "tv unit",
+    "tv remote control replacement",
+    "tv cabinet",
+    "tv stand wheel"
+  ];
+
+  function search(keyword) {
+    const term = keyword || input.value.trim();
+    if (term) {
+      window.location.href = `search_page.html?keyword=${encodeURIComponent(term)}`;
+    }
+  }
+
+  button.addEventListener('click', () => search());
+
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      search();
+    }
+  });
+
+  input.addEventListener('input', () => {
+    const value = input.value.toLowerCase().trim();
+    suggestionBox.innerHTML = '';
+
+    if (value === 'tv') {
+      suggestionBox.style.display = 'block';
+
+      tvSuggestions.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+
+        if (index === 0) {
+          // 只能第一个跳转
+          li.addEventListener('click', () => {
+            search(item);
+          });
+          li.style.cursor = 'pointer';
+          li.classList.add('clickable');
+        } else {
+          li.style.cursor = 'default';
+        }
+
+        suggestionBox.appendChild(li);
+      });
+    } else {
+      suggestionBox.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-container')) {
+      suggestionBox.style.display = 'none';
+    }
+  });
 });
 
 </script>

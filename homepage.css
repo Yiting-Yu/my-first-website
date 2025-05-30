@@ -107,8 +107,11 @@ img {
   display: flex;
   max-width: 600px;
   border-radius: 30px;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
+  align-items: stretch;
 }
+
 .search-box {
   display: flex;
   align-items: center;
@@ -116,8 +119,37 @@ img {
   padding: 0 12px;
   border-radius: 30px 0 0 30px;
   flex: 1;
+  position: relative;
 }
 
+/* 推荐项样式 */
+.suggestion-box {
+  position: absolute;
+  top: 100%; /* 紧贴输入框底部 */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+  display: none;
+  max-height: 240px;
+  overflow-y: auto;
+}
+.suggestion-box li {
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-top: 1px solid #f0f0f0;
+}
+.suggestion-box li:hover {
+  background-color: #fff3e0;
+}
 
 .search-icon {
   width: 18px;
@@ -332,9 +364,12 @@ img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.1s ease;
 }
-
+.banner-arrow-btn:active {
+  background-color: #1d4ed8;
+  transform: scale(0.92);
+}
 .banner-arrow-btn:hover {
   background-color: rgb(24, 56, 131);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);

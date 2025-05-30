@@ -555,7 +555,7 @@
             <!-- 筛选后产品卡片区域 -->
             <div class="product-grid" id="filteredProductGrid" style="display: none;">
                 <!--1-->
-                <div class="rec-product-card">
+                <div class="rec-product-card" id="card-kogan-tv">
                     <span class="tag red">Sale</span>
                     <!--pic-->
                     <div class="rec-image-wrapper">
@@ -963,7 +963,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const leftBtn = document.querySelector(".scroll-btn.left");
   const rightBtn = document.querySelector(".scroll-btn.right");
 
-  const scrollAmount = 200; // 每次滚动像素，可根据实际卡片宽度微调
+  const scrollAmount = 200; 
 
   leftBtn.addEventListener("click", () => {
     scrollContainer.scrollBy({
@@ -979,6 +979,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+//跳转商品卡 除去购物车和收藏按钮
+document.addEventListener("DOMContentLoaded", function () {
+  const targetCard = document.getElementById("card-kogan-tv");
+
+  if (targetCard) {
+    targetCard.addEventListener("click", function () {
+      window.location.href = "product_page.html";
+    });
+
+    const addToCart = targetCard.querySelector(".add-to-cart");
+    const heartIcon = targetCard.querySelector(".icon-heart");
+
+    if (addToCart) {
+      addToCart.addEventListener("click", function (event) {
+        event.stopPropagation(); 
+      });
+    }
+
+    if (heartIcon) {
+      heartIcon.addEventListener("click", function (event) {
+        event.stopPropagation(); 
+      });
+    }
+  }
+});
+
 
 
 

@@ -80,7 +80,7 @@
 
                 <!--缩略图-->
                 <div class="thumbnail-row">
-                    <img src="image/tv1-thumb.webp" alt="Thumb 1" />
+                    <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="Thumb 1" />
                     <img src="image/tv2-thumb.webp" alt="Thumb 2" />
                     <img src="image/tv3-thumb.webp" alt="Thumb 3" />
                     <img src="image/tv4-thumb.webp" alt="Thumb 4" />
@@ -89,8 +89,8 @@
                     <img src="image/tv7-thumb.webp" alt="Thumb 7" />
                     <img src="image/tv8-thumb.webp" alt="Thumb 8" />
                     <img src="image/tv9-thumb.webp" alt="Thumb 9" />
-                    <img src="image/tv1-thumb.webp" alt="Thumb 1" />
-                    <img src="image/tv2-thumb.webp" alt="Thumb 2" />
+                    <img src="image/tv1-thumb.webp" alt="Thumb 10" />
+                    <img src="image/tv2-thumb.webp" alt="Thumb 11" />
                 </div>
 
                 <!--详情卡片-->
@@ -758,7 +758,16 @@
     overlay.classList.add('hidden');
   });
 
-  
+
+const mainImage = document.querySelector('.main-image img');
+const thumbnails = document.querySelectorAll('.thumbnail-row img');
+
+thumbnails.forEach((thumb) => {
+  thumb.addEventListener('click', () => {
+    mainImage.src = thumb.src; // ✅ 点击哪张小图，主图就显示它
+  });
+});
+
 </script>
 </body>
 

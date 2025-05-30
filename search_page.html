@@ -958,6 +958,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const scrollContainer = document.querySelector(".category-scroll");
+  const leftBtn = document.querySelector(".scroll-btn.left");
+  const rightBtn = document.querySelector(".scroll-btn.right");
+
+  const scrollAmount = 200; // 每次滚动像素，可根据实际卡片宽度微调
+
+  leftBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth"
+    });
+  });
+
+  rightBtn.addEventListener("click", () => {
+    scrollContainer.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  });
+});
+
+
 
 </script>
 </html>

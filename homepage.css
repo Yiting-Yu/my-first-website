@@ -558,6 +558,18 @@ img {
   margin-left: 2px;
 }
 
+.btn-text-horizontal {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.btn-text-horizontal:active {
+  transform: scale(0.95); /* 按下时轻微缩小 */
+}
+
 /* 商品卡片区域 */
 .product-row {
   display: flex;
@@ -747,6 +759,13 @@ img {
   margin-top: 2px;
   margin-bottom: 2px;
   margin-right: 12px;
+  width: 80px;
+  transition: transform 0.12s ease-in-out; 
+  cursor: pointer; 
+}
+
+.view-more-vertical-btn:active {
+  transform: scale(0.95);                
 }
 
 .view-more-vertical-btn img {
@@ -820,6 +839,11 @@ img {
   margin-left: 12px;
   cursor: pointer;
   margin-top: -16px;
+  transition: transform 0.12s ease-in-out;
+}
+
+.icon-heart:active {
+  transform: scale(0.85);
 }
 
 .price-and-cart {
@@ -860,6 +884,11 @@ img {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.12s ease-in-out, background-color 0.3s ease;
+}
+
+.add-to-cart:active {
+  transform: scale(0.9);
 }
 
 .add-to-cart img {

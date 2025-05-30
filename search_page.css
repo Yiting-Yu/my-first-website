@@ -332,7 +332,7 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-input[type="radio"]:checked::before {
+input[type="radio"]#price-300-500:checked::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -467,22 +467,27 @@ input[type="radio"]:checked::before {
   justify-content: space-between;
   align-items: flex-start;
   margin: 20px 0;
-  padding-right: 32px; /* 右边留出空间 */
+  padding-right: 32px;
 }
 
 /* === Left side TV tag === */
+.filter-tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* 自动换行 */
+  align-items: center;
+}
+
 .filter-tag {
   display: flex;
   align-items: center;
-  border: 1px solid #eee;
   border-radius: 8px;
   overflow: hidden;
   font-size: 14px;
   height: 40px;
   background-color: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-
   margin-top: 22px;
+  border: 1px solid #eeeeee;
 }
 
 .filter-tag span {
@@ -494,10 +499,6 @@ input[type="radio"]:checked::before {
   background-color: #ffedd2;
   cursor: pointer;
   transition: background-color 0.2s;
-}
-
-.close-icon:hover {
-  background-color: #fde68a;
 }
 
 /* === Right side control group === */
@@ -519,7 +520,7 @@ input[type="radio"]:checked::before {
   padding: 6px 12px;
   font-size: 14px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid #eeeeee;
   background-color: #fff;
   height: 40px;
 }
@@ -544,7 +545,7 @@ input[type="radio"]:checked::before {
   display: flex;
   border-radius: 6px;
   overflow: hidden;
-  border: 1px solid #ccc;
+  border: 1px solid #eeeeee;
   height: 40px;
 }
 
@@ -636,6 +637,11 @@ input[type="radio"]:checked::before {
   margin-left: 12px;
   margin-top: 2px;
   cursor: pointer;
+  transition: transform 0.12s ease-in-out;
+}
+
+.icon-heart:active {
+  transform: scale(0.85);
 }
 
 /* 星级评价 */
@@ -688,7 +694,13 @@ input[type="radio"]:checked::before {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.12s ease-in-out, background-color 0.3s ease;
 }
+
+.add-to-cart:active {
+  transform: scale(0.9);
+}
+
 .add-to-cart img {
   width: 18px;
   height: 18px;

@@ -92,7 +92,10 @@
                     <img src="image/Chevron left (2).svg"Toggle class="chevron-icon" />
                 </div>
                 <label><input type="radio" name="price" /> Under $300</label><br>
-                <label><input type="radio" name="price" /> $300 to $500</label><br>
+                <label>
+                    <input type="radio" name="price" value="300-500" id="price-300-500" />
+                    $300 to $500
+                </label><br>
                 <label><input type="radio" name="price" /> $500 to $800</label><br>
                 <label><input type="radio" name="price" /> $800 to $1300</label><br>
                 <label><input type="radio" name="price" /> $1300 and above</label><br>
@@ -253,9 +256,15 @@
 
             <!-- 筛选栏（Sort by / Grid View Toggle） -->
             <div class="sort-bar">
-                <div class="filter-tag">
-                    <span>TVs</span>
-                    <img src="image/close-icon.svg" alt="Remove filter" class="close-icon" />
+                <div class="filter-tags">
+                    <div class="filter-tag">
+                        <span>TVs</span>
+                        <img src="image/close-icon.svg" alt="Remove filter" class="close-icon" />
+                    </div>
+                    <div class="filter-tag" id="tag-300-500" style="display: none;">
+                        <span>$300 to $500</span>
+                        <img src="image/close-icon.svg" alt="Remove filter" class="close-icon" />
+                    </div>
                 </div>
 
                 <div class="sort-controls">
@@ -278,7 +287,7 @@
             </div>
 
             <!-- 产品卡片区域 -->
-            <div class="product-grid">
+            <div class="product-grid" id="defaultProductGrid">
                 <!--1-->
                 <div class="rec-product-card">
                     <span class="tag red">Sale</span>
@@ -520,7 +529,7 @@
                     <!--INFO-->
                     <div class="product-info">
                         <div class="product-title">
-                            <p class="rec-product-name">32" LED Full HD Tizen Smart TV </p>
+                            <p class="rec-product-name">32" LED Full HD Tizen Smart TV</p>
                             <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
                         </div>
 
@@ -535,6 +544,271 @@
                             <div class="rec-price">
                                 <span class="rec-new-price">$206</span>
                                 <del class="rec-old-price">$399.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 筛选后产品卡片区域 -->
+            <div class="product-grid" id="filteredProductGrid" style="display: none;">
+                <!--1-->
+                <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">55" LED 4K Smart Roku TV</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$419</span>
+                                <del class="rec-old-price">$749.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--2-->
+                <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/tv2.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">43" LED 4K Smart AI Google TV</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$359</span>
+                                <del class="rec-old-price">$599</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--3-->
+                <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/tv5.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">65" LED 4K Smart Roku TV</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$499</span>
+                                <del class="rec-old-price">$999.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--4-->
+                <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/tv13.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">50" LED 4K Smart Roku TV</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$365</span>
+                                <del class="rec-old-price">$599.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--5-->
+                <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/tv6.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">42" LED Full HD Tizen Smart TV </p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$329</span>
+                                <del class="rec-old-price">$599</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--6-->
+                <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/tv11.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">43" QLED 4K 144Hz Smart AI Google TV</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$459</span>
+                                <del class="rec-old-price">$799.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--7-->
+                <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/tv14.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">55" LED 4K Smart AI Google TV</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$449</span>
+                                <del class="rec-old-price">$749.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--8-->
+                <div class="rec-product-card">
+                    <!--pic-->
+                    <div class="rec-image-wrapper">
+                        <img src="image/tv12.webp" alt="TV Product" class="product-img" />
+                    </div>
+
+                    <!--INFO-->
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="rec-product-name">50" QLED 4K Smart Roku TV</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+
+                        <!-- 星级评分 -->
+                        <p class="stars">
+                        <span class="rec-star-icons">★★★★★</span>
+                        <span class="rec-review-count">(100+)</span>
+                        </p>
+
+                        <!-- 价格 + 加购按钮 -->
+                        <div class="price-and-cart">
+                            <div class="rec-price">
+                                <span class="rec-new-price">$419</span>                                
                             </div>
                             <button class="add-to-cart">
                                 <img src="image/Shopping cart.png" alt="Cart" />
@@ -619,11 +893,71 @@
             </div>
 
         </footer>
-
-
-        
-
-
-
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const radio300to500 = document.getElementById("price-300-500");
+  const tag300to500 = document.getElementById("tag-300-500");
+  const closeBtn = tag300to500.querySelector(".close-icon");
+
+  const defaultGrid = document.getElementById("defaultProductGrid");
+  const filteredGrid = document.getElementById("filteredProductGrid");
+
+  radio300to500.addEventListener("change", () => {
+    if (radio300to500.checked) {
+      tag300to500.style.display = "flex";
+      defaultGrid.style.display = "none";
+      filteredGrid.style.display = "grid";
+    }
+  });
+
+  closeBtn.addEventListener("click", () => {
+    tag300to500.style.display = "none";
+    defaultGrid.style.display = "grid";
+    filteredGrid.style.display = "none";
+    radio300to500.checked = false;
+  });
+});
+
+//收藏爱心特效
+document.addEventListener('DOMContentLoaded', () => {
+  const hearts = document.querySelectorAll('.icon-heart');
+
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => {
+      const isFavorited = heart.classList.contains('favorited');
+
+      if (!isFavorited) {
+        heart.src = 'image/Heart-filled.svg';
+        heart.classList.add('favorited');
+      } else {
+        heart.src = 'image/Heart.png';
+        heart.classList.remove('favorited');
+      }
+    });
+  });
+});
+
+// 购物车按钮摁下特效
+document.addEventListener('DOMContentLoaded', () => {
+  const cartButtons = document.querySelectorAll('.add-to-cart');
+
+  cartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (!button.classList.contains('added')) {
+        button.classList.add('added');
+        button.style.backgroundColor = '#e5e7eb';
+        button.querySelector('img').src = 'image/tick.svg'; 
+      } else {
+        //再次点击可以取消添加
+        button.classList.remove('added');
+        button.style.backgroundColor = '#f97316'; 
+        button.querySelector('img').src = 'image/Shopping cart.png';
+      }
+    });
+  });
+});
+
+
+</script>
 </html>

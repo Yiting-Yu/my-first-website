@@ -125,7 +125,7 @@ img {
 /* 推荐项样式 */
 .suggestion-box {
   position: absolute;
-  top: 100%; /* 紧贴输入框底部 */
+  top: 100%;
   left: 0;
   width: 100%;
   background-color: white;

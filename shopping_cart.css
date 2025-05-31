@@ -424,6 +424,19 @@ img {
   font-size: 14px;
 }
 
+.qty-btn {
+  transition: transform 0.1s ease;
+}
+
+/* 点击时变小一点，再弹回来 */
+.qty-btn:active {
+  transform: scale(0.9);
+}
+
+.qty-btn.clicked {
+  transform: scale(0.9);
+}
+
 /* 配送信息 */
 .delivery-info {
   margin-bottom: 24px;

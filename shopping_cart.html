@@ -93,9 +93,9 @@
                     </td>
                     <td>
                         <div class="quantity-selector">
-                            <button><img src="image/Minus.svg" alt="Minus"></button>
+                            <button class="qty-btn"><img src="image/Minus.svg" alt="Minus"></button>
                             <input type="text" value="1" readonly>
-                            <button><img src="image/Plus.svg" alt="Plus"></button>
+                            <button class="qty-btn"><img src="image/Plus.svg" alt="Plus"></button>
                         </div>
                     </td>
                     <td>
@@ -116,9 +116,9 @@
                     </td>
                     <td>
                         <div class="quantity-selector">
-                            <button><img src="image/Minus.svg" alt="Minus"></button>
+                            <button class="qty-btn"><img src="image/Minus.svg" alt="Minus"></button>
                             <input type="text" value="1" readonly>
-                            <button><img src="image/Plus.svg" alt="Plus"></button>
+                            <button class="qty-btn"><img src="image/Plus.svg" alt="Plus"></button>
                         </div>
                     </td>
                     <td>
@@ -257,4 +257,61 @@
 
     </footer>
 </body>
+<script>
+//数量增加
+document.querySelectorAll('.quantity-selector').forEach((selector) => {
+  const minusBtn = selector.children[0];
+  const input = selector.children[1];
+  const plusBtn = selector.children[2];
+
+  minusBtn.addEventListener('click', () => {
+    let current = parseInt(input.value);
+    if (current > 1) {
+      input.value = current - 1;
+      updateSubtotal(selector);
+    }
+  });
+
+  plusBtn.addEventListener('click', () => {
+    let current = parseInt(input.value);
+    input.value = current + 1;
+    updateSubtotal(selector);
+  });
+});
+
+function updateSubtotal(selector) {
+  const row = selector.closest('tr');
+  const unitPrice = parseFloat(row.querySelector('.discounted-price').textContent.replace('$', ''));
+  const quantity = parseInt(selector.querySelector('input').value);
+  const subtotalCell = row.querySelector('td:last-child strong');
+  subtotalCell.textContent = `$${unitPrice * quantity}`;
+
+  updateCartTotal();
+}
+
+function updateCartTotal() {
+  let total = 0;
+  document.querySelectorAll('.cart-table tbody tr').forEach(row => {
+    const quantity = parseInt(row.querySelector('.quantity-selector input').value);
+    const unitPrice = parseFloat(row.querySelector('.discounted-price').textContent.replace('$', ''));
+    total += quantity * unitPrice;
+  });
+
+  const deliveryFee = 60;
+  total += deliveryFee;
+
+  document.querySelector('.cart-summary .total-right strong').textContent = `$${total}`;
+}
+
+document.querySelectorAll('.qty-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    btn.classList.add('clicked');
+    setTimeout(() => {
+      btn.classList.remove('clicked');
+    }, 100); // 保持动画简洁
+  });
+});
+
+</script>
+
 </html>

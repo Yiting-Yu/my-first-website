@@ -712,4 +712,9 @@ h2, h3 {
   font-weight: 600;
   margin-top: 20px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #d9480f; /* hover 变深橙色 */
 }

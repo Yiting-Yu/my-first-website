@@ -257,7 +257,7 @@
                 </div>
                 
                 <div class="order-footer">
-                    <button class="checkout-btn">Checkout Now</button>
+                    <button class="checkout-btn" type="button">Checkout Now</button>
                 </div>
                 
             </section>
@@ -528,6 +528,37 @@ document.addEventListener('click', (e) => {
   }
 });
 
+//checkout now按钮跳转下一个页面
+window.addEventListener("DOMContentLoaded", () => {
+
+  const checkoutBtn = document.querySelector('.checkout-btn');
+
+  checkoutBtn.addEventListener('click', () => {
+    const inputs = document.querySelectorAll('.shipping-form input');
+    let valid = true;
+
+    inputs.forEach(input => {
+      if (input.value.trim() === '') {
+        input.style.border = '1px solid red';
+        valid = false;
+      } else {
+        input.style.border = '';
+      }
+    });
+
+    if (!valid) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    checkoutBtn.disabled = true;
+    checkoutBtn.textContent = "Processing...";
+
+    setTimeout(() => {
+      window.location.href = 'confirm.html';
+    }, 500);
+  });
+});
 
 </script>
 </html>

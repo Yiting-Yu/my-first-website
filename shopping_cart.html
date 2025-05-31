@@ -144,13 +144,19 @@
             <p class="extended-title"><strong>Extended Care</strong></p>
             <div class="extended-line"></div>
             <label class="care-option bold-option">
-                <input type="radio" name="care" value="95"> $95 for 3 Years
+                <input type="radio" name="care" value="95" />
+                <span class="custom-radio"></span>
+                $95 for 3 Years
             </label>
             <label class="care-option bold-option">
-                <input type="radio" name="care" value="186"> $186 for 5 Years
+                <input type="radio" name="care" value="186" />
+                <span class="custom-radio"></span>
+                $186 for 5 Years
             </label>
             <label class="care-option light-option">
-                <input type="radio" name="care" value="0"> No Thanks
+                <input type="radio" name="care" value="0" />
+                <span class="custom-radio"></span>
+                No Thanks
             </label>
         </div>
 
@@ -303,12 +309,40 @@ function updateCartTotal() {
   document.querySelector('.cart-summary .total-right strong').textContent = `$${total}`;
 }
 
+//数量加减按钮增加弹起效果
 document.querySelectorAll('.qty-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     btn.classList.add('clicked');
     setTimeout(() => {
       btn.classList.remove('clicked');
-    }, 100); // 保持动画简洁
+    }, 100);
+  });
+});
+
+function updateCartTotal() {
+  let total = 0;
+  document.querySelectorAll('.cart-table tbody tr').forEach(row => {
+    const quantity = parseInt(row.querySelector('.quantity-selector input').value);
+    const unitPrice = parseFloat(row.querySelector('.discounted-price').textContent.replace('$', ''));
+    total += quantity * unitPrice;
+  });
+
+  // 配送费
+  const deliveryFee = 60;
+  total += deliveryFee;
+
+  // 延长保修（care）费用
+  const selectedCare = document.querySelector('input[name="care"]:checked');
+  if (selectedCare) {
+    total += parseFloat(selectedCare.value);
+  }
+
+  document.querySelector('.cart-summary .total-right strong').textContent = `$${total}`;
+}
+
+document.querySelectorAll('input[name="care"]').forEach(radio => {
+  radio.addEventListener('change', () => {
+    updateCartTotal();
   });
 });
 

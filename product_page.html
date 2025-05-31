@@ -586,7 +586,10 @@
             </div>
 
             <div class="cart-actions">
-                <button class="btn btn-orange">View cart & Checkout</button>
+                <button class="btn btn-orange" id="view-cart-btn">
+                    <span class="view-cart-text">View cart & Checkout</span>
+                    <span class="view-cart-spinner"></span>
+                </button>
                 <p class="continue-text">Continue Shopping</p>
             </div>
         </div>
@@ -597,14 +600,15 @@
             <h3>Add Extended Care</h3>
             <div class="care-options">
                 <label>
-                    <input type="radio" name="warranty" checked />
+                    <input type="radio" name="warranty" disabled />
                     $48 for 3 Years <span class="pop-up-tag">OUR PICK</span>
                 </label>
                 <label>
-                    <input type="radio" name="warranty" />
+                    <input type="radio" name="warranty" disabled />
                     $68 for 5 Years
                 </label>
             </div>
+
 
             <div class="care-icons">
                 <div class="care-item">
@@ -745,7 +749,7 @@
             
         </div>
     </div>
-
+</body>
 <script>
 //add to cart 加载 pop up
 const addToCartBtn = document.querySelector('.add-to-cart-btn');
@@ -871,29 +875,46 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// 购物车按钮摁下特效
 document.addEventListener('DOMContentLoaded', () => {
-  const cartButtons = document.querySelectorAll('.add-to-cart');
+  const firstCard = document.querySelector('.more-product-card');
+  const cartButton = firstCard.querySelector('.add-to-cart');
+  const viewCartBtn = document.querySelector('.btn-orange');
 
-  cartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      if (!button.classList.contains('added')) {
-        button.classList.add('added');
-        button.style.backgroundColor = '#e5e7eb';
-        button.querySelector('img').src = 'image/tick.svg'; 
-      } else {
-        //再次点击可以取消添加
-        button.classList.remove('added');
-        button.style.backgroundColor = '#f97316'; 
-        button.querySelector('img').src = 'image/Shopping cart.png';
-      }
-    });
+  let hasAddedFirstProduct = false;
+
+  cartButton.addEventListener('click', () => {
+  
+    cartButton.classList.add('button-pressed');
+    setTimeout(() => cartButton.classList.remove('button-pressed'), 200); 
+
+    if (!cartButton.classList.contains('added')) {
+      cartButton.classList.add('added');
+      cartButton.style.backgroundColor = '#e5e7eb';
+      cartButton.querySelector('img').src = 'image/tick.svg';
+      hasAddedFirstProduct = true;
+    } else {
+      cartButton.classList.remove('added');
+      cartButton.style.backgroundColor = '#f97316';
+      cartButton.querySelector('img').src = 'image/Shopping cart.png';
+      hasAddedFirstProduct = false;
+    }
+  });
+
+  viewCartBtn.addEventListener('click', () => {
+    if (hasAddedFirstProduct) {
+      viewCartBtn.classList.add('loading');
+      viewCartBtn.disabled = true;
+
+      setTimeout(() => {
+        window.location.href = 'shopping_cart.html';
+      }, 500);
+    } else {
+      alert("Please add the recommended product to your cart first.");
+    }
   });
 });
 
+
+
 </script>
-</body>
-
-</body>
-
 </html>

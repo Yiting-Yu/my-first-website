@@ -482,8 +482,8 @@ h2, h3 {
   flex: 1;
   border-radius: 12px;
   padding: 24px;
-  height: 520px;
   border: 1px solid #eeeeee;
+  height: fit-content;
 }
 
 .order-summary .order-item {

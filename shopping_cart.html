@@ -379,6 +379,37 @@ discountBtn.addEventListener('click', () => {
   }, 300); 
 });
 
+// 在购物车页保存数据
+document.querySelector('.checkout-button button').addEventListener('click', () => {
+  const rows = document.querySelectorAll('.cart-table tbody tr');
+  const items = [];
+
+  rows.forEach(row => {
+    const name = row.querySelector('.product-name').textContent.trim();
+    const price = parseFloat(row.querySelector('.discounted-price').textContent.replace('$', ''));
+    const qty = parseInt(row.querySelector('.quantity-selector input').value);
+    const image = row.querySelector('img').getAttribute('src');
+
+    items.push({
+      name,
+      price,
+      qty,
+      image
+    });
+  });
+
+  const selectedCare = document.querySelector('input[name="care"]:checked');
+  const careValue = selectedCare ? parseFloat(selectedCare.value) : 0;
+
+  localStorage.setItem("cartItems", JSON.stringify(items));
+  localStorage.setItem("carePrice", careValue.toString());
+
+  // ✅ 延迟跳转，让按钮动画有机会展示
+  setTimeout(() => {
+    window.location.href = "payment.html";
+  }, 300); // 300ms ~ 500ms 体验最佳
+});
+
 </script>
 
 </html>

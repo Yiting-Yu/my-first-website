@@ -175,50 +175,55 @@
         
             <!--右侧-->
             <section class="order-summary">
-                <h2>Order Summary</h2>
+                <div class="summary-body">
+                    <h2>Order Summary</h2>
 
-                <div class="order-item">
-                    <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="TV" class="item-thumbnail">
-                    <div class="item-details">
-                        <p class="item-name">Kogan 55” LED 4K Smart Roku TV - R95T</p>
-                        <p class="item-qty">Qty: 1</p>
+                    <div class="order-item">
+                        <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="TV" class="item-thumbnail">
+                        <div class="item-details">
+                            <p class="item-name">Kogan 55” LED 4K Smart Roku TV - R95T</p>
+                            <p class="item-qty">Qty: 1</p>
+                        </div>
+                        <div class="item-price">$419</div>
                     </div>
-                    <div class="item-price">$419</div>
-                </div>
 
-                <div class="order-item">
-                    <img src="image/add_to_cart_1.webp" alt="Soundbar" class="item-thumbnail">
-                    <div class="item-details">
-                        <p class="item-name">2.1 Channel 100W Dolby Atmos Soundbar</p>
-                        <p class="item-qty">Qty: 1</p>
+                    <div class="order-item">
+                        <img src="image/add_to_cart_1.webp" alt="Soundbar" class="item-thumbnail">
+                        <div class="item-details">
+                            <p class="item-name">2.1 Channel 100W Dolby Atmos Soundbar</p>
+                            <p class="item-qty">Qty: 1</p>
+                        </div>
+                        <div class="item-price">$119</div>
                     </div>
-                    <div class="item-price">$119</div>
+
+
+                    <hr class="divider" />
+
+                    <div class="price-line">
+                        <span>Subtotal</span>
+                        <span>$538</span>
+                    </div>
+                    <div class="price-line">
+                        <span>Discount</span>
+                        <span>-$0</span>
+                    </div>
+                    <div class="price-line">
+                        <span>Shipping</span>
+                        <span>$60</span>
+                    </div>
+
+                    <hr class="divider" />
+
+                    <div class="total-line">
+                        <strong>Total</strong>
+                        <strong>$598</strong>
+                    </div>
                 </div>
-
-
-                <hr class="divider" />
-
-                <div class="price-line">
-                    <span>Subtotal</span>
-                    <span>$538</span>
+                
+                <div class="order-footer">
+                    <button class="checkout-btn">Checkout Now</button>
                 </div>
-                <div class="price-line">
-                    <span>Discount</span>
-                    <span>-$0</span>
-                </div>
-                <div class="price-line">
-                    <span>Shipping</span>
-                    <span>$60</span>
-                </div>
-
-                <hr class="divider" />
-
-                <div class="total-line">
-                    <strong>Total</strong>
-                    <strong>$598</strong>
-                </div>
-
-                <button class="checkout-btn">Checkout Now</button>
+                
             </section>
         </div>
     
@@ -295,4 +300,80 @@
 
     </footer>
 </body>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const items = JSON.parse(localStorage.getItem("cartItems") || "[]");
+  const carePrice = parseFloat(localStorage.getItem("carePrice") || "0");
+
+  const orderSection = document.querySelector(".order-summary");
+
+  // 插入商品项
+  const itemsHTML = items.map(item => `
+    <div class="order-item">
+      <img src="${item.image}" alt="${item.name}" class="item-thumbnail">
+      <div class="item-details">
+        <p class="item-name">${item.name}</p>
+        <p class="item-qty">Qty: ${item.qty}</p>
+      </div>
+      <div class="item-price">$${item.price * item.qty}</div>
+    </div>
+  `).join("");
+
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const shipping = 60;
+  const total = subtotal + shipping + carePrice;
+
+  // 插入结构
+    orderSection.innerHTML = `
+    <h2>Order Summary</h2>
+
+    ${itemsHTML}
+
+    ${carePrice > 0 ? `
+        <div class="order-item">
+        <div class="item-details">
+            <p class="item-name">Extended Warranty</p>
+            <p class="item-qty">Included</p>
+        </div>
+        <div class="item-price">$${carePrice}</div>
+        </div>
+    ` : ""}
+
+    <hr class="divider" />
+
+    <div class="price-line">
+        <span>Subtotal</span>
+        <span>$${subtotal}</span>
+    </div>
+
+    <div class="price-line">
+        <span>Shipping</span>
+        <span>$${shipping}</span>
+    </div>
+
+    ${carePrice > 0 ? `
+        <div class="price-line">
+        <span>Extended Care</span>
+        <span>$${carePrice}</span>
+        </div>
+    ` : ""}
+
+    <div class="price-line">
+        <span>Discount</span>
+        <span>-$0</span>
+    </div>
+
+    <hr class="divider" />
+
+    <div class="total-line">
+        <strong>Total</strong>
+        <strong>$${total}</strong>
+    </div>
+
+    <button class="checkout-btn">Checkout Now</button>
+    `;
+
+});
+
+</script>
 </html>

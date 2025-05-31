@@ -167,8 +167,9 @@
 
             <div class="discount-input-group">
                 <input type="text" id="discount" placeholder="eg. DISCOUNT1">
-                <button type="button">Add discount</button>
+                <button type="button" id="apply-discount">Add discount</button>
             </div>
+            <p id="discount-feedback" class="feedback-message"></p>
         </div>
 
 
@@ -319,6 +320,7 @@ document.querySelectorAll('.qty-btn').forEach(btn => {
   });
 });
 
+//保险选项
 function updateCartTotal() {
   let total = 0;
   document.querySelectorAll('.cart-table tbody tr').forEach(row => {
@@ -327,11 +329,9 @@ function updateCartTotal() {
     total += quantity * unitPrice;
   });
 
-  // 配送费
   const deliveryFee = 60;
   total += deliveryFee;
 
-  // 延长保修（care）费用
   const selectedCare = document.querySelector('input[name="care"]:checked');
   if (selectedCare) {
     total += parseFloat(selectedCare.value);
@@ -344,6 +344,39 @@ document.querySelectorAll('input[name="care"]').forEach(radio => {
   radio.addEventListener('change', () => {
     updateCartTotal();
   });
+});
+
+//discount code
+const validCodes = ['DISCOUNT10', 'VIP20', 'SAVE2025'];
+
+document.getElementById('apply-discount').addEventListener('click', () => {
+  const input = document.getElementById('discount');
+  const code = input.value.trim().toUpperCase();
+  const feedback = document.getElementById('discount-feedback');
+
+  if (code === "") {
+    feedback.textContent = `Please enter a discount code.`;
+    feedback.classList.remove('success');
+    feedback.classList.add('error');
+  } else if (validCodes.includes(code)) {
+    feedback.textContent = `Discount code "${code}" applied successfully!`;
+    feedback.classList.remove('error');
+    feedback.classList.add('success');
+  } else {
+    feedback.textContent = `Invalid discount code. Please try again.`;
+    feedback.classList.remove('success');
+    feedback.classList.add('error');
+  }
+});
+
+const discountBtn = document.getElementById('apply-discount');
+
+discountBtn.addEventListener('click', () => {
+  discountBtn.classList.add('clicked');
+
+  setTimeout(() => {
+    discountBtn.classList.remove('clicked');
+  }, 300); 
 });
 
 </script>

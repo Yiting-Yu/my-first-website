@@ -175,30 +175,7 @@ img {
   height: 24px;
 }
 
-.cart-icon {
-  transform: translateX(-1px);
-}
 
-.cart-count {
-  position: absolute;
-  top: 42px;         
-  right: 160px;        
-  background-color: red;
-  color: white;
-  font-size: 11px;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 2px 6px;
-  min-width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  box-shadow: 0 0 0 2px white;
-  pointer-events: none;
-  z-index: 10;
-}
 
 /* 三种不同颜色背景 */
 .icon-wrapper.light {
@@ -378,6 +355,43 @@ h2, h3 {
   margin-bottom: 12px;
 }
 
+.section-divider {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 24px 0 24px 0;
+}
+
+.payment-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.payment-header h2 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.logo-group {
+  margin-left: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.pay-logo {
+  height: 24px;
+  object-fit: contain;
+}
+
+.secure-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.8;
+}
+
 /* ==== Form Inputs ==== */
 .shipping-form input,
 .card-form input {
@@ -405,10 +419,164 @@ h2, h3 {
   flex: 1;
 }
 
+.input-with-history {
+  position: relative;
+  width: fit-content;
+}
+
+#history-card {
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 100;
+  white-space: nowrap;
+  width: max-content; 
+  max-width: 320px;
+  cursor: pointer;
+}
+
+.history-card {
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.history-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flex-row {
+  display: flex;
+}
+.card-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-info p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.card-name {
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
+
+/*刷卡*/
+.card-history-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 100;
+  white-space: nowrap;
+  max-width: 320px;
+  width: max-content;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.card-history-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-logo {
+  width: 42px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.card-history-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-digits {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-expiry {
+  font-size: 13px;
+  color: #666;
+  margin: 2px 0 0 0;
+}
+
+.security-note {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.4s ease;
+  pointer-events: none;
+  visibility: hidden; 
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: green;
+  margin-top: 16px;
+  height: 0;
+  overflow: hidden;
+}
+
+
+.security-note .lock-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.security-note.show {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  visibility: visible;
+  height: auto;
+}
+
+/*自动输入文字*/
+.autofill-animate {
+  animation: textFadeSlide 0.5s ease;
+}
+
+@keyframes textFadeSlide {
+  from {
+    color: transparent;
+    letter-spacing: -0.1em;
+  }
+  to {
+    color: inherit;
+    letter-spacing: normal;
+  }
+}
+
+
 
 /*checkout标题*/
 
-/* ==== 快速付钱 ==== */
 /*分割线*/
 .divider-with-or {
   text-align: center;
@@ -423,7 +591,7 @@ h2, h3 {
   top: 50%;
   width: 45%;
   height: 1px;
-  background: #ccc;
+  background: #ddd;
 }
 
 .divider-with-or::before {

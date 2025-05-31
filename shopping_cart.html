@@ -404,10 +404,9 @@ document.querySelector('.checkout-button button').addEventListener('click', () =
   localStorage.setItem("cartItems", JSON.stringify(items));
   localStorage.setItem("carePrice", careValue.toString());
 
-  // ✅ 延迟跳转，让按钮动画有机会展示
   setTimeout(() => {
     window.location.href = "payment.html";
-  }, 300); // 300ms ~ 500ms 体验最佳
+  }, 300);
 });
 
 </script>

@@ -41,7 +41,7 @@
                     <div class="icon-wrapper orange">
                         <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
                     </div>
-                    <div class="cart-count">2</div>
+                    
                     <div class="icon-wrapper yellow">
                         <img src="image/user.png" alt="User" />
                     </div>
@@ -97,8 +97,20 @@
                 <div class="shipping-info card">
                     <h2>Shipping Information</h2>
                     <form class="shipping-form">
-                        <label for="first-name">First name</label>
-                        <input type="text" id="first-name" placeholder="" />
+                        
+                        <div class="input-with-history">
+                            <label for="first-name">First name</label>
+                            <input type="text" id="first-name" placeholder="" autocomplete="off"/>
+
+                            <div id="history-card" class="history-card flex-row hidden">
+                                <img src="image/user.png" alt="User Avatar" class="card-avatar" />
+                                <div class="card-info">
+                                    <p class="card-name">Sophia Williams</p>
+                                    <p class="card-desc">0412 345 678</p>
+                                </div>
+                            </div>
+                        </div>
+                
 
                         <label for="last-name">Last name</label>
                         <input type="text" id="last-name" placeholder="" />
@@ -140,16 +152,34 @@
                         </div>
                     </form>
                 </div>
-
+                <hr class="section-divider" />
                 <!--Payment Method-->
                 <div class="payment-methods-row">
                     <!--Credit Debit Card-->
                     <div class="payment-method card">
-                        <h2>Pay with Credit / Debit Card</h2>
-                        <form class="card-form shipping-form">
-                            <label for="card-name">Cardholder Name</label>
-                            <input type="text" id="card-name" placeholder="" />
+                    
+                        <div class="payment-header">
+                            <h2>Pay with Credit / Debit Card</h2>
+                            <div class="logo-group">
+                                <img src="image/Visa_Inc._logo.svg.webp" alt="Visa" class="pay-logo">
+                                <img src="image/MasterCard_Logo.svg.png" alt="Mastercard" class="pay-logo">
+                            </div>
+                        </div>
 
+                        
+                        <form class="card-form shipping-form">
+                            <div class="input-with-history">
+                                <label for="card-name">Cardholder Name</label>
+                                <input type="text" id="card-name" placeholder="" autocomplete="off"/>
+                                <div id="card-history" class="card-history-card hidden">
+                                    <img src="image/mastercard-logo.png" alt="Mastercard" class="card-logo" />
+                                    <div class="card-history-info">
+                                        <p class="card-digits">•••• 1234</p>
+                                        <p class="card-expiry">Expiry: 08/27</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <label for="card-number">Card Number</label>
                             <input type="text" id="card-number" placeholder="" />
 
@@ -163,7 +193,13 @@
                                     <input type="text" id="cvv" placeholder="" />
                                 </div>
                             </div>
+                            <div class="security-note" id="security-note">
+                                <img src="image/lock.svg" alt="Secure" class="lock-icon" />
+                                <span>Secure payment powered by 256-bit SSL encryption</span>
+                            </div>
+
                         </form>
+                        
                     </div>
                 </div>
 
@@ -301,6 +337,7 @@
     </footer>
 </body>
 <script>
+//order summary更新信息
 window.addEventListener("DOMContentLoaded", () => {
   const items = JSON.parse(localStorage.getItem("cartItems") || "[]");
   const carePrice = parseFloat(localStorage.getItem("carePrice") || "0");
@@ -374,6 +411,123 @@ window.addEventListener("DOMContentLoaded", () => {
     `;
 
 });
+
+// Shipping info 自动输入
+const savedProfile = {
+  firstName: "Sophia",
+  lastName: "Williams",
+  phone: "0412 345 678",
+  email: "SophiaW@gmail.com",
+  address1: "22 Greenview Avenue",
+  address2: "Unit 5B",
+  suburb: "Richmond",
+  country: "Australia",
+  state: "VIC",
+  postcode: "3000"
+};
+
+const firstNameInput = document.getElementById('first-name');
+const historyCard = document.getElementById('history-card');
+
+firstNameInput.addEventListener('click', (e) => {
+  historyCard.classList.remove('hidden');
+  setTimeout(() => historyCard.classList.add('show'), 10);
+  e.stopPropagation();
+});
+
+historyCard.addEventListener('click', () => {
+  const fields = [
+    ['first-name', savedProfile.firstName],
+    ['last-name', savedProfile.lastName],
+    ['phone', savedProfile.phone],
+    ['email', savedProfile.email],
+    ['address1', savedProfile.address1],
+    ['address2', savedProfile.address2],
+    ['suburb', savedProfile.suburb],
+    ['country', savedProfile.country],
+    ['state', savedProfile.state],
+    ['postcode', savedProfile.postcode]
+  ];
+
+  fields.forEach(([id, value]) => {
+    const input = document.getElementById(id);
+    input.value = value;
+    input.classList.remove('autofill-animate'); 
+    void input.offsetWidth;                     
+    input.classList.add('autofill-animate');
+  });
+
+  historyCard.classList.remove('show');
+  setTimeout(() => historyCard.classList.add('hidden'), 250);
+});
+
+document.addEventListener('click', (e) => {
+  if (!firstNameInput.contains(e.target) && !historyCard.contains(e.target)) {
+    historyCard.classList.remove('show');
+    setTimeout(() => historyCard.classList.add('hidden'), 250);
+  }
+});
+
+// Card Info 自动输入
+const savedCard = {
+  name: "Sophia Williams",
+  number: "4111 1111 1111 1234",
+  expiry: "08/27",
+  cvv: "123"
+};
+
+const cardNameInput = document.getElementById('card-name');
+const cardNumberInput = document.getElementById('card-number');
+const expiryInput = document.getElementById('expiry');
+const cvvInput = document.getElementById('cvv');
+const cardHistory = document.getElementById('card-history');
+const securityNote = document.getElementById('security-note');
+
+function checkCardNumberForSecurityNote() {
+  const value = cardNumberInput.value.replace(/\s/g, '');
+  if (value.length >= 16) {
+    securityNote.classList.add('show');
+  } else {
+    securityNote.classList.remove('show');
+  }
+}
+
+cardNumberInput.addEventListener('input', checkCardNumberForSecurityNote);
+
+cardNameInput.addEventListener('click', (e) => {
+  cardHistory.classList.remove('hidden');
+  setTimeout(() => cardHistory.classList.add('show'), 10);
+  e.stopPropagation();
+});
+
+cardHistory.addEventListener('click', () => {
+  const cardFields = [
+    [cardNameInput, savedCard.name],
+    [cardNumberInput, savedCard.number],
+    [expiryInput, savedCard.expiry],
+    [cvvInput, savedCard.cvv]
+  ];
+
+  cardFields.forEach(([input, value]) => {
+    input.value = value;
+    input.classList.remove('autofill-animate');
+    void input.offsetWidth;
+    input.classList.add('autofill-animate');
+  });
+
+  cardHistory.classList.remove('show');
+  setTimeout(() => cardHistory.classList.add('hidden'), 250);
+
+  checkCardNumberForSecurityNote(); 
+});
+
+document.addEventListener('click', (e) => {
+  if (!cardNameInput.contains(e.target) && !cardHistory.contains(e.target)) {
+    cardHistory.classList.remove('show');
+    setTimeout(() => cardHistory.classList.add('hidden'), 250);
+  }
+});
+
 
 </script>
 </html>

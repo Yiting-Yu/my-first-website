@@ -461,7 +461,10 @@
                     </div>
 
                     <!-- 加入购物车按钮 -->
-                    <button class="add-to-cart-btn" id="show-cart">Add to cart</button>
+                    <button class="add-to-cart-btn" id="show-cart">
+                        <span class="btn-text">Add to cart</span>
+                        <span class="btn-loader"></span>
+                    </button>
                 </div>
 
                 <div class="shipping-payment-info">
@@ -744,25 +747,28 @@
     </div>
 
 <script>
-  // 获取元素
-  const addToCartBtn = document.querySelector('.add-to-cart-btn');
-  const cartPopup = document.querySelector('.cart-popup');
-  const overlay = document.getElementById('overlay');
-  const closeBtn = document.querySelector('.close-btn');
+//add to cart 加载 pop up
+const addToCartBtn = document.querySelector('.add-to-cart-btn');
+const cartPopup = document.querySelector('.cart-popup');
+const overlay = document.getElementById('overlay');
+const closeBtn = document.querySelector('.close-btn');
 
-  // 点击“加入购物车”按钮显示弹窗
-  addToCartBtn.addEventListener('click', () => {
+addToCartBtn.addEventListener('click', () => {
+
+  addToCartBtn.classList.add('loading');
+
+  setTimeout(() => {
+    addToCartBtn.classList.remove('loading');
     cartPopup.classList.remove('hidden');
     overlay.classList.remove('hidden');
-  });
+  }, 500); 
+});
 
-  // 点击关闭按钮隐藏弹窗
-  closeBtn.addEventListener('click', () => {
-    cartPopup.classList.add('hidden');
-    overlay.classList.add('hidden');
-  });
+closeBtn.addEventListener('click', () => {
+  cartPopup.classList.add('hidden');
+  overlay.classList.add('hidden');
+});
 
-  // 商品图切换
   const mainImage = document.querySelector('.main-image img');
   const thumbnails = document.querySelectorAll('.thumbnail-row img');
 
@@ -772,7 +778,7 @@
     });
   });
 
-  //tab切换
+//tab切换
 const tabButtons = document.querySelectorAll('.product-tabs .tab');
 const sections = ['gallery', 'description', 'specification', 'reviews'];
 
@@ -864,6 +870,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// 购物车按钮摁下特效
+document.addEventListener('DOMContentLoaded', () => {
+  const cartButtons = document.querySelectorAll('.add-to-cart');
+
+  cartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      if (!button.classList.contains('added')) {
+        button.classList.add('added');
+        button.style.backgroundColor = '#e5e7eb';
+        button.querySelector('img').src = 'image/tick.svg'; 
+      } else {
+        //再次点击可以取消添加
+        button.classList.remove('added');
+        button.style.backgroundColor = '#f97316'; 
+        button.querySelector('img').src = 'image/Shopping cart.png';
+      }
+    });
+  });
+});
+
 </script>
 </body>
 

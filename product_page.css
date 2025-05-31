@@ -602,6 +602,52 @@ img {
   height: 18px;
 }
 
+.add-to-cart-btn {
+  position: relative;
+  background-color: #F97316;
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  overflow: hidden;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e25d10;
+}
+
+.btn-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.add-to-cart-btn.loading .btn-text {
+  visibility: hidden;
+}
+
+.add-to-cart-btn.loading .btn-loader {
+  display: block;
+}
+
+@keyframes spin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 /* === 评论区 === */
 .reviews-section {
   background-color: #fff;
@@ -1211,16 +1257,16 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
   z-index: 999;
 }
+
 
 /* 弹窗隐藏控制 */
 .hidden {
   display: none;
 }
-
 
 /* === add to cart pop up === */
 .cart-popup {
@@ -1521,8 +1567,11 @@ img {
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.12s ease-in-out, background-color 0.3s ease;
 }
-
+.add-to-cart:active {
+  transform: scale(0.9);
+}
 .add-to-cart img {
   width: 18px;
   height: 18px;

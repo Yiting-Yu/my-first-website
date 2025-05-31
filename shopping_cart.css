@@ -584,6 +584,10 @@ img {
   cursor: pointer;
 }
 
+.checkout-button button:hover {
+  background-color: #d9480f;
+}
+
 /* 说明文字 */
 .terms-note {
   font-size: 12px;

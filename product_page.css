@@ -1105,7 +1105,7 @@ img {
 }
 
 .add-to-cart-btn:hover {
-  background-color: #e25d10;
+  background-color: #d9480f;
 }
 
 /* === INFO === */
@@ -1357,6 +1357,7 @@ img {
   margin-right: 12px;
 }
 
+/*view cart按钮*/
 .btn-orange {
   background-color: #f97316;
   color: white;
@@ -1367,6 +1368,11 @@ img {
   font-weight: normal;
   cursor: pointer;
   margin-bottom: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-orange:hover {
+  background-color: #d9480f;
 }
 
 .continue-text {

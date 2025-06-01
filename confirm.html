@@ -70,7 +70,7 @@
             <div class="order-summary-header">
                 <div class="order-summary-toggle">
                     <span>Show Order Summary</span>
-                    <img src="image/Chevron left (2).svg" alt="Chevron" />
+                    <img src="image/Chevron left.svg" alt="Chevron" />
                 </div>
             </div>
 
@@ -367,4 +367,106 @@
 
         
 </body>
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+  const items = JSON.parse(localStorage.getItem("cartItems") || "[]");
+  const carePrice = parseFloat(localStorage.getItem("carePrice") || "0");
+
+  const orderDetails = document.querySelector(".order-summary-details");
+
+  const itemsHTML = items.map(item => `
+    <div class="summary-item">
+      <div class="item-info">
+        <img src="${item.image}" alt="${item.name}" class="item-thumb" />
+        <div class="item-text">
+          <p class="item-name">${item.name}</p>
+          <p class="item-qty">Qty: ${item.qty}</p>
+        </div>
+      </div>
+      <div class="item-price">$${item.price * item.qty}</div>
+    </div>
+  `).join("");
+
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const shipping = 60;
+  const total = subtotal + shipping + carePrice;
+
+  orderDetails.innerHTML = `
+    ${itemsHTML}
+
+    ${carePrice > 0 ? `
+      <div class="summary-item">
+        <div class="item-info">
+          <div class="item-text">
+            <p class="item-name">Extended Warranty</p>
+            <p class="item-qty">Included</p>
+          </div>
+        </div>
+        <div class="item-price">$${carePrice}</div>
+      </div>
+    ` : ""}
+
+    <hr class="summary-divider" />
+
+    <div class="summary-total-row">
+      <span>Subtotal:</span>
+      <span>$${subtotal}</span>
+    </div>
+
+    <div class="summary-total-row">
+      <span>Shipping:</span>
+      <span>$${shipping}</span>
+    </div>
+
+    ${carePrice > 0 ? `
+      <div class="summary-total-row">
+        <span>Extended Care:</span>
+        <span>$${carePrice}</span>
+      </div>
+    ` : ""}
+
+    <div class="summary-total-row">
+      <span>Discount:</span>
+      <span>-$0</span>
+    </div>
+
+    <hr class="summary-divider" />
+
+    <div class="summary-total-row total-bold">
+      <span>Total:</span>
+      <span>$${total}</span>
+    </div>
+  `;
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  const summaryDetails = document.querySelector('.order-summary-details');
+  summaryDetails.classList.add('collapsed');
+  summaryDetails.style.maxHeight = "0px";
+});
+
+const toggleBtn = document.querySelector('.order-summary-toggle');
+const summaryDetails = document.querySelector('.order-summary-details');
+const chevron = toggleBtn.querySelector('img');
+
+let isOpen = false;
+
+toggleBtn.addEventListener('click', () => {
+  if (isOpen) {
+    summaryDetails.classList.add('collapsed');
+    summaryDetails.classList.remove('expanded');
+    summaryDetails.style.maxHeight = "0px";
+    chevron.classList.remove('rotated');
+  } else {
+    summaryDetails.classList.remove('collapsed');
+    summaryDetails.classList.add('expanded');
+    summaryDetails.style.maxHeight = "1000px";
+    chevron.classList.add('rotated');
+  }
+  isOpen = !isOpen;
+});
+
+
+
+</script>
 </html>

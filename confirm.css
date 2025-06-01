@@ -365,7 +365,26 @@ img {
 .order-summary-details {
   display: block;
   margin-top: 16px;
+  max-height: 2000px;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  
 }
+.order-summary-details.expanded {
+  padding-bottom: 16px;
+}
+.order-summary-details.collapsed {
+  max-height: 0;
+}
+
+.order-summary-toggle img {
+  transition: transform 0.3s ease;
+}
+
+.order-summary-toggle img.rotated {
+  transform: rotate(180deg);
+}
+
 
 .summary-item {
   display: flex;

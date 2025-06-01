@@ -476,6 +476,7 @@ img {
   margin: 0;
 }
 
+
 .track-order-container {
   flex: 1;
   background-color: #ffffff;  
@@ -629,6 +630,16 @@ img {
   margin-top: 5px;
 }
 
+.icon-heart.clicked {
+  animation: pressHeart 0.2s ease;
+}
+
+@keyframes pressHeart {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.85); }
+  100% { transform: scale(1); }
+}
+
 .rec-star-icons {
   font-size: 14px;
   color: #FFBD00;
@@ -684,5 +695,16 @@ img {
   height: 18px;
 }
 
+/* 加入购物车动画按压反馈 */
+.add-to-cart.clicked {
+  animation: pressCart 0.2s ease;
+  background-color: #e5e7eb; /* 点击后颜色变化（淡灰） */
+}
+
+@keyframes pressCart {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
 
 

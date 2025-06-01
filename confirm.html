@@ -439,6 +439,7 @@ window.addEventListener("DOMContentLoaded", () => {
   `;
 });
 
+//卡片折叠
 window.addEventListener("DOMContentLoaded", () => {
   const summaryDetails = document.querySelector('.order-summary-details');
   summaryDetails.classList.add('collapsed');
@@ -466,6 +467,43 @@ toggleBtn.addEventListener('click', () => {
   isOpen = !isOpen;
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  //加入购物车按钮
+  const cartButtons = document.querySelectorAll('.add-to-cart');
+
+  cartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+
+      button.classList.add('clicked');
+      setTimeout(() => button.classList.remove('clicked'), 200);
+
+      const isAdded = button.classList.contains('added');
+      if (!isAdded) {
+        button.classList.add('added');
+        button.querySelector('img').src = 'image/tick.svg';
+        button.style.backgroundColor = '#e5e7eb'; 
+      } else {
+        button.classList.remove('added');
+        button.querySelector('img').src = 'image/Shopping cart.png';
+        button.style.backgroundColor = '#f97316'; 
+      }
+    });
+  });
+
+  //收藏爱心交互
+  const hearts = document.querySelectorAll('.icon-heart');
+
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => {
+      heart.classList.add('clicked');
+      setTimeout(() => heart.classList.remove('clicked'), 200);
+
+      const isFavorited = heart.classList.contains('favorited');
+      heart.classList.toggle('favorited');
+      heart.src = isFavorited ? 'image/Heart.png' : 'image/Heart-filled.svg';
+    });
+  });
+});
 
 
 </script>

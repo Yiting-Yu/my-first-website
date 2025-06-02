@@ -695,10 +695,9 @@ img {
   height: 18px;
 }
 
-/* 加入购物车动画按压反馈 */
 .add-to-cart.clicked {
   animation: pressCart 0.2s ease;
-  background-color: #e5e7eb; /* 点击后颜色变化（淡灰） */
+  background-color: #e5e7eb; 
 }
 
 @keyframes pressCart {

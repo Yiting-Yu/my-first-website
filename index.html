@@ -26,6 +26,7 @@
         <!--main header 最顶上的白色部分-->
         <header class="main-header">
             <div class="top-row">
+                
                 <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
                     
                 <!--搜索条-->
@@ -56,7 +57,7 @@
                         <strong>Sophia</strong>
                     </div>
                 </div>
-
+            </div>
 
             <!--categories deals win clearance news-->
             <div class="bottom-row">
@@ -69,6 +70,56 @@
                 </nav>
             </div>
         </header>
+        
+        <!--mobile version header-->
+        <header class="mobile-header">
+            <div class="mobile-header-top">
+                <div class="menu-icon">☰</div>
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <div class="icons-right">
+                <div class="icon-wrapper orange">
+                    <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                </div>
+                <div class="icon-wrapper yellow">
+                    <img src="image/user.png" alt="User" />
+                </div>
+                <div class="welcome-text">
+                    <span>Welcome!</span>
+                    <strong>Sophia</strong>
+                </div>
+                </div>
+            </div>
+
+            <div class="mobile-search-container">
+                <div class="search-box">
+                    <img src="image/search_icon.svg" alt="Search Icon" class="search-icon" />
+                    <input type="text" id="search-input-mobile" placeholder="Search in products" autocomplete="off" />
+                    
+                </div>
+                <button id="search-btn-mobile">Search</button>
+            </div>
+
+            <nav class="mobile-main-menu">
+                <div class="menu-item">
+                    <img src="image/local_fire_department.svg" alt="Deals Icon" class="header-icon" />
+                    Deals
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="Win Icon" class="header-icon" />
+                    Win $200k
+                </div>
+                <div class="menu-item">
+                    <img src="image/Dollar sign.svg" alt="Clearance Icon" class="header-icon" />
+                    Clearance
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="News Icon" class="header-icon" />
+                    News
+                </div>
+            </nav>
+
+        </header>
+
 
         <!--banner区域-->
         <section class="banner-section">
@@ -95,6 +146,19 @@
                         </button>
                     </div>
                 </div>
+
+                <section class="mobile-banner-section">
+                    <div class="mobile-banner-wrapper">
+                        <!-- Square banner images -->
+                        <img src="image/square-banner1.webp" class="mobile-banner-img active" alt="Banner 1" />
+                        <img src="image/mobile-banner2.webp" class="mobile-banner-img" alt="Banner 2" />
+                        <img src="image/mobile-banner3.webp" class="mobile-banner-img" alt="Banner 3" />
+
+                        <!-- Navigation Buttons -->
+                        <button class="mobile-banner-btn prev"><img src="image/left.svg" alt="Previous" /></button>
+                        <button class="mobile-banner-btn next"><img src="image/right.svg" alt="Next" /></button>
+                    </div>
+                </section>
 
                 <!-- 右上角Hot Sale-->
                 <aside class="hotsale-box">
@@ -178,7 +242,7 @@
                                 <img src="image/tv1.webp" alt="TV" />
                             </div>
                             
-                            <p class="product-name">43"LED 4K Smart Roku TV</p>
+                            <p class="product-name">43" LED 4K Smart Roku TV</p>
                             <p class="stars">
                                 <span class="star-icon">★★★★★</span>
                                 <span class="review-count">(100+)</span>
@@ -210,7 +274,7 @@
                             <div class="big-image-wrapper">
                                 <img src="image/2400W Panel Heater(1).png" alt="Heater" />
                             </div>
-                            <p class="product-name">2400W Panel Heater</p>
+                            <p class="product-name">White 2400W Panel Heater</p>
                             
                             <p class="stars">
                                 <span class="star-icon">★★★★★</span>
@@ -291,7 +355,7 @@
                     <p>Laptop</p>
                 </div>
                 <div class="category-item">
-                    <img src="image/local_fire_department.png" alt="Heater" />
+                    <img src="image/local_fire_department.svg" alt="Heater" />
                     <p>Heater</p>
                 </div>
                 <div class="category-item">
@@ -314,8 +378,28 @@
                     <img src="image/home (1).png" alt="Home Surveillance" />
                     <p>Home Surveillance</p>
                 </div>
+
+            </div>
+            <div class="categories-view-more-button">
+                <span>View more</span>
+                <img src="image/Chevron left.svg" alt="Arrow Down" class="arrow-icon" />
             </div>
         </section>
+
+        <section class="promo-banner-section">
+            <div class="promo-banner-wrapper">
+                <!-- Banner slides -->
+                <img src="image/promo banner.png" class="promo-banner-img active" alt="Banner 1" />
+
+                <!-- 小圆点指示器 -->
+                <div class="promo-indicators">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+
 
         <!--推荐商品-->
         <section class="recommendation">
@@ -690,6 +774,144 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.search-container')) {
+      suggestionBox.style.display = 'none';
+    }
+  });
+});
+
+//mobile banner翻页和自动播放
+document.addEventListener('DOMContentLoaded', () => {
+  const banners = document.querySelectorAll('.mobile-banner-img');
+  const nextBtn = document.querySelector('.mobile-banner-btn.next');
+  const prevBtn = document.querySelector('.mobile-banner-btn.prev');
+  let currentIndex = 0;
+  let isAnimating = false;
+
+  function showBanner(nextIndex, direction = 'right') {
+    if (isAnimating || nextIndex === currentIndex) return;
+    isAnimating = true;
+
+    const current = banners[currentIndex];
+    const next = banners[nextIndex];
+
+    current.classList.remove('active');
+    next.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+
+    if (direction === 'right') {
+      current.classList.add('slide-out-left');
+      next.classList.add('slide-in-right');
+    } else {
+      current.classList.add('slide-out-right');
+      next.classList.add('slide-in-left');
+    }
+
+    next.classList.add('active');
+
+    setTimeout(() => {
+      banners.forEach(b => {
+        b.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
+      });
+      currentIndex = nextIndex;
+      isAnimating = false;
+    }, 300);
+  }
+
+  function nextSlide() {
+    const nextIndex = (currentIndex + 1) % banners.length;
+    showBanner(nextIndex, 'right');
+  }
+
+  function prevSlide() {
+    const nextIndex = (currentIndex - 1 + banners.length) % banners.length;
+    showBanner(nextIndex, 'left');
+  }
+
+  nextBtn.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    nextSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    clearInterval(autoSlide);
+    prevSlide();
+  });
+
+  let autoSlide = setInterval(nextSlide, 6000);
+});
+
+//搜索框功能 mobile
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('search-input-mobile');
+  const button = document.getElementById('search-btn-mobile');
+
+  const suggestionBox = document.createElement('ul');
+  suggestionBox.id = 'search-suggestions-mobile';
+  suggestionBox.style.display = 'none';
+  suggestionBox.style.position = 'absolute';
+  suggestionBox.style.background = 'white';
+  suggestionBox.style.width = '100%';
+  suggestionBox.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.08)';
+  suggestionBox.style.border = 'none';
+  suggestionBox.style.borderTop = 'none';
+  suggestionBox.style.zIndex = '999';
+  suggestionBox.style.listStyle = 'none';
+  suggestionBox.style.padding = '0';
+  suggestionBox.style.margin = '0';
+
+  input.parentNode.appendChild(suggestionBox);
+
+  const tvSuggestions = [
+    "tv",
+    "tv bracket wall mount",
+    "tv stand",
+    "tv unit",
+    "tv remote control replacement",
+    "tv cabinet",
+    "tv stand wheel"
+  ];
+
+  function search(keyword) {
+    const term = keyword || input.value.trim();
+    if (term) {
+      window.location.href = `search_page.html?keyword=${encodeURIComponent(term)}`;
+    }
+  }
+
+  button.addEventListener('click', () => search());
+
+  input.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      search();
+    }
+  });
+
+  input.addEventListener('input', () => {
+    const value = input.value.toLowerCase().trim();
+    suggestionBox.innerHTML = '';
+
+    if (value === 'tv') {
+      suggestionBox.style.display = 'block';
+
+      tvSuggestions.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        li.style.padding = '8px';
+        li.style.borderBottom = '1px solid #eee';
+
+        if (index === 0) {
+          li.addEventListener('click', () => search(item));
+          li.style.cursor = 'pointer';
+        }
+
+        suggestionBox.appendChild(li);
+      });
+    } else {
+      suggestionBox.style.display = 'none';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.mobile-search-container')) {
       suggestionBox.style.display = 'none';
     }
   });

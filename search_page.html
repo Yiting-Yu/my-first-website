@@ -63,6 +63,54 @@
             </nav>
         </div>
     </header>
+    <!--mobile version header-->
+        <header class="mobile-header">
+            <div class="mobile-header-top">
+                <div class="menu-icon">☰</div>
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <div class="icons-right">
+                <div class="icon-wrapper orange">
+                    <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                </div>
+                <div class="icon-wrapper yellow">
+                    <img src="image/user.png" alt="User" />
+                </div>
+                <div class="welcome-text">
+                    <span>Welcome!</span>
+                    <strong>Sophia</strong>
+                </div>
+                </div>
+            </div>
+
+            <div class="mobile-search-container">
+                <div class="search-box">
+                    <img src="image/search_icon.svg" alt="Search Icon" class="search-icon" />
+                    <input type="text" id="search-input-mobile" placeholder="Search in products" autocomplete="off" />
+                    
+                </div>
+                <button id="search-btn-mobile">Search</button>
+            </div>
+
+            <nav class="mobile-main-menu">
+                <div class="menu-item">
+                    <img src="image/local_fire_department.svg" alt="Deals Icon" class="header-icon" />
+                    Deals
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="Win Icon" class="header-icon" />
+                    Win $200k
+                </div>
+                <div class="menu-item">
+                    <img src="image/Dollar sign.svg" alt="Clearance Icon" class="header-icon" />
+                    Clearance
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="News Icon" class="header-icon" />
+                    News
+                </div>
+            </nav>
+
+        </header>
 
     <main class="left-search-container">
         <!-- 左侧 filter 栏 -->
@@ -251,6 +299,121 @@
                 <button class="scroll-btn right">
                     <img src="image/Arrow right.png" alt="Scroll Right">
                 </button>
+            </div>
+            <!-- Filter 按钮 -->
+            <div class="filter-btn-container">
+                <button id="openFilter" class="filter-btn">Filter & Sort</button>
+            </div>
+
+            <!--Mobile Filter-->
+            <div class="mobile-filter-overlay" id="mobileFilter">
+                <!-- 顶部标题栏 -->
+                <div class="mobile-filter-header">
+                    <button id="closeMobileFilter" class="back-btn">
+                    <img src="image/left arrow.svg" alt="Back" />
+                    </button>
+                    <h2>Filter & Sort</h2>
+                </div>
+
+                <div class="mobile-filter-content">
+                    <!-- Delivery Options -->
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>Delivery Options</h4>
+                            <img src="image/Chevron left (2).svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                        <label>
+                            <input type="radio" name="delivery" />
+                            <img src="image/Fast Dispatch 1.svg" class="filter-icon" />
+                            Fast Dispatch
+                        </label><br>
+                        <label>
+                            <input type="radio" name="delivery" />
+                            <img src="image/free shipping 1.svg" class="filter-icon" />
+                            Free Shipping
+                        </label>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>Price</h4>
+                            <img src="image/Chevron left (2).svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                        <label><input type="radio" name="price" /> Under $300</label><br>
+                        <label>
+                            <input type="radio" name="price" value="300-500" />
+                            $300 to $500
+                        </label><br>
+                        <label><input type="radio" name="price" /> $500 to $800</label><br>
+                        <label><input type="radio" name="price" /> $800 to $1300</label><br>
+                        <label><input type="radio" name="price" /> $1300 and above</label>
+                        <div class="price-input">
+                            <span>$</span>
+                            <input type="text" placeholder="Min" />
+                            <span>-</span>
+                            <input type="text" placeholder="Max" />
+                            <button class="apply-btn">Apply</button>
+                        </div>
+                    </div>
+
+                    <!-- Top Brand -->
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>Top Brand</h4>
+                            <img src="image/Chevron left.svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                        <label><input type="radio" name="brand" /> All Kogan Exclusive</label>
+                    </div>
+
+                    <!-- 其他可折叠分类 -->
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>Condition</h4>
+                            <img src="image/Chevron left.svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>Display Size</h4>
+                            <img src="image/Chevron left.svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>Refresh Rate</h4>
+                            <img src="image/Chevron left.svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>TV Features</h4>
+                            <img src="image/Chevron left.svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>Screen Type</h4>
+                            <img src="image/Chevron left.svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <div class="filter-header">
+                            <h4>TV Resolution</h4>
+                            <img src="image/Chevron left.svg" alt="Toggle" class="chevron-icon" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 底部结果按钮 -->
+                <div class="mobile-filter-footer">
+                    <button class="show-results-btn">SHOW RESULTS</button>
+                </div>
             </div>
 
 
@@ -787,6 +950,7 @@
                 </div>
                 <!--8-->
                 <div class="rec-product-card">
+                    <span class="tag red">Sale</span>
                     <!--pic-->
                     <div class="rec-image-wrapper">
                         <img src="image/tv12.webp" alt="TV Product" class="product-img" />
@@ -1004,6 +1168,99 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+});
+
+//mobile filter
+const mobileFilter = document.getElementById('mobileFilter');
+const openBtn = document.getElementById('openFilter');
+const closeBtn = document.getElementById('closeMobileFilter');
+const showResultsBtn = document.querySelector('.show-results-btn');
+const defaultGrid = document.getElementById('defaultProductGrid');
+const filteredGrid = document.getElementById('filteredProductGrid');
+const tag300to500 = document.getElementById('tag-300-500');
+const closeTagBtn = tag300to500.querySelector('.close-icon');
+
+let lastCheckedPrice = null; 
+
+openBtn.addEventListener('click', () => {
+  mobileFilter.classList.remove('slide-out');
+  mobileFilter.style.display = 'flex';
+  void mobileFilter.offsetWidth;
+  mobileFilter.classList.add('active');
+});
+
+closeBtn.addEventListener('click', () => {
+  mobileFilter.classList.remove('active');
+  mobileFilter.classList.add('slide-out');
+  setTimeout(() => {
+    mobileFilter.style.display = 'none';
+    mobileFilter.classList.remove('slide-out');
+  }, 400);
+});
+
+const priceRadios = document.querySelectorAll('input[name="price"]');
+priceRadios.forEach(radio => {
+  radio.addEventListener('click', function () {
+    if (lastCheckedPrice === this) {
+      this.checked = false;
+      lastCheckedPrice = null;
+    } else {
+      lastCheckedPrice = this;
+    }
+  });
+});
+
+showResultsBtn.addEventListener('click', () => {
+  const selectedPrice = document.querySelector('input[name="price"]:checked');
+
+  setTimeout(() => {
+    if (selectedPrice && selectedPrice.value === '300-500') {
+      defaultGrid.style.display = 'none';
+      filteredGrid.style.display = 'grid';
+      tag300to500.style.display = 'inline-flex';
+    } else {
+      defaultGrid.style.display = 'grid';
+      filteredGrid.style.display = 'none';
+      tag300to500.style.display = 'none';
+    }
+
+    mobileFilter.classList.remove('active');
+    mobileFilter.classList.add('slide-out');
+    setTimeout(() => {
+      mobileFilter.style.display = 'none';
+      mobileFilter.classList.remove('slide-out');
+    }, 400);
+  }, 150);
+});
+
+closeTagBtn.addEventListener('click', () => {
+  tag300to500.style.display = 'none';
+  filteredGrid.style.display = 'none';
+  defaultGrid.style.display = 'grid';
+
+  priceRadios.forEach(radio => {
+    radio.checked = false;
+  });
+  lastCheckedPrice = null;
+});
+
+//第一张商品卡跳转
+const firstFilteredCard = document.getElementById('card-kogan-tv');
+
+firstFilteredCard.addEventListener('click', () => {
+  window.location.href = 'product_page.html';
+});
+
+const addToCartBtn = firstFilteredCard.querySelector('.add-to-cart');
+addToCartBtn.addEventListener('click', (event) => {
+  event.stopPropagation();
+  console.log('Add to cart clicked');
+});
+
+const wishlistIcon = firstFilteredCard.querySelector('.icon-heart');
+wishlistIcon.addEventListener('click', (event) => {
+  event.stopPropagation();
+  console.log('Wishlist clicked');
 });
 
 </script>

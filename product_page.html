@@ -63,11 +63,59 @@
             </nav>
         </div>
     </header>
+        <!--mobile version header-->
+        <header class="mobile-header">
+            <div class="mobile-header-top">
+                <div class="menu-icon">☰</div>
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <div class="icons-right">
+                <div class="icon-wrapper orange">
+                    <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                </div>
+                <div class="icon-wrapper yellow">
+                    <img src="image/user.png" alt="User" />
+                </div>
+                <div class="welcome-text">
+                    <span>Welcome!</span>
+                    <strong>Sophia</strong>
+                </div>
+                </div>
+            </div>
+
+            <div class="mobile-search-container">
+                <div class="search-box">
+                    <img src="image/search_icon.svg" alt="Search Icon" class="search-icon" />
+                    <input type="text" id="search-input-mobile" placeholder="Search in products" autocomplete="off" />
+                    
+                </div>
+                <button id="search-btn-mobile">Search</button>
+            </div>
+
+            <nav class="mobile-main-menu">
+                <div class="menu-item">
+                    <img src="image/local_fire_department.svg" alt="Deals Icon" class="header-icon" />
+                    Deals
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="Win Icon" class="header-icon" />
+                    Win $200k
+                </div>
+                <div class="menu-item">
+                    <img src="image/Dollar sign.svg" alt="Clearance Icon" class="header-icon" />
+                    Clearance
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="News Icon" class="header-icon" />
+                    News
+                </div>
+            </nav>
+
+        </header>
 
     <main class="product-main">
         <div class="breadcrumb">
-        <img src="image/left arrow.svg" alt="Back" class="breadcrumb-icon" />
-        <span>Home Entertainment / TVs</span>
+            <img src="image/left arrow.svg" alt="Back" class="breadcrumb-icon" />
+            <span>Home Entertainment/TVs</span>
         </div>
 
         <div class="product-page-container">
@@ -92,13 +140,109 @@
                     <img src="image/tv1-thumb.webp" alt="Thumb 10" />
                     <img src="image/tv2-thumb.webp" alt="Thumb 11" />
                 </div>
-                
+
+                    <section class="product-info-panel-mobile">
+                        <div class="top-row">
+                            <span class="right tag red">Sale</span>
+                            <div class="wishlist">
+                                <img src="image/Heart.png" alt="Heart icon" class="heart-icon">
+                                <span class="wishlist-label">Add to wishlist</span>
+                            </div>
+                        </div>
+                        
+
+                        <!-- 产品标题 -->
+                        <h1 class="product-title">Kogan 55″ LED 4K Smart Roku TV - R95T</h1>
+
+                        <!--品牌&评分-->
+                        <div class="brand-rating-row">
+                            <a href="#" class="brand-link">Kogan</a>
+                            <div class="rating">
+                                <span class="right-stars">★★★★★</span>
+                                <span class="review-count">(100+)</span>
+                            </div>
+                        </div>
+
+
+                        <!--价格-->
+                        
+                        <div class="price-section">
+                            <!--左侧-->
+                            <div class="price-current">
+                                <span class="dollar-symbol">$</span>
+                                <span class="amount">419</span>
+                            </div>
+
+                            <!-- 分隔竖线 -->
+                            <div class="price-divider"></div>
+
+                            <!-- 右侧：原价和节省信息 -->
+                            <div class="price-info">
+                                <p class="price-original">was <del>$749.99</del></p>
+                                <p class="price-savings">You Save <span class="savings-amount">$330.99 (44%)</span></p>
+                            </div>
+                        </div>
+
+                        <!--可选尺寸-->
+                        <p class="size-label">Display Size: 55″</p>
+
+                        <div class="size-selector">
+                            <!--1-->
+                            <div class="size-card">
+                                
+                                <div class="size-top"><em>43″</em></div>
+                                <div class="size-bottom">$289</div>
+                            </div>
+
+                            <!--2-->
+                            <div class="size-card">
+                                <div class="size-top"><em>50″</em></div>
+                                <div class="size-bottom">$365</div>
+                            </div>
+
+                            <!--3-->
+                            <div class="size-card selected">
+                                
+                                <div class="size-top"><em>55″</em></div>
+                                <div class="size-bottom">$419</div>
+                            </div>
+
+                            <!--4-->
+                            <div class="size-card">
+                                <div class="size-top"><em>65″</em></div>
+                                <div class="size-bottom">$569</div>
+                            </div>
+
+                            <!--5-->
+                            <div class="size-card">
+                                <div class="size-top"><em>75″</em></div>
+                                <div class="size-bottom">$819</div>
+                            </div>
+                        </div>
+
+                        <!--加入购物车-->
+                        <div class="cart-control">
+                            <!--数量-->
+                            <div class="quantity-selector">
+                                <button class="qty-btn">-</button>
+                                <span class="qty-number">1</span>
+                                <button class="qty-btn">+</button>
+                            </div>
+
+                            <!-- 加入购物车按钮 -->
+                            <button class="add-to-cart-btn" id="show-cart-mobile">
+                                <span class="btn-text">Add to cart</span>
+                                <span class="btn-loader"></span>
+                            </button>
+                        </div>
+                    </section>
                 <div class="product-tabs">
-                        <button class="tab active" data-target="gallery">Gallery</button>
-                        <button class="tab" data-target="description">Description</button>
-                        <button class="tab" data-target="specification">Specification</button>
-                        <button class="tab" data-target="reviews">Reviews</button>
-                    </div>
+                    <button class="tab active" data-target="gallery">Gallery</button>
+                    <button class="tab" data-target="description">Description</button>
+                    <button class="tab" data-target="specification">Specification</button>
+                    <button class="tab" data-target="reviews">Reviews</button>
+                </div>
+                
                 <!--详情卡片-->
                 <div class="product-description-container">
                     
@@ -149,7 +293,7 @@
 
                 <!--猜你喜欢-->
                 <section class="recommendation">
-  
+
                     <h2 class="rec-section-title">You May Also Like</h2>
 
                     <div class="rec-product-row">
@@ -461,7 +605,7 @@
                     </div>
 
                     <!-- 加入购物车按钮 -->
-                    <button class="add-to-cart-btn" id="show-cart">
+                    <button class="add-to-cart-btn" id="show-cart-desktop">
                         <span class="btn-text">Add to cart</span>
                         <span class="btn-loader"></span>
                     </button>
@@ -561,12 +705,12 @@
     </footer>
 
     <!--黑色模糊遮罩背景-->
-    <div id="overlay" class="overlay hidden"></div>
+    <div id="overlay" class="hidden"></div>
 
     <!--加入购物车弹窗-->
     <div class="cart-popup hidden">
         <!--关闭按钮-->
-        <div class="close-container hidden">
+        <div class="close-container">
             <button class="close-btn">
                 <img src="image/close-icon.svg" alt="Close" />
             </button>
@@ -749,170 +893,302 @@
             
         </div>
     </div>
+
+    <div class="mobile-cart-popup hidden">
+        <!--关闭按钮-->
+        <div class="close-container hidden">
+            <button class="close-btn">
+                <img src="image/close-icon.svg" alt="Close" />
+            </button>
+        </div>
+       
+        
+        <!--商品信息-->
+        <div class="cart-header">
+            <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="TV Product Image" class="product-thumbnail" />
+
+            <div class="cart-message">
+                <div class="added-info">
+                    <img src="image/done.svg" alt="Checkmark" class="icon-check" />
+                    <p class="added-text">Added to Cart</p>
+                </div>
+                <p class="cart-total">Cart Total (1 item): $419</p>
+            </div>
+        </div>
+        <div class="cart-actions">
+            <button class="btn btn-orange" id="view-cart-btn">
+                <span class="view-cart-text">View cart & Checkout</span>
+                <span class="view-cart-spinner"></span>
+            </button>
+            <p class="continue-text">Continue Shopping</p>
+        </div>
+
+        <!--保修服务-->
+        <div class="extended-care">
+            <h3>Add Extended Care</h3>
+            <div class="care-options">
+                <label>
+                    <input type="radio" name="warranty" disabled />
+                    $48 for 3 Years <span class="pop-up-tag">OUR PICK</span>
+                </label>
+                <label>
+                    <input type="radio" name="warranty" disabled />
+                    $68 for 5 Years
+                </label>
+            </div>
+
+        </div>
+
+
+        <!-- 推荐商品 -->
+        <div class="you-may-also-like">
+            <h3>More deals you may like</h3>
+            <div class="more-product-row">
+                <!--soundbar-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_1.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">2.1 Channel 100W Dolby Atmos Soundbar</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(100+)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$119</span>
+                                <del class="more-old-price">$299.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--soundbar-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_2.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">2.1 Channel 80W Dolby Soundbar</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(100+)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$89.99</span>
+                                <del class="more-old-price">$199.99</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--TV stand-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_3.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">Larvik Studio TV Stand for 45"-65" TVs</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(100+)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$89.99</span>
+                                <del class="more-old-price">$159</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--wall mount-->
+                <div class="more-product-card">
+                    <div class="more-image-wrapper">
+                        <img src="image/add_to_cart_4.webp" alt="Washing Machine" class="product-img" />
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">
+                            <p class="more-product-name">Tilt Extendable Full Motion Wall Mount</p>
+                            <img src="image/Heart.png" alt="Wishlist" class="icon-heart" />
+                        </div>
+                        <p class="stars">
+                            <span class="more-star-icons">★★★★★</span>
+                            <span class="more-review-count">(41)</span>
+                        </p>
+
+                        <div class="price-and-cart">
+                            <div class="more-price">
+                                <span class="more-new-price">$59.99</span>
+                                <del class="more-old-price">$119</del>
+                            </div>
+                            <button class="add-to-cart">
+                                <img src="image/Shopping cart.png" alt="Cart" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
 </body>
 <script>
-//add to cart 加载 pop up
-const addToCartBtn = document.querySelector('.add-to-cart-btn');
-const cartPopup = document.querySelector('.cart-popup');
-const overlay = document.getElementById('overlay');
-const closeBtn = document.querySelector('.close-btn');
-
-addToCartBtn.addEventListener('click', () => {
-
-  addToCartBtn.classList.add('loading');
-
-  setTimeout(() => {
-    addToCartBtn.classList.remove('loading');
-    cartPopup.classList.remove('hidden');
-    overlay.classList.remove('hidden');
-  }, 500); 
-});
-
-closeBtn.addEventListener('click', () => {
-  cartPopup.classList.add('hidden');
-  overlay.classList.add('hidden');
-});
-
+document.addEventListener('DOMContentLoaded', () => {
+  // Banner 图切换
   const mainImage = document.querySelector('.main-image img');
   const thumbnails = document.querySelectorAll('.thumbnail-row img');
 
-  thumbnails.forEach((thumb) => {
+  thumbnails.forEach(thumb => {
     thumb.addEventListener('click', () => {
       mainImage.src = thumb.src;
+      thumbnails.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
     });
   });
 
-//tab切换
-const tabButtons = document.querySelectorAll('.product-tabs .tab');
-const sections = ['gallery', 'description', 'specification', 'reviews'];
-
-tabButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const targetId = button.dataset.target;
-    const targetSection = document.getElementById(targetId);
-
-    targetSection.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-
-    tabButtons.forEach(btn => btn.classList.remove('active'));
-    button.classList.add('active');
-  });
+// desktop popup
+btn.addEventListener('click', () => {
+  popup.classList.remove('hidden');
 });
 
-//tab scrolling切换
-window.addEventListener('scroll', () => {
-  let currentSection = '';
 
-  if (window.scrollY < 80) {
-    currentSection = 'gallery';
-  } else {
 
-    sections.forEach(id => {
-      const section = document.getElementById(id);
-      const sectionTop = section.getBoundingClientRect().top;
 
-      if (sectionTop <= 150) {
-        currentSection = id;
+  // 收藏爱心
+  const hearts = document.querySelectorAll('.icon-heart');
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => {
+      const isFavorited = heart.classList.contains('favorited');
+      heart.src = isFavorited ? 'image/Heart.png' : 'image/Heart-filled.svg';
+      heart.classList.toggle('favorited');
+    });
+  });
+
+  // 推荐卡片加入购物车 + view cart 逻辑
+  const firstCard = document.querySelector('.more-product-card');
+  const cartButton = firstCard?.querySelector('.add-to-cart');
+  const popupViewCartBtn = document.querySelector('.cart-popup .btn-orange');
+
+  let hasAddedFirstProduct = false;
+
+  if (cartButton) {
+    cartButton.addEventListener('click', () => {
+      cartButton.classList.add('button-pressed');
+      setTimeout(() => cartButton.classList.remove('button-pressed'), 200); 
+
+      if (!cartButton.classList.contains('added')) {
+        cartButton.classList.add('added');
+        cartButton.style.backgroundColor = '#e5e7eb';
+        cartButton.querySelector('img').src = 'image/tick.svg';
+        hasAddedFirstProduct = true;
+      } else {
+        cartButton.classList.remove('added');
+        cartButton.style.backgroundColor = '#f97316';
+        cartButton.querySelector('img').src = 'image/Shopping cart.png';
+        hasAddedFirstProduct = false;
       }
     });
   }
 
-  tabButtons.forEach(btn => {
-    const target = btn.dataset.target;
-    btn.classList.remove('active');
-    if (target === currentSection) {
-      btn.classList.add('active');
-    }
-  });
-});
-
-
-//右上角收藏爱心效果
-const wishlist = document.querySelector('.wishlist');
-const heartIcon = wishlist.querySelector('.heart-icon');
-const label = wishlist.querySelector('.wishlist-label');
-
-let isWished = false;
-
-wishlist.addEventListener('click', () => {
-
-  label.classList.add('fade-out');
-
-  setTimeout(() => {
-    isWished = !isWished;
-
-    heartIcon.src = isWished
-      ? 'image/Heart-filled.svg'
-      : 'image/Heart.png';
-
-    label.textContent = isWished
-      ? 'Wishlisted'
-      : 'Add to wishlist';
-
-    label.classList.remove('fade-out'); 
-    heartIcon.classList.toggle('clicked');
-  }, 150); 
-});
-
-//其他收藏爱心特效
-document.addEventListener('DOMContentLoaded', () => {
-  const hearts = document.querySelectorAll('.icon-heart');
-
-  hearts.forEach(heart => {
-    heart.addEventListener('click', () => {
-      const isFavorited = heart.classList.contains('favorited');
-
-      if (!isFavorited) {
-        heart.src = 'image/Heart-filled.svg';
-        heart.classList.add('favorited');
+  if (popupViewCartBtn) {
+    popupViewCartBtn.addEventListener('click', () => {
+      if (hasAddedFirstProduct) {
+        popupViewCartBtn.classList.add('loading');
+        popupViewCartBtn.disabled = true;
+        setTimeout(() => {
+          window.location.href = 'shopping_cart.html';
+        }, 500);
       } else {
-        heart.src = 'image/Heart.png';
-        heart.classList.remove('favorited');
+        alert("Please add the recommended product to your cart first.");
+      }
+    });
+  }
+
+  // tab 切换
+  const tabButtons = document.querySelectorAll('.product-tabs .tab');
+  const sections = ['gallery', 'description', 'specification', 'reviews'];
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.dataset.target;
+      const targetSection = document.getElementById(targetId);
+
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    let currentSection = '';
+    if (window.scrollY < 80) {
+      currentSection = 'gallery';
+    } else {
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        const sectionTop = section?.getBoundingClientRect().top;
+        if (sectionTop <= 150) {
+          currentSection = id;
+        }
+      });
+    }
+
+    tabButtons.forEach(btn => {
+      const target = btn.dataset.target;
+      btn.classList.remove('active');
+      if (target === currentSection) {
+        btn.classList.add('active');
       }
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-  const firstCard = document.querySelector('.more-product-card');
-  const cartButton = firstCard.querySelector('.add-to-cart');
-  const viewCartBtn = document.querySelector('.btn-orange');
+  // 右上角主收藏爱心
+  const wishlist = document.querySelector('.wishlist');
+  const heartIcon = wishlist?.querySelector('.heart-icon');
+  const label = wishlist?.querySelector('.wishlist-label');
 
-  let hasAddedFirstProduct = false;
+  let isWished = false;
 
-  cartButton.addEventListener('click', () => {
-  
-    cartButton.classList.add('button-pressed');
-    setTimeout(() => cartButton.classList.remove('button-pressed'), 200); 
-
-    if (!cartButton.classList.contains('added')) {
-      cartButton.classList.add('added');
-      cartButton.style.backgroundColor = '#e5e7eb';
-      cartButton.querySelector('img').src = 'image/tick.svg';
-      hasAddedFirstProduct = true;
-    } else {
-      cartButton.classList.remove('added');
-      cartButton.style.backgroundColor = '#f97316';
-      cartButton.querySelector('img').src = 'image/Shopping cart.png';
-      hasAddedFirstProduct = false;
-    }
-  });
-
-  viewCartBtn.addEventListener('click', () => {
-    if (hasAddedFirstProduct) {
-      viewCartBtn.classList.add('loading');
-      viewCartBtn.disabled = true;
-
-      setTimeout(() => {
-        window.location.href = 'shopping_cart.html';
-      }, 500);
-    } else {
-      alert("Please add the recommended product to your cart first.");
-    }
+  wishlist?.addEventListener('click', () => {
+    label.classList.add('fade-out');
+    setTimeout(() => {
+      isWished = !isWished;
+      heartIcon.src = isWished ? 'image/Heart-filled.svg' : 'image/Heart.png';
+      label.textContent = isWished ? 'Wishlisted' : 'Add to wishlist';
+      label.classList.remove('fade-out');
+      heartIcon.classList.toggle('clicked');
+    }, 150);
   });
 });
+
+
 
 
 

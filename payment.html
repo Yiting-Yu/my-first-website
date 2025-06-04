@@ -65,6 +65,55 @@
             </div>
         </header>   
     
+        <!--mobile version header-->
+        <header class="mobile-header">
+            <div class="mobile-header-top">
+                <div class="menu-icon">☰</div>
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <div class="icons-right">
+                <div class="icon-wrapper orange">
+                    <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                </div>
+                <div class="icon-wrapper yellow">
+                    <img src="image/user.png" alt="User" />
+                </div>
+                <div class="welcome-text">
+                    <span>Welcome!</span>
+                    <strong>Sophia</strong>
+                </div>
+                </div>
+            </div>
+
+            <div class="mobile-search-container">
+                <div class="search-box">
+                    <img src="image/search_icon.svg" alt="Search Icon" class="search-icon" />
+                    <input type="text" id="search-input-mobile" placeholder="Search in products" autocomplete="off" />
+                    
+                </div>
+                <button id="search-btn-mobile">Search</button>
+            </div>
+
+            <nav class="mobile-main-menu">
+                <div class="menu-item">
+                    <img src="image/local_fire_department.svg" alt="Deals Icon" class="header-icon" />
+                    Deals
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="Win Icon" class="header-icon" />
+                    Win $200k
+                </div>
+                <div class="menu-item">
+                    <img src="image/Dollar sign.svg" alt="Clearance Icon" class="header-icon" />
+                    Clearance
+                </div>
+                <div class="menu-item">
+                    <img src="image/flash_on.svg" alt="News Icon" class="header-icon" />
+                    News
+                </div>
+            </nav>
+
+        </header>
+    
     <div class="Page">
         <div class="checkout-header">
             <h1>Checkout</h1>
@@ -129,25 +178,25 @@
 
                         <div class="row-two-fields">
                             <div class="half-width">
-                            <label for="suburb">Suburb</label>
-                            <input type="text" id="suburb" placeholder="" />
+                                <label for="suburb">Suburb</label>
+                                <input type="text" id="suburb" placeholder="" />
                             </div>
 
                             <div class="half-width">
-                            <label for="country">Country</label>
-                            <input type="text" id="country" placeholder="" />
+                                <label for="country">Country</label>
+                                <input type="text" id="country" placeholder="" />
                             </div>
                         </div>
 
                         <div class="row-two-fields">
                             <div class="half-width">
-                            <label for="state">State</label>
-                            <input type="text" id="state" placeholder="" />
+                                <label for="state">State</label>
+                                <input type="text" id="state" placeholder="" />
                             </div>
 
                             <div class="half-width">
-                            <label for="postcode">Postcode</label>
-                            <input type="text" id="postcode" placeholder="" />
+                                <label for="postcode">Postcode</label>
+                                <input type="text" id="postcode" placeholder="" />
                             </div>
                         </div>
                     </form>
@@ -197,7 +246,9 @@
                                 <img src="image/lock.svg" alt="Secure" class="lock-icon" />
                                 <span>Secure payment powered by 256-bit SSL encryption</span>
                             </div>
-
+                            <div class="mobile-checkout-footer">
+                                <button class="mobile-checkout-btn" type="button">Checkout Now</button>
+                            </div>
                         </form>
                         
                     </div>
@@ -262,7 +313,6 @@
                 
             </section>
         </div>
-    
     </div>
     <!--footer-->
     <footer class="site-footer">
@@ -352,7 +402,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <p class="item-name">${item.name}</p>
         <p class="item-qty">Qty: ${item.qty}</p>
       </div>
-      <div class="item-price">$${item.price * item.qty}</div>
+      <div class="item-price">$${(item.price * item.qty).toFixed(0)}</div>
     </div>
   `).join("");
 
@@ -361,54 +411,58 @@ window.addEventListener("DOMContentLoaded", () => {
   const total = subtotal + shipping + carePrice;
 
   // 插入结构
-    orderSection.innerHTML = `
-    <h2>Order Summary</h2>
+  orderSection.innerHTML = `
+    <div class="summary-body">
+      <h2>Order Summary</h2>
 
-    ${itemsHTML}
+      ${itemsHTML}
 
-    ${carePrice > 0 ? `
+      ${carePrice > 0 ? `
         <div class="order-item">
-        <div class="item-details">
+          <div class="item-details">
             <p class="item-name">Extended Warranty</p>
             <p class="item-qty">Included</p>
+          </div>
+          <div class="item-price">$${carePrice.toFixed(0)}</div>
         </div>
-        <div class="item-price">$${carePrice}</div>
-        </div>
-    ` : ""}
+      ` : ""}
 
-    <hr class="divider" />
+      <hr class="divider" />
 
-    <div class="price-line">
+      <div class="price-line">
         <span>Subtotal</span>
-        <span>$${subtotal}</span>
-    </div>
+        <span>$${subtotal.toFixed(0)}</span>
+      </div>
 
-    <div class="price-line">
+      <div class="price-line">
         <span>Shipping</span>
-        <span>$${shipping}</span>
-    </div>
+        <span>$${shipping.toFixed(0)}</span>
+      </div>
 
-    ${carePrice > 0 ? `
+      ${carePrice > 0 ? `
         <div class="price-line">
-        <span>Extended Care</span>
-        <span>$${carePrice}</span>
+          <span>Extended Care</span>
+          <span>$${carePrice.toFixed(0)}</span>
         </div>
-    ` : ""}
+      ` : ""}
 
-    <div class="price-line">
+      <div class="price-line">
         <span>Discount</span>
         <span>-$0</span>
-    </div>
+      </div>
 
-    <hr class="divider" />
+      <hr class="divider" />
 
-    <div class="total-line">
+      <div class="total-line">
         <strong>Total</strong>
-        <strong>$${total}</strong>
+        <strong>$${total.toFixed(0)}</strong>
+      </div>
     </div>
 
-    <button class="checkout-btn">Checkout Now</button>
-    `;
+    <div class="order-footer desktop-only">
+      <button class="checkout-btn" type="button">Checkout Now</button>
+    </div>
+  `;
 
 });
 
@@ -530,10 +584,8 @@ document.addEventListener('click', (e) => {
 
 //checkout now按钮跳转下一个页面
 window.addEventListener("DOMContentLoaded", () => {
-
-  const checkoutBtn = document.querySelector('.checkout-btn');
-
-  checkoutBtn.addEventListener('click', () => {
+  // 统一验证函数
+  function validateAndProceed(button) {
     const inputs = document.querySelectorAll('.shipping-form input');
     let valid = true;
 
@@ -551,14 +603,27 @@ window.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    checkoutBtn.disabled = true;
-    checkoutBtn.textContent = "Processing...";
+    button.disabled = true;
+    button.textContent = "Processing...";
 
     setTimeout(() => {
       window.location.href = 'confirm.html';
     }, 500);
-  });
+  }
+
+  // 桌面按钮绑定
+  const desktopBtn = document.querySelector('.checkout-btn');
+  if (desktopBtn) {
+    desktopBtn.addEventListener('click', () => validateAndProceed(desktopBtn));
+  }
+
+  // 手机按钮绑定
+  const mobileBtn = document.querySelector('.mobile-checkout-btn');
+  if (mobileBtn) {
+    mobileBtn.addEventListener('click', () => validateAndProceed(mobileBtn));
+  }
 });
+
 
 </script>
 </html>

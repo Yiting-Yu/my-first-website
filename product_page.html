@@ -22,7 +22,10 @@
     <!--main header 最顶上的白色部分-->
     <header class="main-header">
         <div class="top-row">
-            <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+            <a href="index.html" class="logo-link">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+            </a>
+            
                 
             <!--搜索条-->
             <div class="search-container">
@@ -63,11 +66,14 @@
             </nav>
         </div>
     </header>
-        <!--mobile version header-->
+    
+    <!--mobile version header-->
         <header class="mobile-header">
             <div class="mobile-header-top">
                 <div class="menu-icon">☰</div>
-                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                    <a href="index.html" class="logo-link">
+                        <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                    </a>
                 <div class="icons-right">
                 <div class="icon-wrapper orange">
                     <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
@@ -111,11 +117,10 @@
             </nav>
 
         </header>
-
     <main class="product-main">
         <div class="breadcrumb">
-            <img src="image/left arrow.svg" alt="Back" class="breadcrumb-icon" />
-            <span>Home Entertainment/TVs</span>
+        <img src="image/left arrow.svg" alt="Back" class="breadcrumb-icon" />
+        <span>Home Entertainment / TVs</span>
         </div>
 
         <div class="product-page-container">
@@ -140,8 +145,8 @@
                     <img src="image/tv1-thumb.webp" alt="Thumb 10" />
                     <img src="image/tv2-thumb.webp" alt="Thumb 11" />
                 </div>
-
-                    <section class="product-info-panel-mobile">
+                
+                <section class="product-info-panel-mobile">
                         <div class="top-row">
                             <span class="right tag red">Sale</span>
                             <div class="wishlist">
@@ -229,20 +234,20 @@
                                 <button class="qty-btn">+</button>
                             </div>
 
-                            <!-- 加入购物车按钮 -->
-                            <button class="add-to-cart-btn" id="show-cart-mobile">
-                                <span class="btn-text">Add to cart</span>
-                                <span class="btn-loader"></span>
+                            <!-- mobile加入购物车 -->
+                            <button class="add-to-cart-btn-mobile" id="mobile-cart-btn">
+                                <span class="btn-text-mobile">Add to cart</span>
+                                <span class="btn-loader-mobile"></span>
                             </button>
                         </div>
                     </section>
-                <div class="product-tabs">
-                    <button class="tab active" data-target="gallery">Gallery</button>
-                    <button class="tab" data-target="description">Description</button>
-                    <button class="tab" data-target="specification">Specification</button>
-                    <button class="tab" data-target="reviews">Reviews</button>
-                </div>
                 
+                <div class="product-tabs">
+                        <button class="tab active" data-target="gallery">Gallery</button>
+                        <button class="tab" data-target="description">Description</button>
+                        <button class="tab" data-target="specification">Specification</button>
+                        <button class="tab" data-target="reviews">Reviews</button>
+                    </div>
                 <!--详情卡片-->
                 <div class="product-description-container">
                     
@@ -293,7 +298,7 @@
 
                 <!--猜你喜欢-->
                 <section class="recommendation">
-
+  
                     <h2 class="rec-section-title">You May Also Like</h2>
 
                     <div class="rec-product-row">
@@ -605,7 +610,7 @@
                     </div>
 
                     <!-- 加入购物车按钮 -->
-                    <button class="add-to-cart-btn" id="show-cart-desktop">
+                    <button class="add-to-cart-btn" id="show-cart">
                         <span class="btn-text">Add to cart</span>
                         <span class="btn-loader"></span>
                     </button>
@@ -705,12 +710,12 @@
     </footer>
 
     <!--黑色模糊遮罩背景-->
-    <div id="overlay" class="hidden"></div>
+    <div id="overlay" class="overlay hidden"></div>
 
     <!--加入购物车弹窗-->
     <div class="cart-popup hidden">
         <!--关闭按钮-->
-        <div class="close-container">
+        <div class="close-container hidden">
             <button class="close-btn">
                 <img src="image/close-icon.svg" alt="Close" />
             </button>
@@ -894,9 +899,11 @@
         </div>
     </div>
 
+    <div id="mobile-overlay" class="mobile-overlay hidden"></div>
+
     <div class="mobile-cart-popup hidden">
         <!--关闭按钮-->
-        <div class="close-container hidden">
+        <div class="close-container">
             <button class="close-btn">
                 <img src="image/close-icon.svg" alt="Close" />
             </button>
@@ -1057,27 +1064,140 @@
 </body>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  // Banner 图切换
+
+  // Desktop 加入购物车弹窗
+
+  const addToCartBtn = document.querySelector('.add-to-cart-btn');
+  const cartPopup = document.querySelector('.cart-popup');
+  const overlay = document.getElementById('overlay');
+  const desktopCloseBtn = document.querySelector('.close-btn');
+
+  if (addToCartBtn && cartPopup && overlay && desktopCloseBtn) {
+    addToCartBtn.addEventListener('click', () => {
+      addToCartBtn.classList.add('loading');
+
+      setTimeout(() => {
+        addToCartBtn.classList.remove('loading');
+        cartPopup.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+      }, 500);
+    });
+
+    desktopCloseBtn.addEventListener('click', () => {
+      cartPopup.classList.add('hidden');
+      overlay.classList.add('hidden');
+    });
+  }
+
+
+  //Mobile 加入购物车弹窗
+
+  const mobileBtn = document.getElementById('mobile-cart-btn');
+  const mobilePopup = document.querySelector('.mobile-cart-popup');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const mobileCloseBtn = mobilePopup?.querySelector('.close-btn');
+
+  if (mobileBtn && mobilePopup && mobileOverlay && mobileCloseBtn) {
+    mobileBtn.addEventListener('click', () => {
+      mobilePopup.style.display = 'block';
+      mobileOverlay.style.display = 'block';
+
+      setTimeout(() => {
+        mobilePopup.classList.add('show');
+        mobileOverlay.classList.add('show');
+      }, 10);
+    });
+
+    function closeMobilePopup() {
+      mobilePopup.classList.remove('show');
+      mobileOverlay.classList.remove('show');
+      setTimeout(() => {
+        mobilePopup.style.display = 'none';
+        mobileOverlay.style.display = 'none';
+      }, 300);
+    }
+
+    mobileCloseBtn.addEventListener('click', closeMobilePopup);
+    mobileOverlay.addEventListener('click', closeMobilePopup);
+  }
+
+
+  //Banner 主图切换
+
   const mainImage = document.querySelector('.main-image img');
   const thumbnails = document.querySelectorAll('.thumbnail-row img');
 
-  thumbnails.forEach(thumb => {
+  thumbnails.forEach((thumb) => {
     thumb.addEventListener('click', () => {
       mainImage.src = thumb.src;
-      thumbnails.forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
     });
   });
 
-// desktop popup
-btn.addEventListener('click', () => {
-  popup.classList.remove('hidden');
-});
+
+  // Tab 切换点击 + 滚动联动
+
+  const tabButtons = document.querySelectorAll('.product-tabs .tab');
+  const sections = ['gallery', 'description', 'specification', 'reviews'];
+
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetId = button.dataset.target;
+      const targetSection = document.getElementById(targetId);
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    let currentSection = 'gallery';
+
+    if (window.scrollY >= 80) {
+      sections.forEach(id => {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= 150) {
+          currentSection = id;
+        }
+      });
+    }
+
+    tabButtons.forEach(btn => {
+      const target = btn.dataset.target;
+      btn.classList.toggle('active', target === currentSection);
+    });
+  });
+
+
+  //右上角收藏按钮wishlist
+
+    const wishlists = document.querySelectorAll('.wishlist');
+
+    wishlists.forEach(wishlist => {
+    const heartIcon = wishlist.querySelector('.heart-icon');
+    const label = wishlist.querySelector('.wishlist-label');
+
+    let isWished = false;
+
+    if (heartIcon && label) {
+        wishlist.addEventListener('click', () => {
+        label.classList.add('fade-out');
+
+        setTimeout(() => {
+            isWished = !isWished;
+            heartIcon.src = isWished ? 'image/Heart-filled.svg' : 'image/Heart.png';
+            label.textContent = isWished ? 'Wishlisted' : 'Add to wishlist';
+            label.classList.remove('fade-out');
+            heartIcon.classList.toggle('clicked');
+        }, 150);
+        });
+    }
+    });
 
 
 
+  //所有商品卡片的爱心收藏
 
-  // 收藏爱心
   const hearts = document.querySelectorAll('.icon-heart');
   hearts.forEach(heart => {
     heart.addEventListener('click', () => {
@@ -1087,37 +1207,35 @@ btn.addEventListener('click', () => {
     });
   });
 
-  // 推荐卡片加入购物车 + view cart 逻辑
-  const firstCard = document.querySelector('.more-product-card');
-  const cartButton = firstCard?.querySelector('.add-to-cart');
-  const popupViewCartBtn = document.querySelector('.cart-popup .btn-orange');
 
-  let hasAddedFirstProduct = false;
+  //Desktop + Mobile 推荐商品加入购物车后才允许 View Cart
 
-  if (cartButton) {
-    cartButton.addEventListener('click', () => {
-      cartButton.classList.add('button-pressed');
-      setTimeout(() => cartButton.classList.remove('button-pressed'), 200); 
+  const desktopCard = document.querySelector('.more-product-card');
+  const desktopCartBtn = desktopCard?.querySelector('.add-to-cart');
+  const desktopViewBtn = document.querySelector('.btn-orange');
 
-      if (!cartButton.classList.contains('added')) {
-        cartButton.classList.add('added');
-        cartButton.style.backgroundColor = '#e5e7eb';
-        cartButton.querySelector('img').src = 'image/tick.svg';
-        hasAddedFirstProduct = true;
-      } else {
-        cartButton.classList.remove('added');
-        cartButton.style.backgroundColor = '#f97316';
-        cartButton.querySelector('img').src = 'image/Shopping cart.png';
-        hasAddedFirstProduct = false;
-      }
+  const mobileCard = mobilePopup?.querySelector('.more-product-card');
+  const mobileCartBtn = mobileCard?.querySelector('.add-to-cart');
+  const mobileViewBtn = mobilePopup?.querySelector('#view-cart-btn');
+
+  let hasAddedDesktop = false;
+  let hasAddedMobile = false;
+
+  if (desktopCartBtn && desktopViewBtn) {
+    desktopCartBtn.addEventListener('click', () => {
+      desktopCartBtn.classList.add('button-pressed');
+      setTimeout(() => desktopCartBtn.classList.remove('button-pressed'), 200);
+
+      const added = desktopCartBtn.classList.toggle('added');
+      desktopCartBtn.style.backgroundColor = added ? '#e5e7eb' : '#f97316';
+      desktopCartBtn.querySelector('img').src = added ? 'image/tick.svg' : 'image/Shopping cart.png';
+      hasAddedDesktop = added;
     });
-  }
 
-  if (popupViewCartBtn) {
-    popupViewCartBtn.addEventListener('click', () => {
-      if (hasAddedFirstProduct) {
-        popupViewCartBtn.classList.add('loading');
-        popupViewCartBtn.disabled = true;
+    desktopViewBtn.addEventListener('click', () => {
+      if (hasAddedDesktop) {
+        desktopViewBtn.classList.add('loading');
+        desktopViewBtn.disabled = true;
         setTimeout(() => {
           window.location.href = 'shopping_cart.html';
         }, 500);
@@ -1127,69 +1245,30 @@ btn.addEventListener('click', () => {
     });
   }
 
-  // tab 切换
-  const tabButtons = document.querySelectorAll('.product-tabs .tab');
-  const sections = ['gallery', 'description', 'specification', 'reviews'];
+  if (mobileCartBtn && mobileViewBtn) {
+    mobileCartBtn.addEventListener('click', () => {
+      mobileCartBtn.classList.add('button-pressed');
+      setTimeout(() => mobileCartBtn.classList.remove('button-pressed'), 200);
 
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const targetId = button.dataset.target;
-      const targetSection = document.getElementById(targetId);
-
-      targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+      const added = mobileCartBtn.classList.toggle('added');
+      mobileCartBtn.style.backgroundColor = added ? '#e5e7eb' : '#f97316';
+      mobileCartBtn.querySelector('img').src = added ? 'image/tick.svg' : 'image/Shopping cart.png';
+      hasAddedMobile = added;
     });
-  });
 
-  window.addEventListener('scroll', () => {
-    let currentSection = '';
-    if (window.scrollY < 80) {
-      currentSection = 'gallery';
-    } else {
-      sections.forEach(id => {
-        const section = document.getElementById(id);
-        const sectionTop = section?.getBoundingClientRect().top;
-        if (sectionTop <= 150) {
-          currentSection = id;
-        }
-      });
-    }
-
-    tabButtons.forEach(btn => {
-      const target = btn.dataset.target;
-      btn.classList.remove('active');
-      if (target === currentSection) {
-        btn.classList.add('active');
+    mobileViewBtn.addEventListener('click', () => {
+      if (hasAddedMobile) {
+        mobileViewBtn.classList.add('loading');
+        mobileViewBtn.disabled = true;
+        setTimeout(() => {
+          window.location.href = 'shopping_cart.html';
+        }, 500);
+      } else {
+        alert("Please add the recommended product to your cart first.");
       }
     });
-  });
-
-  // 右上角主收藏爱心
-  const wishlist = document.querySelector('.wishlist');
-  const heartIcon = wishlist?.querySelector('.heart-icon');
-  const label = wishlist?.querySelector('.wishlist-label');
-
-  let isWished = false;
-
-  wishlist?.addEventListener('click', () => {
-    label.classList.add('fade-out');
-    setTimeout(() => {
-      isWished = !isWished;
-      heartIcon.src = isWished ? 'image/Heart-filled.svg' : 'image/Heart.png';
-      label.textContent = isWished ? 'Wishlisted' : 'Add to wishlist';
-      label.classList.remove('fade-out');
-      heartIcon.classList.toggle('clicked');
-    }, 150);
-  });
+  }
 });
-
-
-
 
 
 </script>

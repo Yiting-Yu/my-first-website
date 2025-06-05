@@ -961,7 +961,7 @@ img {
   }
 
   .subtotal {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 500;
     color: #000;
   }
@@ -1000,7 +1000,7 @@ img {
 
   .delivery-price p {
     margin: 4px 0;
-    font-weight: 400;
+    font-weight: 350;
     font-size: 16px;
     text-align: right;
     white-space: nowrap;
@@ -1145,7 +1145,7 @@ img {
 
   .cart-summary p {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 400;
   }
 
   .feedback-message {

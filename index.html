@@ -618,181 +618,54 @@
 </body>
 
 <script>
-  // banner自动播放和按钮切换
-  const banners = document.querySelectorAll('.main-banner-img');
-  const nextBtn = document.getElementById('nextBtn');
-  const prevBtn = document.getElementById('prevBtn');
+// Desktop Banner 切图与自动播放
 
-  let currentIndex = 0;
+const desktopBanners = document.querySelectorAll('.main-banner-img');
+const nextBtn = document.getElementById('nextBtn');
+const prevBtn = document.getElementById('prevBtn');
+let currentDesktopIndex = 0;
 
-  function showBanner(index) {
-    banners.forEach((img, i) => {
-      img.classList.toggle('active', i === index);
-    });
-  }
-
-  showBanner(currentIndex);
-
-  let autoSlide = setInterval(() => {
-    currentIndex = (currentIndex + 1) % banners.length;
-    showBanner(currentIndex);
-  }, 6000);
-
-  nextBtn.addEventListener('click', () => {
-    clearInterval(autoSlide); 
-    currentIndex = (currentIndex + 1) % banners.length;
-    showBanner(currentIndex);
+function showDesktopBanner(index) {
+  desktopBanners.forEach((img, i) => {
+    img.classList.toggle('active', i === index);
   });
+}
 
-  prevBtn.addEventListener('click', () => {
-    clearInterval(autoSlide);
-    currentIndex = (currentIndex - 1 + banners.length) % banners.length;
-    showBanner(currentIndex);
-  });
+showDesktopBanner(currentDesktopIndex);
 
+let desktopAutoSlide = setInterval(() => {
+  currentDesktopIndex = (currentDesktopIndex + 1) % desktopBanners.length;
+  showDesktopBanner(currentDesktopIndex);
+}, 6000);
 
+nextBtn?.addEventListener('click', () => {
+  clearInterval(desktopAutoSlide);
+  currentDesktopIndex = (currentDesktopIndex + 1) % desktopBanners.length;
+  showDesktopBanner(currentDesktopIndex);
+});
 
-// 购物车按钮摁下特效
-document.addEventListener('DOMContentLoaded', () => {
-  const cartButtons = document.querySelectorAll('.add-to-cart');
-
-  cartButtons.forEach(button => {
-    button.addEventListener('click', () => {
-
-      button.classList.add('button-pressed');
-      setTimeout(() => button.classList.remove('button-pressed'), 200);
-
-      if (!button.classList.contains('added')) {
-        button.classList.add('added');
-        button.style.backgroundColor = '#e5e7eb';
-        button.querySelector('img').src = 'image/tick.svg'; 
-      } else {
-        button.classList.remove('added');
-        button.style.backgroundColor = '#f97316'; 
-        button.querySelector('img').src = 'image/Shopping cart.png';
-      }
-    });
-  });
+prevBtn?.addEventListener('click', () => {
+  clearInterval(desktopAutoSlide);
+  currentDesktopIndex = (currentDesktopIndex - 1 + desktopBanners.length) % desktopBanners.length;
+  showDesktopBanner(currentDesktopIndex);
 });
 
 
-//收藏爱心特效
+// Mobile Banner 切图与自动播放
+
 document.addEventListener('DOMContentLoaded', () => {
-  const hearts = document.querySelectorAll('.icon-heart');
-
-  hearts.forEach(heart => {
-    heart.addEventListener('click', () => {
-
-      heart.classList.add('heart-pressed');
-      setTimeout(() => heart.classList.remove('heart-pressed'), 200);
-
-      const isFavorited = heart.classList.contains('favorited');
-      if (!isFavorited) {
-        heart.src = 'image/Heart-filled.svg';
-        heart.classList.add('favorited');
-      } else {
-        heart.src = 'image/Heart.png';
-        heart.classList.remove('favorited');
-      }
-    });
-  });
-});
-
-
-//tv跳转到tv page
-document.addEventListener('DOMContentLoaded', () => {
-  const tvCard = document.getElementById('category-tv');
-
-  if (tvCard) {
-    tvCard.addEventListener('click', () => {
-      setTimeout(() => {
-        window.location.href = 'search_page.html?category=tv';
-      }, 300);
-    });
-  }
-});
-
-// 搜索tv弹出关键词 点击跳转页面
-document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('search-input');
-  const button = document.getElementById('search-btn');
-  const suggestionBox = document.getElementById('search-suggestions');
-
-  const tvSuggestions = [
-    "tv",
-    "tv bracket wall mount",
-    "tv stand",
-    "tv unit",
-    "tv remote control replacement",
-    "tv cabinet",
-    "tv stand wheel"
-  ];
-
-  function search(keyword) {
-    const term = keyword || input.value.trim();
-    if (term) {
-      window.location.href = `search_page.html?keyword=${encodeURIComponent(term)}`;
-    }
-  }
-
-  button.addEventListener('click', () => search());
-
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      search();
-    }
-  });
-
-  input.addEventListener('input', () => {
-    const value = input.value.toLowerCase().trim();
-    suggestionBox.innerHTML = '';
-
-    if (value === 'tv') {
-      suggestionBox.style.display = 'block';
-
-      tvSuggestions.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.textContent = item;
-
-        if (index === 0) {
-          // 只能第一个跳转
-          li.addEventListener('click', () => {
-            search(item);
-          });
-          li.style.cursor = 'pointer';
-          li.classList.add('clickable');
-        } else {
-          li.style.cursor = 'default';
-        }
-
-        suggestionBox.appendChild(li);
-      });
-    } else {
-      suggestionBox.style.display = 'none';
-    }
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.search-container')) {
-      suggestionBox.style.display = 'none';
-    }
-  });
-});
-
-//mobile banner翻页和自动播放
-document.addEventListener('DOMContentLoaded', () => {
-  const banners = document.querySelectorAll('.mobile-banner-img');
-  const nextBtn = document.querySelector('.mobile-banner-btn.next');
-  const prevBtn = document.querySelector('.mobile-banner-btn.prev');
-  let currentIndex = 0;
+  const mobileBanners = document.querySelectorAll('.mobile-banner-img');
+  const mobileNextBtn = document.querySelector('.mobile-banner-btn.next');
+  const mobilePrevBtn = document.querySelector('.mobile-banner-btn.prev');
+  let currentMobileIndex = 0;
   let isAnimating = false;
 
-  function showBanner(nextIndex, direction = 'right') {
-    if (isAnimating || nextIndex === currentIndex) return;
+  function showMobileBanner(nextIndex, direction = 'right') {
+    if (isAnimating || nextIndex === currentMobileIndex) return;
     isAnimating = true;
 
-    const current = banners[currentIndex];
-    const next = banners[nextIndex];
+    const current = mobileBanners[currentMobileIndex];
+    const next = mobileBanners[nextIndex];
 
     current.classList.remove('active');
     next.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
@@ -808,66 +681,80 @@ document.addEventListener('DOMContentLoaded', () => {
     next.classList.add('active');
 
     setTimeout(() => {
-      banners.forEach(b => {
-        b.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right');
-      });
-      currentIndex = nextIndex;
+      mobileBanners.forEach(b => b.classList.remove('slide-in-left', 'slide-in-right', 'slide-out-left', 'slide-out-right'));
+      currentMobileIndex = nextIndex;
       isAnimating = false;
     }, 300);
   }
 
   function nextSlide() {
-    const nextIndex = (currentIndex + 1) % banners.length;
-    showBanner(nextIndex, 'right');
+    const nextIndex = (currentMobileIndex + 1) % mobileBanners.length;
+    showMobileBanner(nextIndex, 'right');
   }
 
   function prevSlide() {
-    const nextIndex = (currentIndex - 1 + banners.length) % banners.length;
-    showBanner(nextIndex, 'left');
+    const nextIndex = (currentMobileIndex - 1 + mobileBanners.length) % mobileBanners.length;
+    showMobileBanner(nextIndex, 'left');
   }
 
-  nextBtn.addEventListener('click', () => {
-    clearInterval(autoSlide);
+  mobileNextBtn?.addEventListener('click', () => {
+    clearInterval(mobileAutoSlide);
     nextSlide();
   });
 
-  prevBtn.addEventListener('click', () => {
-    clearInterval(autoSlide);
+  mobilePrevBtn?.addEventListener('click', () => {
+    clearInterval(mobileAutoSlide);
     prevSlide();
   });
 
-  let autoSlide = setInterval(nextSlide, 6000);
+  let mobileAutoSlide = setInterval(nextSlide, 6000);
 });
 
-//搜索框功能 mobile
+
+// Add to Cart 按钮特效
+
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.getElementById('search-input-mobile');
-  const button = document.getElementById('search-btn-mobile');
+  const cartButtons = document.querySelectorAll('.add-to-cart');
 
-  const suggestionBox = document.createElement('ul');
-  suggestionBox.id = 'search-suggestions-mobile';
-  suggestionBox.style.display = 'none';
-  suggestionBox.style.position = 'absolute';
-  suggestionBox.style.background = 'white';
-  suggestionBox.style.width = '100%';
-  suggestionBox.style.boxShadow = '0 6px 16px rgba(0, 0, 0, 0.08)';
-  suggestionBox.style.border = 'none';
-  suggestionBox.style.borderTop = 'none';
-  suggestionBox.style.zIndex = '999';
-  suggestionBox.style.listStyle = 'none';
-  suggestionBox.style.padding = '0';
-  suggestionBox.style.margin = '0';
+  cartButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      button.classList.add('button-pressed');
+      setTimeout(() => button.classList.remove('button-pressed'), 200);
 
-  input.parentNode.appendChild(suggestionBox);
+      const added = button.classList.toggle('added');
+      button.style.backgroundColor = added ? '#e5e7eb' : '#f97316';
+      button.querySelector('img').src = added ? 'image/tick.svg' : 'image/Shopping cart.png';
+    });
+  });
+});
+
+
+// 收藏爱心特效（所有商品卡）
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hearts = document.querySelectorAll('.icon-heart');
+
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => {
+      heart.classList.add('heart-pressed');
+      setTimeout(() => heart.classList.remove('heart-pressed'), 200);
+
+      const favorited = heart.classList.toggle('favorited');
+      heart.src = favorited ? 'image/Heart-filled.svg' : 'image/Heart.png';
+    });
+  });
+});
+
+// 搜索建议（Desktop）
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('search-input');
+  const button = document.getElementById('search-btn');
+  const suggestionBox = document.getElementById('search-suggestions');
 
   const tvSuggestions = [
-    "tv",
-    "tv bracket wall mount",
-    "tv stand",
-    "tv unit",
-    "tv remote control replacement",
-    "tv cabinet",
-    "tv stand wheel"
+    "tv", "tv bracket wall mount", "tv stand", "tv unit",
+    "tv remote control replacement", "tv cabinet", "tv stand wheel"
   ];
 
   function search(keyword) {
@@ -877,32 +764,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  button.addEventListener('click', () => search());
+  button?.addEventListener('click', () => search());
+  input?.addEventListener('keypress', (e) => e.key === 'Enter' && search());
 
-  input.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-      search();
-    }
-  });
-
-  input.addEventListener('input', () => {
+  input?.addEventListener('input', () => {
     const value = input.value.toLowerCase().trim();
     suggestionBox.innerHTML = '';
 
     if (value === 'tv') {
       suggestionBox.style.display = 'block';
+      tvSuggestions.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        li.style.cursor = index === 0 ? 'pointer' : 'default';
+        if (index === 0) li.addEventListener('click', () => search(item));
+        suggestionBox.appendChild(li);
+      });
+    } else {
+      suggestionBox.style.display = 'none';
+    }
+  });
 
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-container')) suggestionBox.style.display = 'none';
+  });
+});
+
+
+// 搜索建议（Mobile）
+
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('search-input-mobile');
+  const button = document.getElementById('search-btn-mobile');
+
+  const suggestionBox = document.createElement('ul');
+  suggestionBox.id = 'search-suggestions-mobile';
+  suggestionBox.style.cssText = `
+    display: none;
+    position: absolute;
+    background: white;
+    width: 100%;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    z-index: 999;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  `;
+
+  input?.parentNode?.appendChild(suggestionBox);
+
+  const tvSuggestions = [
+    "tv", "tv bracket wall mount", "tv stand", "tv unit",
+    "tv remote control replacement", "tv cabinet", "tv stand wheel"
+  ];
+
+  function search(keyword) {
+    const term = keyword || input.value.trim();
+    if (term) {
+      window.location.href = `search_page.html?keyword=${encodeURIComponent(term)}`;
+    }
+  }
+
+  button?.addEventListener('click', () => search());
+  input?.addEventListener('keypress', (e) => e.key === 'Enter' && search());
+
+  input?.addEventListener('input', () => {
+    const value = input.value.toLowerCase().trim();
+    suggestionBox.innerHTML = '';
+
+    if (value === 'tv') {
+      suggestionBox.style.display = 'block';
       tvSuggestions.forEach((item, index) => {
         const li = document.createElement('li');
         li.textContent = item;
         li.style.padding = '8px';
         li.style.borderBottom = '1px solid #eee';
-
-        if (index === 0) {
-          li.addEventListener('click', () => search(item));
-          li.style.cursor = 'pointer';
-        }
-
+        if (index === 0) li.addEventListener('click', () => search(item));
         suggestionBox.appendChild(li);
       });
     } else {
@@ -914,6 +851,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!e.target.closest('.mobile-search-container')) {
       suggestionBox.style.display = 'none';
     }
+  });
+});
+
+
+// 分类卡片跳转功能
+
+document.addEventListener('DOMContentLoaded', () => {
+  const tvCard = document.getElementById('category-tv');
+  tvCard?.addEventListener('click', () => {
+    setTimeout(() => {
+      window.location.href = 'search_page.html?category=tv';
+    }, 300);
   });
 });
 

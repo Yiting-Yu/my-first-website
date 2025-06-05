@@ -22,7 +22,9 @@
     <!--main header 最顶上的白色部分-->
     <header class="main-header">
         <div class="top-row">
-            <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+            <a href="index.html" class="logo-link">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+            </a>
                 
             <!--搜索条-->
             <div class="search-container">
@@ -67,18 +69,20 @@
         <header class="mobile-header">
             <div class="mobile-header-top">
                 <div class="menu-icon">☰</div>
-                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <a href="index.html" class="logo-link">
+                    <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                </a>
                 <div class="icons-right">
-                <div class="icon-wrapper orange">
-                    <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
-                </div>
-                <div class="icon-wrapper yellow">
-                    <img src="image/user.png" alt="User" />
-                </div>
-                <div class="welcome-text">
-                    <span>Welcome!</span>
-                    <strong>Sophia</strong>
-                </div>
+                    <div class="icon-wrapper orange">
+                        <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                    </div>
+                    <div class="icon-wrapper yellow">
+                        <img src="image/user.png" alt="User" />
+                    </div>
+                    <div class="welcome-text">
+                        <span>Welcome!</span>
+                        <strong>Sophia</strong>
+                    </div>
                 </div>
             </div>
 
@@ -1060,207 +1064,146 @@
 </body>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const radio300to500 = document.getElementById("price-300-500");
-  const tag300to500 = document.getElementById("tag-300-500");
-  const closeBtn = tag300to500.querySelector(".close-icon");
-
-  const defaultGrid = document.getElementById("defaultProductGrid");
-  const filteredGrid = document.getElementById("filteredProductGrid");
-
-  radio300to500.addEventListener("change", () => {
-    if (radio300to500.checked) {
-      tag300to500.style.display = "flex";
-      defaultGrid.style.display = "none";
-      filteredGrid.style.display = "grid";
-    }
-  });
-
-  closeBtn.addEventListener("click", () => {
-    tag300to500.style.display = "none";
-    defaultGrid.style.display = "grid";
-    filteredGrid.style.display = "none";
-    radio300to500.checked = false;
-  });
-});
-
-//收藏爱心特效
-document.addEventListener('DOMContentLoaded', () => {
-  const hearts = document.querySelectorAll('.icon-heart');
-
-  hearts.forEach(heart => {
+  // 收藏爱心特效 
+  document.querySelectorAll('.icon-heart').forEach(heart => {
     heart.addEventListener('click', () => {
-      const isFavorited = heart.classList.contains('favorited');
-
-      if (!isFavorited) {
-        heart.src = 'image/Heart-filled.svg';
-        heart.classList.add('favorited');
-      } else {
-        heart.src = 'image/Heart.png';
-        heart.classList.remove('favorited');
-      }
+      heart.classList.toggle('favorited');
+      heart.src = heart.classList.contains('favorited')
+        ? 'image/Heart-filled.svg'
+        : 'image/Heart.png';
     });
   });
-});
 
-// 购物车按钮摁下特效
-document.addEventListener('DOMContentLoaded', () => {
-  const cartButtons = document.querySelectorAll('.add-to-cart');
-
-  cartButtons.forEach(button => {
+  // 购物车按钮摁下特效 
+  document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
-      if (!button.classList.contains('added')) {
-        button.classList.add('added');
-        button.style.backgroundColor = '#e5e7eb';
-        button.querySelector('img').src = 'image/tick.svg'; 
-      } else {
-        //再次点击可以取消添加
-        button.classList.remove('added');
-        button.style.backgroundColor = '#f97316'; 
-        button.querySelector('img').src = 'image/Shopping cart.png';
-      }
+      button.classList.toggle('added');
+      button.style.backgroundColor = button.classList.contains('added') ? '#e5e7eb' : '#f97316';
+      button.querySelector('img').src = button.classList.contains('added')
+        ? 'image/tick.svg'
+        : 'image/Shopping cart.png';
     });
   });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+  // 左右滚动分类按钮 
   const scrollContainer = document.querySelector(".category-scroll");
   const leftBtn = document.querySelector(".scroll-btn.left");
   const rightBtn = document.querySelector(".scroll-btn.right");
 
-  const scrollAmount = 200; 
-
-  leftBtn.addEventListener("click", () => {
-    scrollContainer.scrollBy({
-      left: -scrollAmount,
-      behavior: "smooth"
+  if (scrollContainer && leftBtn && rightBtn) {
+    leftBtn.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: -200, behavior: "smooth" });
     });
-  });
-
-  rightBtn.addEventListener("click", () => {
-    scrollContainer.scrollBy({
-      left: scrollAmount,
-      behavior: "smooth"
+    rightBtn.addEventListener("click", () => {
+      scrollContainer.scrollBy({ left: 200, behavior: "smooth" });
     });
-  });
-});
+  }
 
-//跳转商品卡 除去购物车和收藏按钮
-document.addEventListener("DOMContentLoaded", function () {
-  const targetCard = document.getElementById("card-kogan-tv");
+  // 筛选器功能 (desktop)
+  const radio300to500 = document.getElementById("price-300-500");
+  const tag300to500 = document.getElementById("tag-300-500");
+  const closeTagBtn = tag300to500?.querySelector(".close-icon");
+  const defaultGrid = document.getElementById("defaultProductGrid");
+  const filteredGrid = document.getElementById("filteredProductGrid");
 
-  if (targetCard) {
-    targetCard.addEventListener("click", function () {
+  if (radio300to500 && tag300to500 && closeTagBtn && defaultGrid && filteredGrid) {
+    radio300to500.addEventListener("change", () => {
+      if (radio300to500.checked) {
+        tag300to500.style.display = "flex";
+        defaultGrid.style.display = "none";
+        filteredGrid.style.display = "grid";
+      }
+    });
+
+    closeTagBtn.addEventListener("click", () => {
+      tag300to500.style.display = "none";
+      defaultGrid.style.display = "grid";
+      filteredGrid.style.display = "none";
+      radio300to500.checked = false;
+    });
+  }
+
+  // 商品卡跳转
+  const card = document.getElementById("card-kogan-tv");
+  if (card) {
+    card.addEventListener("click", () => {
       window.location.href = "product_page.html";
     });
-
-    const addToCart = targetCard.querySelector(".add-to-cart");
-    const heartIcon = targetCard.querySelector(".icon-heart");
-
-    if (addToCart) {
-      addToCart.addEventListener("click", function (event) {
-        event.stopPropagation(); 
-      });
-    }
-
-    if (heartIcon) {
-      heartIcon.addEventListener("click", function (event) {
-        event.stopPropagation(); 
-      });
-    }
+    const cardButtons = card.querySelectorAll(".add-to-cart, .icon-heart");
+    cardButtons.forEach(btn => {
+      btn.addEventListener("click", (e) => e.stopPropagation());
+    });
   }
-});
 
-//mobile filter
-const mobileFilter = document.getElementById('mobileFilter');
-const openBtn = document.getElementById('openFilter');
-const closeBtn = document.getElementById('closeMobileFilter');
-const showResultsBtn = document.querySelector('.show-results-btn');
-const defaultGrid = document.getElementById('defaultProductGrid');
-const filteredGrid = document.getElementById('filteredProductGrid');
-const tag300to500 = document.getElementById('tag-300-500');
-const closeTagBtn = tag300to500.querySelector('.close-icon');
+  // 移动端 filter
+  const mobileFilter = document.getElementById('mobileFilter');
+  const openBtn = document.getElementById('openFilter');
+  const closeBtn = document.getElementById('closeMobileFilter');
+  const showResultsBtn = document.querySelector('.show-results-btn');
+  let lastCheckedPrice = null;
 
-let lastCheckedPrice = null; 
-
-openBtn.addEventListener('click', () => {
-  mobileFilter.classList.remove('slide-out');
-  mobileFilter.style.display = 'flex';
-  void mobileFilter.offsetWidth;
-  mobileFilter.classList.add('active');
-});
-
-closeBtn.addEventListener('click', () => {
-  mobileFilter.classList.remove('active');
-  mobileFilter.classList.add('slide-out');
-  setTimeout(() => {
-    mobileFilter.style.display = 'none';
-    mobileFilter.classList.remove('slide-out');
-  }, 400);
-});
-
-const priceRadios = document.querySelectorAll('input[name="price"]');
-priceRadios.forEach(radio => {
-  radio.addEventListener('click', function () {
-    if (lastCheckedPrice === this) {
-      this.checked = false;
-      lastCheckedPrice = null;
-    } else {
-      lastCheckedPrice = this;
-    }
-  });
-});
-
-showResultsBtn.addEventListener('click', () => {
-  const selectedPrice = document.querySelector('input[name="price"]:checked');
-
-  setTimeout(() => {
-    if (selectedPrice && selectedPrice.value === '300-500') {
-      defaultGrid.style.display = 'none';
-      filteredGrid.style.display = 'grid';
-      tag300to500.style.display = 'inline-flex';
-    } else {
-      defaultGrid.style.display = 'grid';
-      filteredGrid.style.display = 'none';
-      tag300to500.style.display = 'none';
-    }
-
-    mobileFilter.classList.remove('active');
-    mobileFilter.classList.add('slide-out');
-    setTimeout(() => {
-      mobileFilter.style.display = 'none';
+  if (mobileFilter && openBtn && closeBtn && showResultsBtn && tag300to500 && filteredGrid && defaultGrid) {
+    openBtn.addEventListener('click', () => {
       mobileFilter.classList.remove('slide-out');
-    }, 400);
-  }, 150);
-});
+      mobileFilter.style.display = 'flex';
+      void mobileFilter.offsetWidth;
+      mobileFilter.classList.add('active');
+    });
 
-closeTagBtn.addEventListener('click', () => {
-  tag300to500.style.display = 'none';
-  filteredGrid.style.display = 'none';
-  defaultGrid.style.display = 'grid';
+    closeBtn.addEventListener('click', () => {
+      mobileFilter.classList.remove('active');
+      mobileFilter.classList.add('slide-out');
+      setTimeout(() => {
+        mobileFilter.style.display = 'none';
+        mobileFilter.classList.remove('slide-out');
+      }, 400);
+    });
 
-  priceRadios.forEach(radio => {
-    radio.checked = false;
-  });
-  lastCheckedPrice = null;
-});
+    const priceRadios = document.querySelectorAll('input[name="price"]');
+    priceRadios.forEach(radio => {
+      radio.addEventListener('click', function () {
+        if (lastCheckedPrice === this) {
+          this.checked = false;
+          lastCheckedPrice = null;
+        } else {
+          lastCheckedPrice = this;
+        }
+      });
+    });
 
-//第一张商品卡跳转
-const firstFilteredCard = document.getElementById('card-kogan-tv');
+    showResultsBtn.addEventListener('click', () => {
+      const selectedPrice = document.querySelector('input[name="price"]:checked');
 
-firstFilteredCard.addEventListener('click', () => {
-  window.location.href = 'product_page.html';
-});
+      setTimeout(() => {
+        if (selectedPrice && selectedPrice.value === '300-500') {
+          defaultGrid.style.display = 'none';
+          filteredGrid.style.display = 'grid';
+          tag300to500.style.display = 'inline-flex';
+        } else {
+          defaultGrid.style.display = 'grid';
+          filteredGrid.style.display = 'none';
+          tag300to500.style.display = 'none';
+        }
 
-const addToCartBtn = firstFilteredCard.querySelector('.add-to-cart');
-addToCartBtn.addEventListener('click', (event) => {
-  event.stopPropagation();
-  console.log('Add to cart clicked');
-});
+        mobileFilter.classList.remove('active');
+        mobileFilter.classList.add('slide-out');
+        setTimeout(() => {
+          mobileFilter.style.display = 'none';
+          mobileFilter.classList.remove('slide-out');
+        }, 400);
+      }, 150);
+    });
 
-const wishlistIcon = firstFilteredCard.querySelector('.icon-heart');
-wishlistIcon.addEventListener('click', (event) => {
-  event.stopPropagation();
-  console.log('Wishlist clicked');
+    closeTagBtn?.addEventListener('click', () => {
+      tag300to500.style.display = 'none';
+      filteredGrid.style.display = 'none';
+      defaultGrid.style.display = 'grid';
+
+      const priceRadios = document.querySelectorAll('input[name="price"]');
+      priceRadios.forEach(radio => (radio.checked = false));
+      lastCheckedPrice = null;
+    });
+  }
 });
 
 </script>

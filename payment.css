@@ -721,8 +721,7 @@ h2, h3 {
 
 .mobile-header,
 .cart-items-mobile,
-.mobile-checkout-footer,
-.checkout-btn {
+.mobile-checkout-footer {
   display: none;
 }
 
@@ -730,7 +729,8 @@ h2, h3 {
 @media (max-width: 480px) {
   .main-header,
   .topbar,
-  .cart-table {
+  .cart-table,
+  .checkout-btn {
     display: none;
   }
   .mobile-header {

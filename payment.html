@@ -22,7 +22,9 @@
         <!--main header 最顶上的白色部分-->
         <header class="main-header">
             <div class="top-row">
-                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <a href="index.html" class="logo-link">
+                    <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                </a>
                 
                 <!--搜索条-->
                 <div class="search-container">
@@ -69,18 +71,20 @@
         <header class="mobile-header">
             <div class="mobile-header-top">
                 <div class="menu-icon">☰</div>
-                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <a href="index.html" class="logo-link">
+                    <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                </a>
                 <div class="icons-right">
-                <div class="icon-wrapper orange">
-                    <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
-                </div>
-                <div class="icon-wrapper yellow">
-                    <img src="image/user.png" alt="User" />
-                </div>
-                <div class="welcome-text">
-                    <span>Welcome!</span>
-                    <strong>Sophia</strong>
-                </div>
+                    <div class="icon-wrapper orange">
+                        <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                    </div>
+                    <div class="icon-wrapper yellow">
+                        <img src="image/user.png" alt="User" />
+                    </div>
+                    <div class="welcome-text">
+                        <span>Welcome!</span>
+                        <strong>Sophia</strong>
+                    </div>
                 </div>
             </div>
 
@@ -388,13 +392,58 @@
 </body>
 <script>
 //order summary更新信息
+document.addEventListener('DOMContentLoaded', () => {
+  const checkoutBtn = document.getElementById('checkout-btn');
+
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      const cartItems = [
+        {
+          name: 'Kogan 55” 4K TV',
+          qty: 1,
+          price: 599,
+          image: 'image/tv-thumbnail.webp'
+        }
+      ];
+
+      const carePrice = 79;
+
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+      localStorage.setItem('carePrice', String(carePrice));
+
+      setTimeout(() => {
+        window.location.href = 'payment.html';
+      }, 100);
+    });
+  }
+});
+
+// 更新 Order Summary
 window.addEventListener("DOMContentLoaded", () => {
-  const items = JSON.parse(localStorage.getItem("cartItems") || "[]");
-  const carePrice = parseFloat(localStorage.getItem("carePrice") || "0");
+  const rawItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+
+  const items = [];
+  rawItems.forEach(item => {
+    const existing = items.find(i => i.name === item.name);
+    if (existing) {
+      existing.qty += item.qty;
+      existing.price += item.price; 
+    } else {
+      items.push({ ...item });
+    }
+  });
+
+  const carePrice = parseInt(localStorage.getItem("carePrice") || "0");
 
   const orderSection = document.querySelector(".order-summary");
 
-  // 插入商品项
+  if (!orderSection) return; 
+
+  if (items.length === 0) {
+    orderSection.innerHTML = `<p>Your cart is empty.</p>`;
+    return;
+  }
+
   const itemsHTML = items.map(item => `
     <div class="order-item">
       <img src="${item.image}" alt="${item.name}" class="item-thumbnail">
@@ -402,7 +451,7 @@ window.addEventListener("DOMContentLoaded", () => {
         <p class="item-name">${item.name}</p>
         <p class="item-qty">Qty: ${item.qty}</p>
       </div>
-      <div class="item-price">$${(item.price * item.qty).toFixed(0)}</div>
+      <div class="item-price">$${item.price * item.qty}</div>
     </div>
   `).join("");
 
@@ -410,7 +459,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const shipping = 60;
   const total = subtotal + shipping + carePrice;
 
-  // 插入结构
   orderSection.innerHTML = `
     <div class="summary-body">
       <h2>Order Summary</h2>
@@ -423,7 +471,7 @@ window.addEventListener("DOMContentLoaded", () => {
             <p class="item-name">Extended Warranty</p>
             <p class="item-qty">Included</p>
           </div>
-          <div class="item-price">$${carePrice.toFixed(0)}</div>
+          <div class="item-price">$${carePrice}</div>
         </div>
       ` : ""}
 
@@ -431,18 +479,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
       <div class="price-line">
         <span>Subtotal</span>
-        <span>$${subtotal.toFixed(0)}</span>
+        <span>$${subtotal}</span>
       </div>
 
       <div class="price-line">
         <span>Shipping</span>
-        <span>$${shipping.toFixed(0)}</span>
+        <span>$${shipping}</span>
       </div>
 
       ${carePrice > 0 ? `
         <div class="price-line">
           <span>Extended Care</span>
-          <span>$${carePrice.toFixed(0)}</span>
+          <span>$${carePrice}</span>
         </div>
       ` : ""}
 
@@ -455,7 +503,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       <div class="total-line">
         <strong>Total</strong>
-        <strong>$${total.toFixed(0)}</strong>
+        <strong>$${total}</strong>
       </div>
     </div>
 
@@ -463,8 +511,8 @@ window.addEventListener("DOMContentLoaded", () => {
       <button class="checkout-btn" type="button">Checkout Now</button>
     </div>
   `;
-
 });
+
 
 // Shipping info 自动输入
 const savedProfile = {
@@ -506,8 +554,8 @@ historyCard.addEventListener('click', () => {
   fields.forEach(([id, value]) => {
     const input = document.getElementById(id);
     input.value = value;
-    input.classList.remove('autofill-animate'); 
-    void input.offsetWidth;                     
+    input.classList.remove('autofill-animate');
+    void input.offsetWidth;
     input.classList.add('autofill-animate');
   });
 
@@ -572,7 +620,7 @@ cardHistory.addEventListener('click', () => {
   cardHistory.classList.remove('show');
   setTimeout(() => cardHistory.classList.add('hidden'), 250);
 
-  checkCardNumberForSecurityNote(); 
+  checkCardNumberForSecurityNote();
 });
 
 document.addEventListener('click', (e) => {
@@ -584,7 +632,6 @@ document.addEventListener('click', (e) => {
 
 //checkout now按钮跳转下一个页面
 window.addEventListener("DOMContentLoaded", () => {
-  // 统一验证函数
   function validateAndProceed(button) {
     const inputs = document.querySelectorAll('.shipping-form input');
     let valid = true;
@@ -611,13 +658,11 @@ window.addEventListener("DOMContentLoaded", () => {
     }, 500);
   }
 
-  // 桌面按钮绑定
   const desktopBtn = document.querySelector('.checkout-btn');
   if (desktopBtn) {
     desktopBtn.addEventListener('click', () => validateAndProceed(desktopBtn));
   }
 
-  // 手机按钮绑定
   const mobileBtn = document.querySelector('.mobile-checkout-btn');
   if (mobileBtn) {
     mobileBtn.addEventListener('click', () => validateAndProceed(mobileBtn));

@@ -22,7 +22,9 @@
     <!--main header 最顶上的白色部分-->
     <header class="main-header">
         <div class="top-row">
-            <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+            <a href="index.html" class="logo-link">
+                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+            </a>
                 
             <!--搜索条-->
             <div class="search-container">
@@ -67,18 +69,20 @@
         <header class="mobile-header">
             <div class="mobile-header-top">
                 <div class="menu-icon">☰</div>
-                <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                <a href="index.html" class="logo-link">
+                    <img src="image/Kogan.com_logo橙黑.png" alt="Logo" class="logo-img" />
+                </a>
                 <div class="icons-right">
-                <div class="icon-wrapper orange">
-                    <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
-                </div>
-                <div class="icon-wrapper yellow">
-                    <img src="image/user.png" alt="User" />
-                </div>
-                <div class="welcome-text">
-                    <span>Welcome!</span>
-                    <strong>Sophia</strong>
-                </div>
+                    <div class="icon-wrapper orange">
+                        <img src="image/Shopping cart.png" alt="Cart" class="cart-icon" />
+                    </div>
+                    <div class="icon-wrapper yellow">
+                        <img src="image/user.png" alt="User" />
+                    </div>
+                    <div class="welcome-text">
+                        <span>Welcome!</span>
+                        <strong>Sophia</strong>
+                    </div>
                 </div>
             </div>
 
@@ -127,7 +131,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr class="cart-item">
                     <td>
                         <div class="product-info">
                             <img src="image/Kogan 55 LED 4K Smart Roku TV - R95T.webp" alt="Kogan TV" class="product-thumb">
@@ -146,10 +150,10 @@
                         </div>
                     </td>
                     <td>
-                        <strong>$419</strong>
+                        <strong class="subtotal">$419</strong>
                     </td>
                 </tr>
-                <tr>
+                <tr class="cart-item">
                     <td>
                         <div class="product-info">
                             <img src="image/add_to_cart_1.webp" alt="Washing Machine" class="product-thumb">
@@ -168,7 +172,7 @@
                         </div>
                     </td>
                     <td>
-                        <strong>$119</strong>
+                        <strong class="subtotal">$119</strong>
                     </td>
                 </tr>
             </tbody>
@@ -362,183 +366,138 @@
 </body>
 <script>
 //数量增加
-document.querySelectorAll('.cart-table .quantity-selector').forEach((selector) => {
-  const minusBtn = selector.children[0];
-  const input = selector.children[1];
-  const plusBtn = selector.children[2];
+document.addEventListener('DOMContentLoaded', () => {
 
-  minusBtn.addEventListener('click', () => {
-    let current = parseInt(input.value);
-    if (current > 1) {
-      input.value = current - 1;
-      updateSubtotal(selector);
+  function isMobileView() {
+    const mobileSection = document.querySelector('.cart-items-mobile');
+    return mobileSection && window.getComputedStyle(mobileSection).display !== 'none';
+  }
+
+  // 更新购物车总价
+  function updateCartTotal() {
+    let total = 0;
+    const cartItems = [];
+
+    const itemSelector = isMobileView()
+      ? '.cart-items-mobile .cart-item'
+      : '.cart-table .cart-item';
+
+    document.querySelectorAll(itemSelector).forEach(item => {
+      const price = parseFloat(item.querySelector('.discounted-price').textContent.replace('$', '')) || 0;
+      const qty = parseInt(item.querySelector('.quantity-selector input').value) || 1;
+      const image = item.querySelector('img')?.getAttribute('src');
+      const name = item.querySelector('.product-name')?.textContent.trim();
+
+      const itemTotal = price * qty;
+      total += itemTotal;
+
+      // 实时更新小计
+      const subtotalEl = item.querySelector('.subtotal');
+      if (subtotalEl) {
+        subtotalEl.textContent = `$${itemTotal}`;
+      }
+
+      // 保存的是单价 price
+      cartItems.push({ name, price, qty, image });
+    });
+
+    const deliveryFee = 60;
+    total += deliveryFee;
+
+    const selectedCare = document.querySelector('input[name="care"]:checked');
+    let carePrice = 0;
+    if (selectedCare) {
+      carePrice = parseFloat(selectedCare.value) || 0;
+      total += carePrice;
+      localStorage.setItem("carePrice", carePrice.toString());
     }
-  });
 
-  plusBtn.addEventListener('click', () => {
-    let current = parseInt(input.value);
-    input.value = current + 1;
-    updateSubtotal(selector);
-  });
-});
-
-// 桌面版 subtotal
-function updateSubtotal(selector) {
-  const row = selector.closest('tr');
-  const unitPrice = parseFloat(row.querySelector('.discounted-price').textContent.replace('$', ''));
-  const quantity = parseInt(selector.querySelector('input').value);
-  const subtotalCell = row.querySelector('td:last-child strong');
-  subtotalCell.textContent = `$${unitPrice * quantity}`;
-
-  updateCartTotal();
-}
-
-// 桌面版总价更新
-function updateCartTotal() {
-  let total = 0;
-  document.querySelectorAll('.cart-table tbody tr').forEach(row => {
-    const quantity = parseInt(row.querySelector('.quantity-selector input').value);
-    const unitPrice = parseFloat(row.querySelector('.discounted-price').textContent.replace('$', ''));
-    total += quantity * unitPrice;
-  });
-
-  const deliveryFee = 60;
-  total += deliveryFee;
-
-  const selectedCare = document.querySelector('input[name="care"]:checked');
-  if (selectedCare) {
-    total += parseFloat(selectedCare.value);
-  }
-
-  document.querySelector('.cart-summary .total-right strong').textContent = `$${total}`;
-}
-
-// 移动端数量按钮
-document.querySelectorAll('.cart-item .quantity-selector').forEach(selector => {
-  const minusBtn = selector.children[0];
-  const input = selector.children[1];
-  const plusBtn = selector.children[2];
-
-  minusBtn.addEventListener('click', () => {
-    let current = parseInt(input.value);
-    if (current > 1) {
-      input.value = current - 1;
-      updateMobileSubtotal(selector.closest('.cart-item'));
+    const totalDisplay = document.querySelector('.cart-summary .total-right strong');
+    if (totalDisplay) {
+      totalDisplay.textContent = `$${total.toFixed(2)}`;
     }
-  });
 
-  plusBtn.addEventListener('click', () => {
-    let current = parseInt(input.value);
-    input.value = current + 1;
-    updateMobileSubtotal(selector.closest('.cart-item'));
-  });
-});
-
-// 移动端 subtotal 更新
-function updateMobileSubtotal(cartItem) {
-  const unitPrice = parseFloat(cartItem.querySelector('.discounted-price').textContent.replace('$', ''));
-  const quantity = parseInt(cartItem.querySelector('.quantity-selector input').value);
-  const subtotal = cartItem.querySelector('.subtotal');
-
-  subtotal.textContent = `$${unitPrice * quantity}`;
-  updateMobileCartTotal();
-}
-
-// 移动端总价更新
-function updateMobileCartTotal() {
-  let total = 0;
-
-  document.querySelectorAll('.cart-item').forEach(item => {
-    const unitPrice = parseFloat(item.querySelector('.discounted-price').textContent.replace('$', ''));
-    const quantity = parseInt(item.querySelector('.quantity-selector input').value);
-    total += unitPrice * quantity;
-  });
-
-  const deliveryFee = 60;
-  total += deliveryFee;
-
-  const selectedCare = document.querySelector('input[name="care"]:checked');
-  if (selectedCare) {
-    total += parseFloat(selectedCare.value);
+    // 保存当前结构下商品数据
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("deliveryFee", deliveryFee.toString());
   }
 
-  document.querySelector('.cart-summary .total-right strong').textContent = `$${total}`;
-}
+  // 数量按钮加减功能
+  document.querySelectorAll('.quantity-selector').forEach(selector => {
+    const minusBtn = selector.children[0];
+    const input = selector.children[1];
+    const plusBtn = selector.children[2];
 
-// 数量按钮点击动画
-document.querySelectorAll('.qty-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.classList.add('clicked');
-    setTimeout(() => {
-      btn.classList.remove('clicked');
-    }, 100);
-  });
-});
+    minusBtn.addEventListener('click', () => {
+      let qty = parseInt(input.value);
+      if (qty > 1) {
+        input.value = qty - 1;
+        updateCartTotal();
+      }
+    });
 
-// 保修选项变化
-document.querySelectorAll('input[name="care"]').forEach(radio => {
-  radio.addEventListener('change', () => {
-    updateCartTotal();
-    updateMobileCartTotal();
-  });
-});
-
-const validCodes = ['DISCOUNT10', 'VIP20', 'SAVE2025'];
-
-document.getElementById('apply-discount').addEventListener('click', () => {
-  const input = document.getElementById('discount');
-  const code = input.value.trim().toUpperCase();
-  const feedback = document.getElementById('discount-feedback');
-
-  if (code === "") {
-    feedback.textContent = `Please enter a discount code.`;
-    feedback.classList.remove('success');
-    feedback.classList.add('error');
-  } else if (validCodes.includes(code)) {
-    feedback.textContent = `Discount code "${code}" applied successfully!`;
-    feedback.classList.remove('error');
-    feedback.classList.add('success');
-  } else {
-    feedback.textContent = `Invalid discount code. Please try again.`;
-    feedback.classList.remove('success');
-    feedback.classList.add('error');
-  }
-
-  // 按钮动画
-  const discountBtn = document.getElementById('apply-discount');
-  discountBtn.classList.add('clicked');
-  setTimeout(() => {
-    discountBtn.classList.remove('clicked');
-  }, 300);
-});
-
-// Checkout保存数据
-document.querySelector('.checkout-button button').addEventListener('click', () => {
-  const items = [];
-
-  document.querySelectorAll('.cart-item').forEach(item => {
-    const name = item.querySelector('.product-name').textContent.trim();
-    const price = parseFloat(item.querySelector('.discounted-price').textContent.replace('$', ''));
-    const qty = parseInt(item.querySelector('.quantity-selector input').value);
-    const image = item.querySelector('img').getAttribute('src');
-
-    items.push({
-      name,
-      price,
-      qty,
-      image
+    plusBtn.addEventListener('click', () => {
+      let qty = parseInt(input.value);
+      input.value = qty + 1;
+      updateCartTotal();
     });
   });
 
-  const selectedCare = document.querySelector('input[name="care"]:checked');
-  const careValue = selectedCare ? parseFloat(selectedCare.value) : 0;
+  // 延保选择
+  document.querySelectorAll('input[name="care"]').forEach(radio => {
+    radio.addEventListener('change', updateCartTotal);
+  });
 
-  localStorage.setItem("cartItems", JSON.stringify(items));
-  localStorage.setItem("carePrice", careValue.toString());
+  // 点击按钮动画效果
+  document.querySelectorAll('.qty-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.add('clicked');
+      setTimeout(() => {
+        btn.classList.remove('clicked');
+      }, 100);
+    });
+  });
 
-  setTimeout(() => {
-    window.location.href = "payment.html";
-  }, 300);
+  // 折扣码提示
+  const validCodes = ['DISCOUNT10', 'VIP20', 'SAVE2025'];
+  const applyBtn = document.getElementById('apply-discount');
+  if (applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      const input = document.getElementById('discount');
+      const code = input.value.trim().toUpperCase();
+      const feedback = document.getElementById('discount-feedback');
+
+      if (code === "") {
+        feedback.textContent = `Please enter a discount code.`;
+        feedback.classList.remove('success');
+        feedback.classList.add('error');
+      } else if (validCodes.includes(code)) {
+        feedback.textContent = `Discount code "${code}" applied successfully!`;
+        feedback.classList.remove('error');
+        feedback.classList.add('success');
+      } else {
+        feedback.textContent = `Invalid discount code. Please try again.`;
+        feedback.classList.remove('success');
+        feedback.classList.add('error');
+      }
+
+      applyBtn.classList.add('clicked');
+      setTimeout(() => applyBtn.classList.remove('clicked'), 300);
+    });
+  }
+
+  // Checkout 按钮跳转并保存数据
+  const checkoutBtn = document.querySelector('.checkout-button button');
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener('click', () => {
+      updateCartTotal(); 
+      setTimeout(() => {
+        window.location.href = "payment.html";
+      }, 300);
+    });
+  }
+
+  updateCartTotal();
 });
 
 
